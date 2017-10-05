@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsViewModel : ViewModelBase
     {
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }

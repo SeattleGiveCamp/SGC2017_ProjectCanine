@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel : ViewModelBase
     {
         public AboutViewModel()
         {
