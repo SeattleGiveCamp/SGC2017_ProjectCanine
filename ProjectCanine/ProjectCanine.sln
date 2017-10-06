@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ProjectCanine", "ProjectCanine\ProjectCanine.shproj", "{961B2C91-6D12-4845-B791-ED5B6A2062A4}"
 EndProject
@@ -96,17 +96,13 @@ Global
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Debug|x86.Build.0 = Debug|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|ARM.ActiveCfg = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|ARM.Build.0 = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|iPhone.Build.0 = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|x64.ActiveCfg = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|x64.Build.0 = Release|Any CPU
 		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|x86.ActiveCfg = Release|Any CPU
-		{F2A99F10-EF26-40CC-A931-8E499967DDC9}.Release|x86.Build.0 = Release|Any CPU
 		{FFCBE075-EA49-46AF-AE25-51D5F1055506}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{FFCBE075-EA49-46AF-AE25-51D5F1055506}.Debug|Any CPU.Build.0 = Debug|x86
 		{FFCBE075-EA49-46AF-AE25-51D5F1055506}.Debug|Any CPU.Deploy.0 = Debug|x86
