@@ -49,6 +49,7 @@
       <DependentUpon>TestSectionQuestionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestSectionQuestionsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ThankYouPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
