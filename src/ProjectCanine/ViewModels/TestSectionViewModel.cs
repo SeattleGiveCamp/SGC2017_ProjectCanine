@@ -9,18 +9,18 @@ namespace ProjectCanine
 {
 	public class TestSectionViewModel : ViewModelBase
 	{
-		public ObservableCollection<CanineTest> Items { get; set; }
+		public ObservableCollection<Test> Items { get; set; }
 		public Command LoadItemsCommand { get; set; }
 
 		public TestSectionViewModel()
 		{
 			Title = "Select Test";
-			Items = new ObservableCollection<CanineTest>();
+			Items = new ObservableCollection<Test>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-			MessagingCenter.Subscribe<NewItemPage, CanineTest>(this, "AddItem", async (obj, item) =>
+			MessagingCenter.Subscribe<NewItemPage, Test>(this, "AddItem", async (obj, item) =>
 			{
-				var _item = item as CanineTest;
+				var _item = item as Test;
 				Items.Add(_item);
 				await DataStore.AddItemAsync(_item);
 			});
