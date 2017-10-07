@@ -15,7 +15,7 @@ namespace ProjectCanine
             Item = new CanineTest
             {
                 ShortName = "Item name",
-                LongName = "This is an item description."
+                Name = "This is an item description."
             };
 
             BindingContext = this;

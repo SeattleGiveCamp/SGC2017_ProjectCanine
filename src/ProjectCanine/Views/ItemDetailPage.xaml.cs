@@ -16,7 +16,7 @@ namespace ProjectCanine
             var item = new CanineTest
             {
                 ShortName = "Item 1",
-                LongName = "This is an item description."
+                Name = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);
