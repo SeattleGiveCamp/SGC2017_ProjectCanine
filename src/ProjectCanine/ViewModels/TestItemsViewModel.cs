@@ -17,13 +17,6 @@ namespace ProjectCanine
             Title = "Select Test";
             Items = new ObservableCollection<Test>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewItemPage, Test>(this, "AddItem", async (obj, item) =>
-            {
-                var _item = item as Test;
-                Items.Add(_item);
-                await DataStore.AddItemAsync(_item);
-            });
         }
 
         async Task ExecuteLoadItemsCommand()
