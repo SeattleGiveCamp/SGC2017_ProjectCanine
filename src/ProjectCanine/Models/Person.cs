@@ -4,16 +4,15 @@ using System.Runtime.Serialization.Json;
 
 namespace ProjectCanine
 {
-	[DataContract]
-    public class Entity 
-    {
+    public class Person
+	{
 		[DataMember]
 		public int Id { get; set; }
 
 		[DataMember]
-		public string LastEditedBy { get; set; }
+		public string FirstName { get; set; }
 
 		[DataMember]
-		public DateTime LastEditedDate { get; set; }
+		public string LastName { get; set; }
 	}
 }

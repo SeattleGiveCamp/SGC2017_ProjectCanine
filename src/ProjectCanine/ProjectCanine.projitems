@@ -10,7 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Constants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Handler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Person.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TestPart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Examiner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Question.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />

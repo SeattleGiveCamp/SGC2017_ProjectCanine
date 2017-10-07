@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Json;
 namespace ProjectCanine
 {
 	[DataContract]
-	public class Question : Entity
+	public class Question : TestPart
 	{
 		[DataMember]
 		public int Test { get; set; }
