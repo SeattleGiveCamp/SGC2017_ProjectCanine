@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="ProjectCanine.ItemDetailPage" Title="{Binding Title}">
+    x:Class="ProjectCanine.TestFrontPage" Title="{Binding Title}">
 	<StackLayout Spacing="20" Padding="15">   
 		<Label Text="(NameOfExam)" FontSize="Large" />
         <Button Text="Continue" WidthRequest="150" FontSize="Medium"   
