@@ -24,9 +24,13 @@ namespace ProjectCanine
 
 
             if (UseMockDataStore)
+			{
                 DependencyService.Register<MockDataStore>();
+			}
             else
+			{
                 DependencyService.Register<CloudDataStore>();
+			}
 
 
             MainPage = new NavigationPage(new MainPage());
