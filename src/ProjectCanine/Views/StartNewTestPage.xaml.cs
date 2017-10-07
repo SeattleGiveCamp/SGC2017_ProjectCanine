@@ -6,11 +6,11 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public partial class SelectTestPage : ContentPage
+    public partial class StartNewTestPage : ContentPage
     {
         TestItemsViewModel viewModel;
 
-        public SelectTestPage()
+        public StartNewTestPage()
         {
             InitializeComponent();
 
