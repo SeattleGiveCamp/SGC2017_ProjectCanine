@@ -61,5 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tests.sql" />
+    <Build Include="Tables\Handlers.sql" />
+    <Build Include="Tables\Dogs.sql" />
+    <Build Include="Tables\CertificationType.sql" />
+    <Build Include="Tables\EquipmentRestrictions.sql" />
+    <Build Include="Tables\Examiners.sql" />
   </ItemGroup>
 </Project>
