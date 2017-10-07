@@ -7,20 +7,20 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public class ItemsViewModel : ViewModelBase
+    public class TestItemsViewModel : ViewModelBase
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<CanineTest> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public TestItemsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "Select Test";
+            Items = new ObservableCollection<CanineTest>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, CanineTest>(this, "AddItem", async (obj, item) =>
             {
-                var _item = item as Item;
+                var _item = item as CanineTest;
                 Items.Add(_item);
                 await DataStore.AddItemAsync(_item);
             });

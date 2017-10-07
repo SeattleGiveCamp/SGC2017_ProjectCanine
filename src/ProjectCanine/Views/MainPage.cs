@@ -39,7 +39,7 @@ namespace ProjectCanine
         }
 
         void OnSelectTestButtonClicked(object sender, EventArgs args) {
-            Navigation.PushAsync(new ItemsPage());
+            Navigation.PushAsync(new SelectTestPage());
         }
 	}
 }

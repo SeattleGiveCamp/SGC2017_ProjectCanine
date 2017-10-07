@@ -13,10 +13,10 @@ namespace ProjectCanine
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new CanineTest
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                ShortName = "Item 1",
+                Name = "This is an item description."
             };
 
             viewModel = new ItemDetailViewModel(item);
