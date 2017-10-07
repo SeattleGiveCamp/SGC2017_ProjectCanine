@@ -21,6 +21,7 @@ namespace ProjectCanine
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
+
         }
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
@@ -28,6 +29,11 @@ namespace ProjectCanine
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+        }
+
+        void HandleContinue_Clicked(object sender, System.EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
