@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.iOS", "iOS\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.Droid", "Droid\ProjectCanine.Droid.csproj", "{504513E1-C2CB-421F-AC6B-906B423E07D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCanine.MobileAppService", "MobileAppService\ProjectCanine.MobileAppService.csproj", "{F2A99F10-EF26-40CC-A931-8E499967DDC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.MobileAppService", "MobileAppService\ProjectCanine.MobileAppService.csproj", "{F2A99F10-EF26-40CC-A931-8E499967DDC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.UWP", "UWP\ProjectCanine.UWP.csproj", "{FFCBE075-EA49-46AF-AE25-51D5F1055506}"
 EndProject
