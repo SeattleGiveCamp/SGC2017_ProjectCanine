@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Tests]
+(
+	[Id] INT IDENTITY(1,1) PRIMARY KEY, 
+	[Name] VARCHAR(50) NOT NULL, 
+	[LastEditedBy] UNIQUEIDENTIFIER NOT NULL, 
+	[LastEditedDate] DATETIME NOT NULL
+)
