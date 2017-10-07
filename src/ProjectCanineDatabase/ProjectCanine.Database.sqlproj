@@ -69,5 +69,6 @@
     <Build Include="Tables\Questions.sql" />
     <Build Include="Tables\TestResults.sql" />
     <Build Include="Tables\TestResultsAnswers.sql" />
+    <Build Include="Tables\OtherRestrictions.sql" />
   </ItemGroup>
 </Project>
