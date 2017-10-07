@@ -14,7 +14,7 @@ namespace ProjectCanine
 
 		public TestSectionViewModel()
 		{
-			Title = "Select Test";
+			Title = "Choose a Section";
 			Items = new ObservableCollection<Test>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
