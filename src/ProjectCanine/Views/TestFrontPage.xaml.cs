@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public partial class ItemDetailPage : ContentPage
+    public partial class TestFrontPage : ContentPage
     {
         ItemDetailViewModel viewModel;
 
         // Note - The Xamarin.Forms Previewer requires a default, parameterless constructor to render a page.
-        public ItemDetailPage()
+        public TestFrontPage()
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace ProjectCanine
 
         }
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public TestFrontPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace ProjectCanine
 
         void HandleContinue_Clicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new SelectTestSectionPage());
         }
     }
 }

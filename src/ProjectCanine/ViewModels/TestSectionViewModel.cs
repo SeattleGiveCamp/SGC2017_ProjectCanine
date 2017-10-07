@@ -7,14 +7,14 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public class TestSectionViewModel : ViewModelBase
+    public class TestItemsViewModel : ViewModelBase
     {
         public ObservableCollection<CanineTest> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public TestSectionViewModel()
+        public TestItemsViewModel()
         {
-            Title = "Select Section";
+            Title = "Select Test";
             Items = new ObservableCollection<CanineTest>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
