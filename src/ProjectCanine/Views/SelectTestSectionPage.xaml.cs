@@ -23,15 +23,10 @@ namespace ProjectCanine
 			if (item == null)
 				return;
 
-			await Navigation.PushAsync(new TestFrontPage(new TestFrontPageViewModel(item)));
+			await Navigation.PushAsync(new TestSectionQuestionsPage(new TestSectionQuestionsViewModel(item)));
 
 			// Manually deselect item
 			ItemsListView.SelectedItem = null;
-		}
-
-		async void AddItem_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new NewItemPage());
 		}
 
 		protected override void OnAppearing()

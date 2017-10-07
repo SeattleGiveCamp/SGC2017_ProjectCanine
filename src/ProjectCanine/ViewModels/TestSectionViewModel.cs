@@ -14,16 +14,9 @@ namespace ProjectCanine
 
 		public TestSectionViewModel()
 		{
-			Title = "Select Test";
+			Title = "Choose a Section";
 			Items = new ObservableCollection<Test>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-			MessagingCenter.Subscribe<NewItemPage, Test>(this, "AddItem", async (obj, item) =>
-			{
-				var _item = item as Test;
-				Items.Add(_item);
-				await DataStore.AddItemAsync(_item);
-			});
 		}
 
 		async Task ExecuteLoadItemsCommand()
