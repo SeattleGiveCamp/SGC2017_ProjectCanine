@@ -2,7 +2,7 @@
 
 namespace ProjectCanine
 {
-    public class Item
+    public class CanineTest
     {
         public string Id { get; set; }
         public string Text { get; set; }
