@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public class ItemsViewModel : ViewModelBase
+    public class TestItemsViewModel : ViewModelBase
     {
         public ObservableCollection<CanineTest> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public TestItemsViewModel()
         {
             Title = "Select Test";
             Items = new ObservableCollection<CanineTest>();
