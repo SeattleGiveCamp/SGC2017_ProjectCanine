@@ -7,7 +7,7 @@ namespace ProjectCanine
         public CanineTest Item { get; set; }
         public ItemDetailViewModel(CanineTest item = null)
         {
-            Title = item?.Text;
+            Title = item?.ShortName;
             Item = item;
         }
     }

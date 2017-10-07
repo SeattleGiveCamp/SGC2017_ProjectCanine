@@ -14,12 +14,12 @@ namespace ProjectCanine
             items = new List<CanineTest>();
             var mockItems = new List<CanineTest>
             {
-                new CanineTest { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "First item", LongName="This is an item description." },
+                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Second item", LongName="This is an item description." },
+                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Third item", LongName="This is an item description." },
+                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Fourth item", LongName="This is an item description." },
+                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Fifth item", LongName="This is an item description." },
+                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Sixth item", LongName="This is an item description." },
             };
 
             foreach (var item in mockItems)
