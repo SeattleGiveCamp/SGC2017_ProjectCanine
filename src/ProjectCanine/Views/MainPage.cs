@@ -4,50 +4,42 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public class MainPage : TabbedPage
-    {
-        public MainPage()
-        {
-            Page itemsPage, aboutPage = null;
-
-            switch (Device.RuntimePlatform)
+    public class MainPage : ContentPage
+	{
+		public MainPage()
+		{
+			Title = "About";
+			Icon = "tab_about.png";
+            Content = new StackLayout
             {
-                case Device.iOS:
-                    itemsPage = new NavigationPage(new ItemsPage())
-                    {
-                        Title = "Browse"
-                    };
+                Padding = 20,
+                Spacing = 20,
+                Children = {
+                    new Label {
+                        Text = "Welcome!",
+                        FontSize = 20
+                    },
+                    new Label {
+                        Text = "This is an application for testing a canine " +
+                            "for ___? Please click the Select Test button to continue." },
+                    SelectTestButton()
+				}
+			};
+		}
 
-                    aboutPage = new NavigationPage(new AboutPage())
-                    {
-                        Title = "About"
-                    };
-                    itemsPage.Icon = "tab_feed.png";
-                    aboutPage.Icon = "tab_about.png";
-                    break;
-                default:
-                    itemsPage = new ItemsPage()
-                    {
-                        Title = "Browse"
-                    };
+        public Button SelectTestButton() {
+			Button selectTestButton = new Button
+			{
+				Text = "Select Test"
+			};
 
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
-                    break;
-            }
+            selectTestButton.Clicked += OnSelectTestButtonClicked;
 
-            Children.Add(itemsPage);
-            Children.Add(aboutPage);
-
-            Title = Children[0].Title;
+            return selectTestButton;
         }
 
-        protected override void OnCurrentPageChanged()
-        {
-            base.OnCurrentPageChanged();
-            Title = CurrentPage?.Title ?? string.Empty;
+        void OnSelectTestButtonClicked(object sender, EventArgs args) {
+            Navigation.PushAsync(new ItemsPage());
         }
-    }
+	}
 }
