@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace ProjectCanine.Views
+namespace ProjectCanine
 {
     public partial class ResumeSavedTestPage : ContentPage
     {
