@@ -14,7 +14,7 @@ namespace ProjectCanine
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Select Test";
             Items = new ObservableCollection<CanineTest>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
