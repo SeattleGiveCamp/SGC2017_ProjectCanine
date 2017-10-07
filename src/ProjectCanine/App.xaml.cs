@@ -24,14 +24,16 @@ namespace ProjectCanine
 
 
             if (UseMockDataStore)
+			{
                 DependencyService.Register<MockDataStore>();
+			}
             else
+			{
                 DependencyService.Register<CloudDataStore>();
+			}
 
-            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-                MainPage = new MainPage();
-            else
-                MainPage = new NavigationPage(new MainPage());
+
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }
