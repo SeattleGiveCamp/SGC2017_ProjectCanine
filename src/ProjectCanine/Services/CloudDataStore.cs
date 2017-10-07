@@ -9,42 +9,42 @@ using Plugin.Connectivity;
 
 namespace ProjectCanine
 {
-    public class CloudDataStore : IDataStore<CanineTest>
+    public class CloudDataStore : IDataStore<Test>
     {
         HttpClient client;
-        IEnumerable<CanineTest> items;
+        IEnumerable<Test> items;
 
         public CloudDataStore()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri($"{App.BackendUrl}/");
 
-            items = new List<CanineTest>();
+            items = new List<Test>();
         }
 
-        public async Task<IEnumerable<CanineTest>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Test>> GetItemsAsync(bool forceRefresh = false)
         {
             if (forceRefresh && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item");
-                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<CanineTest>>(json));
+                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Test>>(json));
             }
 
             return items;
         }
 
-        public async Task<CanineTest> GetItemAsync(string id)
+        public async Task<Test> GetItemAsync(int id)
         {
-            if (id != null && CrossConnectivity.Current.IsConnected)
+            if (id > 0 && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item/{id}");
-                return await Task.Run(() => JsonConvert.DeserializeObject<CanineTest>(json));
+                return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
             }
 
             return null;
         }
 
-        public async Task<bool> AddItemAsync(CanineTest item)
+        public async Task<bool> AddItemAsync(Test item)
         {
             if (item == null || !CrossConnectivity.Current.IsConnected)
                 return false;
@@ -56,9 +56,9 @@ namespace ProjectCanine
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> UpdateItemAsync(CanineTest item)
+        public async Task<bool> UpdateItemAsync(Test item)
         {
-            if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
+            if (item == null || item.Id == 0 || !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var serializedItem = JsonConvert.SerializeObject(item);
@@ -70,9 +70,9 @@ namespace ProjectCanine
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
-            if (string.IsNullOrEmpty(id) && !CrossConnectivity.Current.IsConnected)
+            if (id > 0 && !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var response = await client.DeleteAsync($"api/item/{id}");

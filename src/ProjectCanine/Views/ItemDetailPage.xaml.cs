@@ -13,7 +13,7 @@ namespace ProjectCanine
         {
             InitializeComponent();
 
-            var item = new CanineTest
+            var item = new Test
             {
                 ShortName = "Item 1",
                 Name = "This is an item description."
