@@ -5,21 +5,21 @@ using System.Threading.Tasks;
 
 namespace ProjectCanine
 {
-    public class MockDataStore : IDataStore<CanineTest>
+    public class MockDataStore : IDataStore<Test>
     {
-        List<CanineTest> items;
+        List<Test> items;
 
         public MockDataStore()
         {
-            items = new List<CanineTest>();
-            var mockItems = new List<CanineTest>
+            items = new List<Test>();
+            var mockItems = new List<Test>
             {
-                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "First item", Name="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Second item", Name="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Third item", Name="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Fourth item", Name="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Fifth item", Name="This is an item description." },
-                new CanineTest { Id = Guid.NewGuid().ToString(), ShortName = "Sixth item", Name="This is an item description." },
+                new Test { Id = 1, ShortName = "First item", Name="This is an item description." },
+                new Test { Id = 2, ShortName = "Second item", Name="This is an item description." },
+                new Test { Id = 3, ShortName = "Third item", Name="This is an item description." },
+                new Test { Id = 4, ShortName = "Fourth item", Name="This is an item description." },
+                new Test { Id = 5, ShortName = "Fifth item", Name="This is an item description." },
+                new Test { Id = 6, ShortName = "Sixth item", Name="This is an item description." },
             };
 
             foreach (var item in mockItems)
@@ -28,36 +28,36 @@ namespace ProjectCanine
             }
         }
 
-        public async Task<bool> AddItemAsync(CanineTest item)
+        public async Task<bool> AddItemAsync(Test item)
         {
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(CanineTest item)
+        public async Task<bool> UpdateItemAsync(Test item)
         {
-            var _item = items.Where((CanineTest arg) => arg.Id == item.Id).FirstOrDefault();
+            var _item = items.Where((Test arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(_item);
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
-            var _item = items.Where((CanineTest arg) => arg.Id == id).FirstOrDefault();
+            var _item = items.Where((Test arg) => arg.Id == id).FirstOrDefault();
             items.Remove(_item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<CanineTest> GetItemAsync(string id)
+        public async Task<Test> GetItemAsync(int id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<CanineTest>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Test>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }

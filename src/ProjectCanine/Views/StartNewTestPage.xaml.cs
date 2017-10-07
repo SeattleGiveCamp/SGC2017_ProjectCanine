@@ -19,7 +19,7 @@ namespace ProjectCanine
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as CanineTest;
+            var item = args.SelectedItem as Test;
             if (item == null)
                 return;
 
