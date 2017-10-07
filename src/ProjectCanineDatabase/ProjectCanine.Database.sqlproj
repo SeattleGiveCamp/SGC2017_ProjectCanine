@@ -66,5 +66,8 @@
     <Build Include="Tables\CertificationType.sql" />
     <Build Include="Tables\EquipmentRestrictions.sql" />
     <Build Include="Tables\Examiners.sql" />
+    <Build Include="Tables\Questions.sql" />
+    <Build Include="Tables\TestResults.sql" />
+    <Build Include="Tables\TestResultsAnswers.sql" />
   </ItemGroup>
 </Project>

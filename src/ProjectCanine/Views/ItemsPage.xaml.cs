@@ -6,20 +6,20 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
-    public partial class ItemsPage : ContentPage
+    public partial class SelectTestPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        TestItemsViewModel viewModel;
 
-        public ItemsPage()
+        public SelectTestPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new TestItemsViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as CanineTest;
             if (item == null)
                 return;
 

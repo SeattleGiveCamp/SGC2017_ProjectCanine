@@ -1,10 +1,15 @@
 ﻿CREATE TABLE [dbo].[TestResults]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
-	[HandlersId] int not null,
-	[DogsId]	int not null,
-	[PassFail]	bit not null,
-	[TestDate]	datetime not null,
-	[PrimaryExaminer]	int not null,
-	[SecondaryExaminer]	int not null
+	[Handler] INT NOT NULL,
+	[Dog] INT NOT NULL,
+	[PassedTest] BIT NOT NULL,
+	[TestDate] DATETIME NOT NULL,
+	[ScoringExaminer] INT NOT NULL,
+	[HandsOnExaminer] INT NOT NULL,
+	[CertificationType] INT NULL,
+	[EquipmentRestrictions] INT NULL,
+	[ScoringExaminerSignature] VARBINARY(MAX) NULL,
+	[HandsOnSignature] VARBINARY(MAX) NULL,
+	[HandlerSignature] VARBINARY(MAX) NULL
 )

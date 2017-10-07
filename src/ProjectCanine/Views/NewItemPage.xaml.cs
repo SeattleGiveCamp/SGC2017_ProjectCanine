@@ -6,16 +6,16 @@ namespace ProjectCanine
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public CanineTest Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new CanineTest
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                ShortName = "Item name",
+                Name = "This is an item description."
             };
 
             BindingContext = this;

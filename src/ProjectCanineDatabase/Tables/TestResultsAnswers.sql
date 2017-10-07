@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[TestResultsAnswers]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
-	[QuestionsId]	int not null,
-	[TestResultsAnswersId]	int not null,
-	[Answer]	varchar(2) not null,
-	[YesNo]		bit not null DEFAULT 0
+	[TestResult] INT NOT NULL,
+	[Question] INT NOT NULL,
+	[Answer] VARCHAR(2) NOT NULL,
+	[YesNo] BIT NOT NULL DEFAULT 0
 )
