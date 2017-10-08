@@ -58,17 +58,30 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Foreign Keys" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tests.sql" />
     <Build Include="Tables\Handlers.sql" />
     <Build Include="Tables\Dogs.sql" />
-    <Build Include="Tables\CertificationType.sql" />
+    <Build Include="Tables\CertificationTypes.sql" />
     <Build Include="Tables\EquipmentRestrictions.sql" />
     <Build Include="Tables\Examiners.sql" />
     <Build Include="Tables\Questions.sql" />
     <Build Include="Tables\TestResults.sql" />
     <Build Include="Tables\TestResultsAnswers.sql" />
     <Build Include="Tables\OtherRestrictions.sql" />
+    <Build Include="Foreign Keys\FKTestResults_CertificationTypes.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Handlers.sql" />
+    <Build Include="Foreign Keys\FKQuestions_Examiners.sql" />
+    <Build Include="Foreign Keys\FKQuestions_Tests.sql" />
+    <Build Include="Foreign Keys\FKOtherRestrictions_TestResult.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Dogs.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Examiners_Scoring.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Examiners_HandsOn.sql" />
+    <Build Include="Foreign Keys\FKTestResultsEquipmentRestrictions.sql" />
+    <Build Include="Foreign Keys\FKTestResultsAnswers_TestResults.sql" />
+    <Build Include="Foreign Keys\FKTestResultsAnswers_Questions.sql" />
+    <Build Include="Foreign Keys\FKTests_Examiners.sql" />
   </ItemGroup>
 </Project>

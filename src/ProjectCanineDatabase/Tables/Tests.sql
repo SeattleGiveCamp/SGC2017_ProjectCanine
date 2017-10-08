@@ -5,5 +5,5 @@
 	[Name] VARCHAR(500) NOT NULL,
 	[TestVersion_DateTime] DATETIME NOT NULL,
 	[LastEditedBy] UNIQUEIDENTIFIER NOT NULL,
-	[LastEditedDate] DATETIME NOT NULL
+	[LastEditedDate] DATETIME NOT NULL DEFAULT GetDate()
 )
