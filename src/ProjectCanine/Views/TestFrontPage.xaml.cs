@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
-using ProjectCanine.Common.Models;
+using ProjectCanine.Core.Models;
 
 
 namespace ProjectCanine

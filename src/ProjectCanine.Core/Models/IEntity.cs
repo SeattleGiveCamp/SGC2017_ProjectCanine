@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ProjectCanine.Common.Models
+namespace ProjectCanine.Core.Models
 {
-    public class IEntity
+    public interface IEntity
     {
 		Guid Id { get; set; }
     }
