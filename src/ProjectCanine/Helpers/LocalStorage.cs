@@ -20,12 +20,11 @@ namespace ProjectCanine.Helpers
 				.GetResult();
 		}
 
-		public async Task<IEntity> Save (IEntity entity)
+		public async Task Save (IEntity entity)
 		{
 			string fileName = $"{entity.GetType().Name}.{entity.Id}.txt";
 			IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-			return null;
-			
+			await file.WriteAllTextAsync(JsonConvert.SerializeObject(entity));			
 		}
 
 		public async Task<T> Get<T>(Guid id)
