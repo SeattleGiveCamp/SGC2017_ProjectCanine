@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ProjectCanine.AdminPortal.Data.Entities.TestResult>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Handler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dog)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassedTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScoringExaminer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HandsOnExaminer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CertificationType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentRestrictions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScoringExaminerSignature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HandsOnSignature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HandlerSignature)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Handler)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dog)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassedTest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScoringExaminer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HandsOnExaminer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CertificationType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentRestrictions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScoringExaminerSignature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HandsOnSignature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HandlerSignature)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
