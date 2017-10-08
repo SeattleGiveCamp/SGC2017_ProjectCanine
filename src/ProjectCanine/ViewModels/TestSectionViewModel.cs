@@ -16,13 +16,12 @@ namespace ProjectCanine
         public ObservableCollection<Test> Items { get; set; }
 
         public Page Page { get; set; }
-		public Test TestObject { get; set; }
 
 		public TestSectionViewModel(Page page, Test item = null)
 		{
 			Page = page;
 			Title = item?.ShortName;
-			TestObject = item;
+			TestItem = item;
 			PassCommand = new Command(async () => await ExecutePassCommand());
 			FailCommand = new Command(async () => await ExecuteFailCommand());
 
