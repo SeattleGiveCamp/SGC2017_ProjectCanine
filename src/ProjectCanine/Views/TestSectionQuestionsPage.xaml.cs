@@ -15,10 +15,12 @@ namespace ProjectCanine
 		{
 			InitializeComponent();
 
-			var item = new Test
+			var item = new Section
 			{
-				ShortName = "Item 1",
-				Name = "This is an item description."
+                Title = "Section Title",
+                SectionNumber = 1,
+                Description = "Section Description",
+                Questions = new List<Question>()
 			};
 
             viewModel = new TestSectionQuestionsViewModel(item);
@@ -30,6 +32,12 @@ namespace ProjectCanine
 			InitializeComponent();
 
 			BindingContext = this.viewModel = viewModel;
+		}
+
+		async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+		{
+            // don't do anything here for now.
+            return;
 		}
     }
 }

@@ -62,6 +62,7 @@
       <DependentUpon>FailedTestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MCQuestionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\CheckBoxColorConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">

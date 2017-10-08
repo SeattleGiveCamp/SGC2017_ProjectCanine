@@ -11,8 +11,11 @@ namespace ProjectCanine
     public partial class App : Application
     {
         public static bool UseMockDataStore = true;
-        public static string BackendUrl = "https://localhost:5000";
 
+		public static string AzureFunctionUrl = "https://projectcanineapi.azurewebsites.net";
+		// TODO: research whether this is the appropriate place for this setting
+		public static string AzureFunctionKey = "KX14P9HS5CxyqkvYqTFi6uKK3kOA6q/jzWvwQ6pH2JPocgyfYIA6lA==";
+		
         public App()
         {
             InitializeComponent();

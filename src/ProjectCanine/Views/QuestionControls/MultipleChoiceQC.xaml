@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:ProjectCanine"
     x:Class="ProjectCanine.MultipleChoiceQC">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:CheckBoxColorConverter x:Key="CheckBoxColorConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
 	<ContentView.Content>
         <StackLayout>
-            <Label Text="{Binding Title}" />
+            <Label Text="{Binding Title}" FontAttributes="Bold"/>
             <ListView ItemsSource="{Binding Items}" 
                 x:Name="ListViewAnswers"
+                HasUnevenRows="true"
+                RowHeight="75"
                 SelectedItem="{Binding SelectedItem}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding .}"/>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="10" Orientation="Horizontal">
+                                <Grid 
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center">
+                                    <BoxView 
+                                        WidthRequest="20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Color="#2c3e50"
+                                        HeightRequest="20"/>
+                                    <BoxView WidthRequest="16"
+                                        HeightRequest="16"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Color="{Binding Selected, Converter={StaticResource CheckBoxColorConverter}}"/>
+                                </Grid>
+                                <Label Text="{Binding Text}" 
+                                       LineBreakMode="WordWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                        VerticalOptions="Center"
+                                        VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
