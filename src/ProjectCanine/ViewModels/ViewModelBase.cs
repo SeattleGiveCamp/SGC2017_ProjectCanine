@@ -5,12 +5,14 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
+using ProjectCanine.Common.Models;
+
 
 namespace ProjectCanine
 {
     public class ViewModelBase : BaseViewModel
     {
-        public IDataStore<CanineTest> DataStore => DependencyService.Get<IDataStore<CanineTest>>() ?? new MockDataStore();
+        public IDataStore<Test> DataStore => DependencyService.Get<IDataStore<Test>>() ?? new MockDataStore();
 
     }
 }

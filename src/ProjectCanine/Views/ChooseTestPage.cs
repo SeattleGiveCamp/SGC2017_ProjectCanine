@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace ProjectCanine.Views
+namespace ProjectCanine
 {
     public class ChooseTestPage : TabbedPage
     {
