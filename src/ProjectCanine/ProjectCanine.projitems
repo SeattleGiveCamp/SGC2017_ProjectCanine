@@ -96,7 +96,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\QuestionControls\LongAnswerQC.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <LogicalName>ProjectCanine.LongAnswerQC</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

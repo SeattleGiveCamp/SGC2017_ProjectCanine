@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ProjectCanine.ShortAnswerQC">
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ProjectCanine.ShortAnswerQC">
 	<ContentView.Content>
+        <StackLayout>
+            <Label Text="Short Answer" />
+            <Entry Placeholder="Your response here" />
+        </StackLayout>
 	</ContentView.Content>
 </ContentView>

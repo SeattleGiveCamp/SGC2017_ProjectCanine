@@ -22,7 +22,6 @@ namespace ProjectCanine
 
             viewModel = new TestSectionQuestionsViewModel(item);
 			BindingContext = viewModel;
-
 		}
 
         public TestSectionQuestionsPage(TestSectionQuestionsViewModel viewModel)
@@ -30,11 +29,6 @@ namespace ProjectCanine
 			InitializeComponent();
 
 			BindingContext = this.viewModel = viewModel;
-		}
-
-		void HandleContinue_Clicked(object sender, System.EventArgs e)
-		{
-			Navigation.PushAsync(new SelectTestSectionPage());
 		}
     }
 }
