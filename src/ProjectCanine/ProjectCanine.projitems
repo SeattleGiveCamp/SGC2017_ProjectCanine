@@ -61,7 +61,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\FailedTestPage.xaml.cs">
       <DependentUpon>FailedTestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MCQuestionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\QuestionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\CheckBoxColorConverter.cs" />
   </ItemGroup>
   <ItemGroup>
