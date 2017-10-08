@@ -63,6 +63,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\QuestionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\CheckBoxColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestSignatureViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SignatureTestPage.xaml.cs">
+      <DependentUpon>SignatureTestPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
@@ -99,6 +103,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\FailedTestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SignatureTestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

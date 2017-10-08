@@ -1,7 +1,7 @@
 ﻿DECLARE @test AS UNIQUEIDENTIFIER = 'c5197bc7-4b29-45d6-bdd6-b03bdcd33900';
 DECLARE @sectionId AS UNIQUEIDENTIFIER = 'ae9c9845-ea32-476a-a081-307439fda62a';
 DECLARE @lastEditBy AS UNIQUEIDENTIFIER = '50c112b0-488c-4a63-ab6c-3df970f5beb8';
-DECLARE @lastEditDate AS UNIQUEIDENTIFIER = @lastEditDate;
+DECLARE @lastEditDate AS DATETIME = '10/5/2017';
 INSERT INTO [dbo].[Questions] ([Id], [Test], [Text], [MustPass], [Section], [QuestionNumber], [HasYesNo], [LastEditedBy], [LastEditedDate]) VALUES
 ('8AEDE8D7-C6C0-4E53-B5BB-1E0B1F87E81D', @test, 'Examiner and team start at opposite ends of the space and walk towards each other at a normal walking pace. When they come together they stop, greet and shake hands and move on. Dog must not interact with examiner at this time. Did handler manage dog appropriately? Was dog responsive to request not to interact?', 1, @sectionId, 1, 0, @lastEditBy, @lastEditDate),
 ('27097B6E-1F70-493F-AAA5-039589B4038F', @test, 'Examiner asks to touch dog. Is dog accepting and appropriate about interacting?', 1, @sectionId, 2, 0, @lastEditBy, @lastEditDate),
@@ -41,7 +41,7 @@ INSERT INTO [dbo].[Questions] ([Id], [Test], [Text], [MustPass], [Section], [Que
 ('B07C84F3-B31B-477C-8215-5202CC84E8C2', @test, 'Drop several items at the same time near dog. Does dog respond appropriately to the unexpected movement and noise?', 1, @sectionId, 5, 0, @lastEditBy, @lastEditDate),
 ('73DE7F69-08AE-4CED-9130-7AB7B3EB064F', @test, 'Engage in simulated angry yelling with assistant. Does dog respond appropriately to heightened emotions?', 1, @sectionId, 6, 0, @lastEditBy, @lastEditDate),
 ('0995F1E0-CD76-46B8-AA52-DF3710DBE40D', @test, 'Have assistant approach dog while wearing a hat. Does dog respond appropriately to a person in a hat?', 1, @sectionId, 7, 0, @lastEditBy, @lastEditDate),
-('12A389BD-CDF2-4BD4-87B9-1482DABD8DF0', @test, 'Place a high value toy on the floor and have handler walk dog past the toy (handler may not be between dog and toy). Is dog able to respond to handler''s request to ''leave it''?', 0, @sectionId, 8, 0, @lastEditBy, @lastEditDate),
+('12A389BD-CDF2-4BD4-87B9-1482DABD8DF0', @test, 'Place a high value toy on the floor and have handler walk dog past the toy (handler may not be between dog and toy). Is dog able to respond to handler''s request to ''leave it''?', 0, @sectionId, 8, 0, @lastEditBy, @lastEditDate);
 
 SET @sectionId = '4fb6eb34-ecf6-4935-a990-2ac8c9806b27';
 INSERT INTO [dbo].[Questions] ([Id], [Test], [Text], [MustPass], [Section], [QuestionNumber], [HasYesNo], [LastEditedBy], [LastEditedDate]) VALUES
@@ -73,7 +73,7 @@ INSERT INTO [dbo].[Questions] ([Id], [Test], [Text], [MustPass], [Section], [Que
 ('aabf8624-6fe3-4ba7-8753-16cb3e0a368e', @test, 'Describe three signs of stress in dogs? What does your dog do when under stress?', 1, @sectionId, 4, 0, @lastEditBy, @lastEditDate),
 ('c54e3cef-2009-414e-9272-6c49708f6da7', @test, 'What is your dog''s breed or breed mix? What characteristics does this breed/mix possess that may assist or detract in a therapy visit situation?', 1, @sectionId, 5, 0, @lastEditBy, @lastEditDate),
 ('1b1cbd4c-1505-4813-8889-75f23f537bdb', @test, 'How do you ''correct'' your dog?', 1, @sectionId, 6, 0, @lastEditBy, @lastEditDate),
-('4317cde9-955f-4944-a5e0-1fa5ad7977b1', @test, 'What is your dog''s living situation?', 1, @sectionId, 7, 0, @lastEditBy, @lastEditDate), ]
+('4317cde9-955f-4944-a5e0-1fa5ad7977b1', @test, 'What is your dog''s living situation?', 1, @sectionId, 7, 0, @lastEditBy, @lastEditDate),
 ('80a3b281-bed7-411b-871d-187f95c4a3f1', @test, 'Describe what you do to groom your dog.', 1, @sectionId, 8, 0, @lastEditBy, @lastEditDate),
 ('477c4969-a76f-4bb9-9c27-ea34afdda4bf', @test, 'Who is your vet?', 1, @sectionId, 9, 0, @lastEditBy, @lastEditDate),
 ('7a13d8f9-d921-4240-9106-e8d96aa3d3f0', @test, 'When was your dog last vaccinated or titered? What is your schedule for vaccinating or titering? Handler has shown proof of current rabies vaccine.', 1, @sectionId, 10, 1, @lastEditBy, @lastEditDate),

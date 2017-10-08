@@ -53,6 +53,9 @@
     <Compile Include="Models\Section.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\TestPart.cs" />
+    <Compile Include="Models\TestResult.cs" />
+    <Compile Include="Models\TestResultAnswer.cs" />
+    <Compile Include="Models\TestResultSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

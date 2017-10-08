@@ -23,7 +23,7 @@
     	</StackLayout>
     </ScrollView>
 
-    <Button Grid.Row="1" Text="Continue"  FontSize="Medium"   
+    <Button Grid.Row="1" Text="Continue"  FontSize="Medium"  BorderRadius="0"   
             HorizontalOptions="FillAndExpand" BackgroundColor="Silver" TextColor="Black"
             Command="{Binding ContinueCommand}"/>
     </Grid>

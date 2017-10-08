@@ -40,7 +40,8 @@ namespace ProjectCanine
 
 		void OnSelectTestButtonClicked(object sender, EventArgs args)
 		{
-			Navigation.PushAsync(new ChooseTestPage());
+            // Go back to the Welcome screen for now
+            Navigation.PopToRootAsync();
 		}
     }
 }
