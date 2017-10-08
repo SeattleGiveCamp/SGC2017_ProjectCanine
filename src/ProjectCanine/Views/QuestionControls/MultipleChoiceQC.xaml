@@ -10,8 +10,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="0">
-<!--                                <Label Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />-->
-                                <Label Text="SHOW SOMETHING HERE" />
+                                <Label Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
                              </StackLayout>
                         </ViewCell>
                     </DataTemplate>

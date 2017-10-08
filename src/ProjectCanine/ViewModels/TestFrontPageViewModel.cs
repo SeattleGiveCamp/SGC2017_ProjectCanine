@@ -10,15 +10,15 @@ namespace ProjectCanine
     {
         public Test TestObject { get; set; }
 
-        public String CertificationTitle { get; set; }
-        public List<String> CertificationOptions { get; set; }
+        //public String CertificationTitle { get; set; }
+        public List<String> Items { get; set; }
 
         public TestFrontPageViewModel(Test item = null)
         {
             Title = item?.ShortName;
             TestObject = item;
-            CertificationTitle = "Type of Certification";
-            CertificationOptions = new List<String>() {
+            //CertificationTitle = "Type of Certification";
+            Items = new List<String>() {
                 "New adult certification",
                 "Junior handler certification (under 18 yrs of age)",
                 "Adult recertification",

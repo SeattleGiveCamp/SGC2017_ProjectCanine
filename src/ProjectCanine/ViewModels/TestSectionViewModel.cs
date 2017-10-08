@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -11,7 +12,8 @@ namespace ProjectCanine
 {
 	public class TestSectionViewModel : ViewModelBase
 	{
-		public ObservableCollection<Test> Items { get; set; }
+        public Test TestItem;
+        public ObservableCollection<Test> Items { get; set; }
 		public Command LoadItemsCommand { get; set; }
 
 		public TestSectionViewModel()
@@ -20,6 +22,10 @@ namespace ProjectCanine
 			Items = new ObservableCollection<Test>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 		}
+
+        public TestSectionViewModel(Test item = null) {
+            TestItem = item;
+        }
 
 		async Task ExecuteLoadItemsCommand()
 		{

@@ -12,9 +12,9 @@
             <ScrollView>
                 <StackLayout>
                     <Label Text="TEST QUESTIONS WILL GO HERE!!!!!!!!!" />
-                    <local:LongAnswerQC/>
-                    <local:ShortAnswerQC/>
-                    <local:MultipleChoiceQC/>
+                    <local:LongAnswerQC Title="MAKE SURE THIS WORKS"/>
+                    <local:ShortAnswerQC Title="MAKE SURE THIS WORKS TOO"/>
+                    <local:MultipleChoiceQC Title="Multiple choice title" />
                 </StackLayout>
             </ScrollView>
             <local:SignatureQC Grid.Row="1"/>
