@@ -5,6 +5,7 @@
 	[Name] VARCHAR(500) NOT NULL,
 	[LastEditedBy] UNIQUEIDENTIFIER NOT NULL,
 	[LastEditedDate] DATETIME NOT NULL DEFAULT GetDate()
+)
 GO
 
 ALTER TABLE [dbo].[Tests] ADD CONSTRAINT FK_Tests_Examiners
