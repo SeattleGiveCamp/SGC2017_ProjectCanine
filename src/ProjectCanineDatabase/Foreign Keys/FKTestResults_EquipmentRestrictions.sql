@@ -1,4 +1,4 @@
 ﻿ALTER TABLE [dbo].[TestResults]
-	ADD CONSTRAINT [FKTestResultsEquipmentRestrictions]
+	ADD CONSTRAINT [FKTestResults_EquipmentRestrictions]
 	FOREIGN KEY (EquipmentRestrictions)
 	REFERENCES [EquipmentRestrictions] (Id)

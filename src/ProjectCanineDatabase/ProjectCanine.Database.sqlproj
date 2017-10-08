@@ -77,7 +77,7 @@
     <Build Include="Foreign Keys\FKTestResults_Dogs.sql" />
     <Build Include="Foreign Keys\FKTestResults_Examiners_Scoring.sql" />
     <Build Include="Foreign Keys\FKTestResults_Examiners_HandsOn.sql" />
-    <Build Include="Foreign Keys\FKTestResultsEquipmentRestrictions.sql" />
+    <Build Include="Foreign Keys\FKTestResults_EquipmentRestrictions.sql" />
     <Build Include="Foreign Keys\FKTestResultsAnswers_TestResults.sql" />
     <Build Include="Foreign Keys\FKTestResultsAnswers_Questions.sql" />
     <Build Include="Foreign Keys\FKTests_Examiners.sql" />

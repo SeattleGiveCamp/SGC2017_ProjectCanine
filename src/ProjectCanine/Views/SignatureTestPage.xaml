@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ProjectCanine.SignatureTestPage"
+    xmlns:local="clr-namespace:ProjectCanine">
+	<ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <local:SignatureQC BindingContext="{Binding ScoringExaminerSignature}" Grid.Row = "0" />
+                <local:SignatureQC BindingContext="{Binding HandsOnExaminerSignature}" Grid.Row = "1" />
+                <Label Grid.Row = "2" Text="I understand the results of
+                    this exam and any restrictions that might apply
+                    to my certification. I understand that my exam is valid 
+                    for 60 days from today’s date, and that I must  
+                    complete my Practice Lab/shadow visit requirement and 
+                    registration within that period, unless otherwise stipulated 
+                    by my instructor or examiner. I also understand that, if I passed, 
+                    I am provisionally insured for the purpose of completing supervised 
+                    shadow visits only (if applicable), and that I may not visit unsupervised 
+                    until I have completed my requirement, and my registration has been processed." 
+                    TextColor="Black" />
+                <local:SignatureQC BindingContext="{Binding ExamineeSignature}" Grid.Row = "3" />
+                <local:ShortAnswerQC BindingContext="Binding Date" Grid.Row = "4" />
+            </Grid>
+            
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Button Text="Complete Test" Margin="-15"  FontSize="Medium"   
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    BorderRadius="0"
+                    BackgroundColor="Silver" TextColor="Black"
+                    Command="{Binding CompleteTestCommand}"/>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

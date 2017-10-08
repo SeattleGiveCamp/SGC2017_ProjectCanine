@@ -40,8 +40,12 @@ namespace ProjectCanine
 
                 foreach (var test in tests)
                 {
+					test.Sections = new List<Section>();
+
 					foreach (var section in sections.Where(s => s.Test == test.Id).OrderBy(s => s.SectionNumber))
 					{
+						section.Questions = new List<Question>();
+
 						foreach (var question in questions.Where(q => q.Test == test.Id && q.Section == section.Id).OrderBy(q => q.QuestionNumber))
 						{
 							section.Questions.Add(question);
