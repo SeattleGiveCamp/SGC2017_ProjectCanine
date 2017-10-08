@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="ProjectCanine.TestFrontPage" Title="{Binding Title}">
 	<StackLayout Spacing="20" Padding="15">   
-		<Label Text="(NameOfExam)" FontSize="Large" />
+		<Label Text="{Binding TestObject.Name}" FontSize="Large" />
         <Button Text="Continue" WidthRequest="150" FontSize="Medium"   
         HorizontalOptions="End" BackgroundColor="Silver" TextColor="Black"
         Clicked="HandleContinue_Clicked"/>
