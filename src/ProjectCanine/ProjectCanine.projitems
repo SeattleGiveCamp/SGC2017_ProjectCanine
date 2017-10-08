@@ -60,6 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\FailedTestPage.xaml.cs">
       <DependentUpon>FailedTestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MCQuestionData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">

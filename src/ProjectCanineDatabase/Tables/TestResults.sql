@@ -20,5 +20,4 @@
 	[ScoringExaminerSignature] VARBINARY(MAX) NULL,
 	[HandsOnSignature] VARBINARY(MAX) NULL,
 	[HandlerSignature] VARBINARY(MAX) NULL
-
 )

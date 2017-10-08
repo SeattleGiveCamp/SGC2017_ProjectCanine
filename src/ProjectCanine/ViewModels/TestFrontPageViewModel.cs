@@ -8,23 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjectCanine
 {
-
-    public class FrontPageQuestion : ObservableObject
-    {
-        public string Title { get; set; }
-		public List<String> Items { get; set; }
-
-        string selectedItem;
-        public string SelectedItem
-        {
-            get => selectedItem;
-            set => SetProperty(ref selectedItem, value);
-        }
-    }
-
     public class TestFrontPageViewModel : ViewModelBase
     {
-        public FrontPageQuestion Question1 { get; }
+        public MCQuestionData Question1 { get; }
         
         public Test TestObject { get; set; }
 
@@ -38,7 +24,7 @@ namespace ProjectCanine
             TestObject = item;
             ContinueCommand = new Command(async () => await ExecuteContinueCommand());
 
-            Question1 = new FrontPageQuestion
+            Question1 = new MCQuestionData
             {
                 Title = "Type of Certification",
                 Items = new List<String>()
