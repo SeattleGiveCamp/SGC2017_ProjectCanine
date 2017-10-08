@@ -24,10 +24,10 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 
-                <Button Grid.Column="0" Grid.Row="0" Text="Fail" TextColor="White" Clicked="Handle_Clicked" 
-                BackgroundColor="#ff9999" FontSize="16" FontAttributes="Bold"/>
-                <Button Grid.Column="1" Grid.Row="0" Text="Pass" BackgroundColor="#99e699" TextColor="White"
-                FontSize="16" FontAttributes="Bold"/>
+                <Button Grid.Column="0" Grid.Row="0" Text="Fail" TextColor="White" Command="{Binding FailCommand}" 
+                BackgroundColor="#ff9999" FontSize="16" FontAttributes="Bold" BorderRadius="0"/>
+                <Button Grid.Column="1" Grid.Row="0" Text="Pass" BackgroundColor="#99e699" TextColor="White" BorderRadius="0"
+                FontSize="16" FontAttributes="Bold" Command="{Binding PassCommand}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

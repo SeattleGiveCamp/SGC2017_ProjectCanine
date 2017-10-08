@@ -47,7 +47,6 @@ namespace ProjectCanine.ViewModels
 		async Task ExecuteCompleteTestCommand()
 		{
 			
-			//var vm = new TestSectionViewModel(TestObject);
             await Page.Navigation.PushAsync(new ThankYouPage());
 		}
     }

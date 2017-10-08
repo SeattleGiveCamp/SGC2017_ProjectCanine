@@ -38,9 +38,5 @@ namespace ProjectCanine
 			ItemsListView.SelectedItem = null;
 		}
 
-        void Handle_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new FailedTestPage());
-        }
     }
 }
