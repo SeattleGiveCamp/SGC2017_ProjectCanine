@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
@@ -17,6 +18,9 @@ namespace ProjectCanine.Core.Models
 		public string Title { get; set; }
 
 		[DataMember]
-		public string Description { get; set; }		
+		public string Description { get; set; }
+
+		[DataMember]
+		public List<Question> Questions { get; set; }
 	}
 }

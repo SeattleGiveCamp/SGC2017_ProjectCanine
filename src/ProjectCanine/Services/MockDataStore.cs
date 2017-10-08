@@ -14,14 +14,22 @@ namespace ProjectCanine
         public MockDataStore()
         {
             items = new List<Test>();
-            IEnumerable<Question> firstQuestions = new List<Question> {
-                new Question { Text = "question 1.1", SectionNumber=1 },
-                new Question { Text = "question 1.2", SectionNumber=1 },
-                new Question { Text = "question 1.3", SectionNumber=1 },
-                new Question { Text = "question 2.1", SectionNumber=2 },
-                new Question { Text = "question 2.2", SectionNumber=2 },
-                new Question { Text = "question 2.3", SectionNumber=2 },
-                new Question { Text = "question 3.1", SectionNumber=3 }
+
+			List<Section> sections = new List<Section>
+			{
+				new Section { Id = Guid.NewGuid(), SectionNumber = 1, Title = "Section 1", Description = "This is section 1" },
+				new Section { Id = Guid.NewGuid(), SectionNumber = 2, Title = "Section 2", Description = "This is section 2" },
+				new Section { Id = Guid.NewGuid(), SectionNumber = 3, Title = "Section 3", Description = "This is section 3" }
+			};
+
+            List<Question> questions = new List<Question> {
+                new Question { Text = "question 1.1", Section = sections[0].Id },
+                new Question { Text = "question 1.2", Section = sections[0].Id },
+                new Question { Text = "question 1.3", Section = sections[0].Id },
+                new Question { Text = "question 2.1", Section = sections[1].Id },
+                new Question { Text = "question 2.2", Section = sections[1].Id },
+                new Question { Text = "question 2.3", Section = sections[1].Id },
+                new Question { Text = "question 3.1", Section = sections[2].Id }
             };
 
             var mockItems = new List<Test>
@@ -30,7 +38,7 @@ namespace ProjectCanine
                     Id = Guid.NewGuid(),
                     ShortName = "First item",
                     Name="This is first item",
-                    Questions = firstQuestions
+                    Sections = sections
                 },
                 new Test { Id = Guid.NewGuid(), ShortName = "Second item", Name="2nd" },
                 new Test { Id = Guid.NewGuid(), ShortName = "Third item", Name="third thing is here" },
