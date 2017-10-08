@@ -1,5 +1,5 @@
 ﻿using System;
-using ProjectCanine.Common.Models;
+using ProjectCanine.Core.Models;
 
 
 namespace ProjectCanine

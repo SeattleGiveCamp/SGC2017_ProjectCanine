@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using PCLStorage;
+using ProjectCanine.Core.Models;
 
 namespace ProjectCanine.Helpers
 {
@@ -18,10 +20,19 @@ namespace ProjectCanine.Helpers
 				.GetResult();
 		}
 
-		public async Task<T> Save<T>(T entity)
+		public async Task<IEntity> Save (IEntity entity)
+		{
+			string fileName = $"{entity.GetType().Name}.{entity.Id}.txt";
+			IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+			return null;
+			
+		}
+
+		public async Task<T> Get<T>(Guid id)
 		{
 			return await Task.FromResult(default(T));
 		}
+
 		/*
 		 * IFolder rootFolder = FileSystem.Current.LocalStorage;
     IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",

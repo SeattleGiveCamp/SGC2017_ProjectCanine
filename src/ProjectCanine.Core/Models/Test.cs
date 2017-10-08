@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
-namespace ProjectCanine.Common.Models
+namespace ProjectCanine.Core.Models
 {
 	[DataContract]
     public class Test : TestPart
