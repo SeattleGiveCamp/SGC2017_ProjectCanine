@@ -17,9 +17,9 @@ namespace ProjectCanine
 
 			List<Section> sections = new List<Section>
 			{
-				new Section { Id = Guid.NewGuid(), SectionNumber = 1, Title = "Section 1", Description = "This is section 1" },
-				new Section { Id = Guid.NewGuid(), SectionNumber = 2, Title = "Section 2", Description = "This is section 2" },
-				new Section { Id = Guid.NewGuid(), SectionNumber = 3, Title = "Section 3", Description = "This is section 3" }
+                new Section { Id = Guid.NewGuid(), Title = "Section 1", Description = "This is section 1" },
+				new Section { Id = Guid.NewGuid(), Title = "Section 2", Description = "This is section 2" },
+				new Section { Id = Guid.NewGuid(), Title = "Section 3", Description = "This is section 3" }
 			};
 
             List<Question> questions = new List<Question> {

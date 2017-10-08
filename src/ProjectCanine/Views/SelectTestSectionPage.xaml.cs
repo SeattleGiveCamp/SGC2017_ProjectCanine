@@ -20,6 +20,7 @@ namespace ProjectCanine
 		}
 
         public SelectTestSectionPage(TestSectionViewModel vm = null) {
+            InitializeComponent();
             viewModel = vm;
 
             BindingContext = viewModel;
