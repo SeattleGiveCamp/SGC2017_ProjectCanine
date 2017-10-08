@@ -4,28 +4,21 @@
     x:Class="ProjectCanine.TestSectionQuestionsPage"
     xmlns:local="clr-namespace:ProjectCanine">
 	<ContentPage.Content>
-        <Grid Padding="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <ScrollView>
-                <StackLayout>
-                    <Label Text="TEST QUESTIONS WILL GO HERE!!!!!!!!!" />
-                    <ListView x:Name="QuestionsListView" ItemsSource="{Binding QuestionTexts}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10">
-                                        <local:MultipleChoiceQC BindingContext="{Binding .}" />
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </ScrollView>
-            <local:SignatureQC Grid.Row="1" Title="Signature title should work"/>
-        </Grid>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{Binding Section.Description}" />
+                <ListView x:Name="QuestionsListView" ItemsSource="{Binding QuestionTexts}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="false" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <local:MultipleChoiceQC BindingContext="{Binding .}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

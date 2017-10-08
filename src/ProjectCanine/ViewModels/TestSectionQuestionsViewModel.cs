@@ -6,6 +6,7 @@ namespace ProjectCanine
 {
     public class TestSectionQuestionsViewModel
     {
+        public Section Section { get; set; }
         public List<MCQuestionData> QuestionTexts { get; set; }
 
         public TestSectionQuestionsViewModel(Section item = null)
@@ -24,6 +25,7 @@ namespace ProjectCanine
             }
 
             QuestionTexts = questionTexts;
+            Section = item;
         }
     }
 }
