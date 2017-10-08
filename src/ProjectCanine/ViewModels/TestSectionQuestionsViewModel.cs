@@ -6,19 +6,24 @@ namespace ProjectCanine
 {
     public class TestSectionQuestionsViewModel
     {
-        public MCQuestionData ExampleMC { get; }
+        public List<MCQuestionData> QuestionTexts { get; set; }
 
-        public TestSectionQuestionsViewModel(Test item = null)
+        public TestSectionQuestionsViewModel(Section item = null)
         {
-			ExampleMC = new MCQuestionData
-			{
-				Title = "Example",
-				Items = new List<MCItem>() {
-                    new MCItem("first"),
-                    new MCItem("second"),
-                    new MCItem("third")
-    			}
-			};
+            List<MCQuestionData> questionTexts = new List<MCQuestionData>();
+            foreach (Question q in item.Questions) {
+                questionTexts.Add(new MCQuestionData
+                {
+                    Title = q.Text,
+                    Items = new List<MCItem> {
+                        new MCItem("Present"),
+                        new MCItem("Emerging"),
+                        new MCItem("Not Present")
+                    }
+                });
+            }
+
+            QuestionTexts = questionTexts;
         }
     }
 }

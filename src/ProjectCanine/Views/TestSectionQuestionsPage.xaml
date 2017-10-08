@@ -12,9 +12,17 @@
             <ScrollView>
                 <StackLayout>
                     <Label Text="TEST QUESTIONS WILL GO HERE!!!!!!!!!" />
-                    <local:LongAnswerQC Title="MAKE SURE THIS WORKS"/>
-                    <local:ShortAnswerQC Title="MAKE SURE THIS WORKS TOO"/>
-                    <local:MultipleChoiceQC BindingContext="{Binding ExampleMC}" />
+                    <ListView x:Name="QuestionsListView" ItemsSource="{Binding QuestionTexts}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <local:MultipleChoiceQC BindingContext="{Binding .}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackLayout>
             </ScrollView>
             <local:SignatureQC Grid.Row="1" Title="Signature title should work"/>
