@@ -17,7 +17,7 @@
                     <local:MultipleChoiceQC Title="Multiple choice title" />
                 </StackLayout>
             </ScrollView>
-            <local:SignatureQC Grid.Row="1"/>
+            <local:SignatureQC Grid.Row="1" Title="Signature title should work"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
