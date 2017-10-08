@@ -19,7 +19,7 @@ namespace ProjectCanine
         public CloudDataStore()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri($"{App.BackendUrl}/");
+            client.BaseAddress = new Uri($"{App.AzureFunctionUrl}/");
 
 			localStorage = new LocalStorage();            
         }
@@ -30,7 +30,7 @@ namespace ProjectCanine
 
 			if (CrossConnectivity.Current.IsConnected)
             {
-                var json = await client.GetStringAsync($"api/item");
+                var json = await client.GetStringAsync($"api/gettests?code={App.AzureFunctionKey}");
                 items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Test>>(json));
 				// TODO: Save to local storage
             } else
@@ -47,7 +47,7 @@ namespace ProjectCanine
 			{
 				if (CrossConnectivity.Current.IsConnected)
 				{
-					var json = await client.GetStringAsync($"api/item/{id}");
+					var json = await client.GetStringAsync($"api/gettest/{id}?code={App.AzureFunctionKey}");
 					return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
 					// TODO: Save to local storage
 				}
@@ -71,7 +71,7 @@ namespace ProjectCanine
 				if (CrossConnectivity.Current.IsConnected)
 				{
 					var serializedItem = JsonConvert.SerializeObject(item);
-					var response = await client.PostAsync($"api/item", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
+					var response = await client.PostAsync($"api/item?code={App.AzureFunctionKey}", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 					result = response.IsSuccessStatusCode;
 				}
 
@@ -94,7 +94,7 @@ namespace ProjectCanine
 					var buffer = Encoding.UTF8.GetBytes(serializedItem);
 					var byteContent = new ByteArrayContent(buffer);
 
-					var response = await client.PutAsync(new Uri($"api/item/{item.Id}"), byteContent);
+					var response = await client.PutAsync(new Uri($"api/item/{item.Id}?code={App.AzureFunctionKey}"), byteContent);
 
 					result = response.IsSuccessStatusCode;
 				}
@@ -112,7 +112,7 @@ namespace ProjectCanine
             if (id != null && !CrossConnectivity.Current.IsConnected)
                 return false;
 
-            var response = await client.DeleteAsync($"api/item/{id}");
+            var response = await client.DeleteAsync($"api/item/{id}?code={App.AzureFunctionKey}");
 
             return response.IsSuccessStatusCode;
         }
@@ -126,6 +126,7 @@ namespace ProjectCanine
 			//		Get all remote items not in local storage
 
 			//		Implementation strategy: one webapi method which takes the list, then returns the new list
+			
 		}
     }
 }
