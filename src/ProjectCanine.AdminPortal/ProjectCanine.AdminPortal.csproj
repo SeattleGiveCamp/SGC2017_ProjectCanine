@@ -68,6 +68,7 @@
       <HintPath>..\packages\Syncfusion.HtmlToPdfConverter46.14.2.0.26\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -157,6 +158,93 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\CaninePrjDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CanineProjDbContext.cs">
+      <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\CaninePrjCfgs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\CertificationTypeEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\DogEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\EquipmentRestrictionEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\ExaminerEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\HandlerEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\OtherRestrictionEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\QuestionEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\TestEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\TestResultEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EfCfgs\TestResultsAnswerEfConfig.cs">
+      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\CaninePrjPOCOs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\CertificationType.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\Dog.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\EquipmentRestriction.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\Examiner.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\Handler.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\OtherRestriction.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\Question.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\Test.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\TestResult.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Entities\TestResultsAnswer.cs">
+      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FakeCanineProjDbContext.cs">
+      <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FakeDbSet.cs">
+      <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ICanineProjDbContext.cs">
+      <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +255,18 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Data\CaninePrjDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CaninePrjDbContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\EfCfgs\CaninePrjCfgs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CaninePrjCfgs.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Entities\CaninePrjPOCOs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CaninePrjPOCOs.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -184,6 +284,12 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Data\EF.Reverse.POCO.Core.ttinclude" />
+    <Content Include="Data\EF.Reverse.POCO.ttinclude" />
+    <Content Include="Data\EfCfgs\EF.Reverse.POCO.Core.ttinclude" />
+    <Content Include="Data\EfCfgs\EF.Reverse.POCO.ttinclude" />
+    <Content Include="Data\Entities\EF.Reverse.POCO.Core.ttinclude" />
+    <Content Include="Data\Entities\EF.Reverse.POCO.ttinclude" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -214,7 +320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Data\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
@@ -228,6 +333,9 @@
       <Project>{4f636901-0b92-4b95-a55d-7ef3cc87d5c6}</Project>
       <Name>ProjectCanine.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
