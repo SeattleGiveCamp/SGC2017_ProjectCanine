@@ -13,7 +13,9 @@ namespace ProjectCanine
         public MCQuestionData CertificationQuestion { get; }
         public MCQuestionData CanineEquipmentQuestion { get; }
         public MCQuestionData PracticeLabQuestion { get; }
-        public MCQuestionData ShadoVisitQuestion { get; }
+        public MCQuestionData ShadowVisitQuestion { get; }
+
+        public LongQuestionData OtherRestrictions { get; }
 
         public ShortQuestionData HandlerName { get; }
         public ShortQuestionData CanineName { get; }
@@ -22,8 +24,6 @@ namespace ProjectCanine
 		public ShortQuestionData Date { get; }
               
         public Test TestObject { get; set; }
-
-        //public String CertificationTitle { get; set; }
 
         public Page Page { get; set; }
         public TestFrontPageViewModel(Page page, Test item = null)
@@ -58,6 +58,10 @@ namespace ProjectCanine
 				Title = "Date"
 			};
 
+            OtherRestrictions = new LongQuestionData
+            {
+                Title = "Other Restrictions"
+            };
 
 			CertificationQuestion = new MCQuestionData
             {
@@ -94,7 +98,7 @@ namespace ProjectCanine
 			};
 
          
-			ShadoVisitQuestion = new MCQuestionData
+			ShadowVisitQuestion = new MCQuestionData
 			{
 				Title = "*Shadow Visit Requirement (*Oregon)",
                 Items = new List<MCItem>()
@@ -112,9 +116,9 @@ namespace ProjectCanine
 
         async Task ExecuteContinueCommand()
         {
-            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem.Text) ||
-               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem.Text) ||
-               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem.Text) ||
+            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem?.Text) ||
+               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem?.Text) ||
+               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem?.Text) ||
                string.IsNullOrWhiteSpace(HandlerName.Text) ||
                string.IsNullOrWhiteSpace(CanineName.Text) || 
                string.IsNullOrWhiteSpace(ScoringExaminer.Text)||

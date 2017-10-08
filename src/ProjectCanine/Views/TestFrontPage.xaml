@@ -15,11 +15,11 @@
             <local:ShortAnswerQC BindingContext="{Binding ScoringExaminer}"  x:Name="scoringExaminer" />
             <local:ShortAnswerQC BindingContext="{Binding HandsOnExaminer}"  x:Name="handsOnExaminer" />
             <local:ShortAnswerQC BindingContext="{Binding Date}"  x:Name="date" />
-            <local:MultipleChoiceQC x:Name="typeOfCertification" BindingContext="{Binding CertificationQuestion}"/>
-            <local:MultipleChoiceQC x:Name="canineEquipRestrictions" BindingContext="{Binding CanineEquipmentQuestion}" />
-            <local:MultipleChoiceQC x:Name="practiceLabRequirements" BindingContext="{Binding PracticeLabQuestion}" />
-            <local:LongAnswerQC Title="Other Restrictions" x:Name="otherRestrictions"  />   
-            <local:MultipleChoiceQC x:Name="shadowVisit" BindingContext="{Binding ShadoVisitQuestion}"/>
+            <local:MultipleChoiceQC BindingContext="{Binding CertificationQuestion}" x:Name="typeOfCertification" />
+            <local:MultipleChoiceQC BindingContext="{Binding CanineEquipmentQuestion}" x:Name="canineEquipRestrictions" />
+            <local:MultipleChoiceQC BindingContext="{Binding PracticeLabQuestion}" x:Name="practiceLabRequirements"  />
+            <local:LongAnswerQC BindingContext="{Binding OtherRestrictions}" x:Name="otherRestrictions"  />   
+            <local:MultipleChoiceQC BindingContext="{Binding ShadowVisitQuestion}" x:Name="shadowVisit"/>
     	</StackLayout>
     </ScrollView>
 

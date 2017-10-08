@@ -12,7 +12,7 @@ namespace ProjectCanine
 {
     public class ViewModelBase : BaseViewModel
     {
-		public IDataStore<Test> DataStore => new CloudDataStore();	// DependencyService.Get<IDataStore<Test>>() ?? new MockDataStore();
+		public IDataStore DataStore => new CloudDataStore();	// DependencyService.Get<IDataStore<Test>>() ?? new MockDataStore();
 
     }
 }

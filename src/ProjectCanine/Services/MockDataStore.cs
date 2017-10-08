@@ -7,15 +7,15 @@ using ProjectCanine.Core.Models;
 
 namespace ProjectCanine
 {
-    public class MockDataStore : IDataStore<Test>
+    public class MockDataStore : IDataStore
     {
-        List<Test> items;
+		List<Test> tests = new List<Test>();
+		List<Section> sections = new List<Section>();
+		List<Question> questions = new List<Question>();
 
         public MockDataStore()
         {
-            items = new List<Test>();
-
-			List<Question> questions = new List<Question> {
+			questions = new List<Question> {
 				new Question { Text = "question 1.1" },
                 new Question { Text = "question 1.2" },
                 new Question { Text = "question 1.3" },
@@ -25,14 +25,14 @@ namespace ProjectCanine
                 new Question { Text = "question 3.1" }
 			};
 
-			List<Section> sections = new List<Section>
+			sections = new List<Section>
 			{
                 new Section { Id = Guid.NewGuid(), Title = "Section 1", Description = "This is section 1", Questions = questions },
 				new Section { Id = Guid.NewGuid(), Title = "Section 2", Description = "This is section 2" },
 				new Section { Id = Guid.NewGuid(), Title = "Section 3", Description = "This is section 3" }
 			};
 
-            var mockItems = new List<Test>
+            tests = new List<Test>
             {
                 new Test {
                     Id = Guid.NewGuid(),
@@ -46,45 +46,20 @@ namespace ProjectCanine
                 new Test { Id = Guid.NewGuid(), ShortName = "Fifth item", Name="Tsire" },
                 new Test { Id = Guid.NewGuid(), ShortName = "Sixth item", Name="514234222222" },
             };
-
-            foreach (var item in mockItems)
-            {
-                items.Add(item);
-            }
         }
-
-        public async Task<bool> AddItemAsync(Test item)
+		
+        public async Task<IEnumerable<Test>> GetTestsAsync()
         {
-            items.Add(item);
+            return await Task.FromResult(tests);
+		}
+		public async Task<IEnumerable<Section>> GetSectionsAsync()
+		{
+			return await Task.FromResult(sections);
+		}
 
-            return await Task.FromResult(true);
-        }
-
-        public async Task<bool> UpdateItemAsync(Test item)
-        {
-            var _item = items.Where((Test arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(_item);
-            items.Add(item);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<bool> DeleteItemAsync(Guid id)
-        {
-            var _item = items.Where((Test arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(_item);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<Test> GetItemAsync(Guid id)
-        {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
-        }
-
-        public async Task<IEnumerable<Test>> GetItemsAsync()
-        {
-            return await Task.FromResult(items);
-        }
-    }
+		public async Task<IEnumerable<Question>> GetQuestionsAsync()
+		{
+			return await Task.FromResult(questions);
+		}
+	}
 }

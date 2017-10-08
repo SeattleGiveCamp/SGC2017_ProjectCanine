@@ -11,7 +11,7 @@ using ProjectCanine.Helpers;
 
 namespace ProjectCanine
 {
-    public class CloudDataStore : IDataStore<Test>
+    public class CloudDataStore : IDataStore
     {
         private readonly HttpClient client;
 		private readonly LocalStorage localStorage;
@@ -24,7 +24,7 @@ namespace ProjectCanine
 			localStorage = new LocalStorage();            
         }
 
-        public async Task<IEnumerable<Test>> GetItemsAsync()
+        public async Task<IEnumerable<Test>> GetTestsAsync()
         {
 			IEnumerable<Test> items = new List<Test>();
 
@@ -40,27 +40,45 @@ namespace ProjectCanine
 
             return items;
         }
+		public async Task<IEnumerable<Section>> GetSectionsAsync()
+		{
+			IEnumerable<Section> items = new List<Section>();
 
-        public async Task<Test> GetItemAsync(Guid id)
-        {
-            if (id != null)
+			if (CrossConnectivity.Current.IsConnected)
 			{
-				if (CrossConnectivity.Current.IsConnected)
-				{
-					var json = await client.GetStringAsync($"api/gettest/{id}?code={App.AzureFunctionKey}");
-					return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
-					// TODO: Save to local storage
-				}
-				else
-				{
-					return await localStorage.Get<Test>(id);
-				}
-            }
+				var json = await client.GetStringAsync($"api/getsections?code={App.AzureFunctionKey}");
+				items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Section>>(json));
+				// TODO: Save to local storage
+			}
+			else
+			{
+				items = await localStorage.GetAll<Section>();
+			}
 
-            return null;
-        }
+			return items;
+		}
+		public async Task<IEnumerable<Question>> GetQuestionsAsync()
+		{
+			IEnumerable<Question> items = new List<Question>();
 
-        public async Task<bool> AddItemAsync(Test item)
+			if (CrossConnectivity.Current.IsConnected)
+			{
+				var json = await client.GetStringAsync($"api/getquestions?code={App.AzureFunctionKey}");
+				items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Question>>(json));
+				// TODO: Save to local storage
+			}
+			else
+			{
+				items = await localStorage.GetAll<Question>();
+			}
+
+			return items;
+		}
+
+
+		// TODO: Logic for saving results
+		/*
+        public async Task<bool> AddResultAsync(Test item)
         {
 			bool result = false;
 
@@ -105,7 +123,7 @@ namespace ProjectCanine
 			return result;            
         }
 
-        public async Task<bool> DeleteItemAsync(Guid id)
+        public async Task<bool> DeleteTestAsync(Guid id)
         {
 			// TODO: local storage doesn't appear to have a way of deleting a single file, so this will fail if not connected
 
@@ -116,6 +134,7 @@ namespace ProjectCanine
 
             return response.IsSuccessStatusCode;
         }
+		*/
 
 		public async Task Sync()
 		{

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Web;
 
 using ProjectCanine.AdminPortal.Data;
+using ProjectCanine.AdminPortal.Data.Entities;
+using ProjectCanine.AdminPortal.Dtos;
 using ProjectCanine.AdminPortal.ViewModels;
 
 
@@ -43,8 +45,20 @@ namespace ProjectCanine.AdminPortal.Services
 			//				MemberCount = members.Count(),
 			//			};
 
-			//var query = from row in dbContext.TestResults
-			//			select row.Handler.
+			var query = from tr in dbContext.TestResults
+				join hndlr in dbContext.Handlers on tr.Handler equals hndlr.Id
+				join dog in dbContext.Dogs on tr.Dog equals dog.Id
+				select new ExportGridRow
+				{
+					HandlerName = hndlr.FirstName.Trim() + " " + hndlr.LastName,
+					DogName = dog.Name.Trim(),
+					TestDate = tr.TestDate
+				};
+
+			foreach (var row in query)
+			{
+				results.ExportGridRows.Add(row);
+			}
 
 			return results;
 		}

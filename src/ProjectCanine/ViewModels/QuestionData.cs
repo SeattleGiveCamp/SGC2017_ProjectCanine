@@ -54,4 +54,16 @@ namespace ProjectCanine
 			set => SetProperty(ref text, value);
 		}
 	}
+
+	public class LongQuestionData : ObservableObject
+	{
+		public string Title { get; set; }
+
+		string text;
+		public string Text
+		{
+			get => text;
+			set => SetProperty(ref text, value);
+		}
+	}
 }
