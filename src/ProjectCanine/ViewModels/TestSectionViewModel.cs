@@ -12,7 +12,7 @@ namespace ProjectCanine
 {
 	public class TestSectionViewModel : ViewModelBase
 	{
-        public Test TestItem;
+        public Test TestItem { get; set; }
         public ObservableCollection<Test> Items { get; set; }
 
 		public TestSectionViewModel()
