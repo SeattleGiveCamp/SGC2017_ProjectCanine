@@ -4,8 +4,10 @@
     x:Class="ProjectCanine.LongAnswerQC">
 	<ContentView.Content>
         <StackLayout>
-            <Label Text="Long answer response" />
-            <Editor HeightRequest="150" />
+            <Label Text="{Binding Title}" />
+            <StackLayout BackgroundColor="Black" Padding="1">
+                <Editor HeightRequest="150" BackgroundColor="White"/>
+            </StackLayout>
         </StackLayout>
 	</ContentView.Content>
 </ContentView>
