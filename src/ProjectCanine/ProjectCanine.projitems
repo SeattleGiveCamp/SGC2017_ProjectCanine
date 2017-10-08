@@ -44,6 +44,18 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TestSectionQuestionsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ThankYouPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\QuestionControls\MultipleChoiceQC.xaml.cs">
+      <DependentUpon>MultipleChoiceQC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\QuestionControls\SignatureQC.xaml.cs">
+      <DependentUpon>SignatureQC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\QuestionControls\ShortAnswerQC.xaml.cs">
+      <DependentUpon>ShortAnswerQC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\QuestionControls\LongAnswerQC.xaml.cs">
+      <DependentUpon>LongAnswerQC.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
@@ -67,5 +79,20 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TestSectionQuestionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\QuestionControls\MultipleChoiceQC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\QuestionControls\SignatureQC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\QuestionControls\ShortAnswerQC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\QuestionControls\LongAnswerQC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\QuestionControls\" />
   </ItemGroup>
 </Project>

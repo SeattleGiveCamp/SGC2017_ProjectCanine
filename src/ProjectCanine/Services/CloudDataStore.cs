@@ -7,39 +7,54 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 using ProjectCanine.Core.Models;
+using ProjectCanine.Helpers;
 
 namespace ProjectCanine
 {
     public class CloudDataStore : IDataStore<Test>
     {
-        HttpClient client;
-        IEnumerable<Test> items;
+        private readonly HttpClient client;
+		private readonly LocalStorage localStorage;
+
+		IEnumerable<Test> items;
 
         public CloudDataStore()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri($"{App.BackendUrl}/");
 
+			localStorage = new LocalStorage();
+
             items = new List<Test>();
         }
 
         public async Task<IEnumerable<Test>> GetItemsAsync(bool forceRefresh = false)
         {
-            if (forceRefresh && CrossConnectivity.Current.IsConnected)
+            if (CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item");
                 items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Test>>(json));
-            }
+            } else
+			{
+				items = await localStorage.GetAll<Test>();
+			}
 
             return items;
         }
 
         public async Task<Test> GetItemAsync(Guid id)
         {
-            if (id != null && CrossConnectivity.Current.IsConnected)
-            {
-                var json = await client.GetStringAsync($"api/item/{id}");
-                return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
+            if (id != null)
+			{
+				if (CrossConnectivity.Current.IsConnected)
+				{
+					var json = await client.GetStringAsync($"api/item/{id}");
+					return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
+				}
+				else
+				{
+					return await localStorage.Get<Test>(id);
+				}
             }
 
             return null;
@@ -47,32 +62,55 @@ namespace ProjectCanine
 
         public async Task<bool> AddItemAsync(Test item)
         {
-            if (item == null || !CrossConnectivity.Current.IsConnected)
-                return false;
+			bool result = false;
 
-            var serializedItem = JsonConvert.SerializeObject(item);
-
-            var response = await client.PostAsync($"api/item", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
-
-            return response.IsSuccessStatusCode;
+			if (item != null)
+			{
+				if (CrossConnectivity.Current.IsConnected)
+				{
+					var serializedItem = JsonConvert.SerializeObject(item);
+					var response = await client.PostAsync($"api/item", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
+					result = response.IsSuccessStatusCode;
+				}
+				else
+				{
+					await localStorage.Save(item);
+					result = true;
+				}
+			}
+			return result;
         }
 
         public async Task<bool> UpdateItemAsync(Test item)
         {
-            if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
-                return false;
+			bool result = false;
 
-            var serializedItem = JsonConvert.SerializeObject(item);
-            var buffer = Encoding.UTF8.GetBytes(serializedItem);
-            var byteContent = new ByteArrayContent(buffer);
+			if (item != null && item.Id != null)
+			{
+				if (CrossConnectivity.Current.IsConnected)
+				{
+					var serializedItem = JsonConvert.SerializeObject(item);
+					var buffer = Encoding.UTF8.GetBytes(serializedItem);
+					var byteContent = new ByteArrayContent(buffer);
 
-            var response = await client.PutAsync(new Uri($"api/item/{item.Id}"), byteContent);
+					var response = await client.PutAsync(new Uri($"api/item/{item.Id}"), byteContent);
 
-            return response.IsSuccessStatusCode;
+					result = response.IsSuccessStatusCode;
+				}
+				else
+				{
+					await localStorage.Save(item);
+					result = true;
+				}
+			}
+
+			return result;            
         }
 
         public async Task<bool> DeleteItemAsync(Guid id)
         {
+			// TODO: local storage doesn't appear to have a way of deleting a single file, so this will fail if not connected
+
             if (id != null && !CrossConnectivity.Current.IsConnected)
                 return false;
 

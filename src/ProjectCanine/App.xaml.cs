@@ -17,21 +17,21 @@ namespace ProjectCanine
         {
             InitializeComponent();
 
+#if !DEBUG
             MobileCenter.Start($"android={Constants.MobileCenterAndroid};" +
                    $"uwp={Constants.MobileCenterUWP};" +
                    $"ios={Constants.MobileCenteriOS}",
                    typeof(Analytics), typeof(Crashes));
 
-
+#endif
             if (UseMockDataStore)
-			{
+            {
                 DependencyService.Register<MockDataStore>();
-			}
+            }
             else
-			{
+            {
                 DependencyService.Register<CloudDataStore>();
-			}
-
+            }
 
             MainPage = new NavigationPage(new MainPage());
         }
