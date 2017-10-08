@@ -2,10 +2,10 @@
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
-namespace ProjectCanine
+namespace ProjectCanine.Core.Models
 {
 	[DataContract]
-    public class Handler: Person
+    public class Examiner: Person
     {
     }
 }

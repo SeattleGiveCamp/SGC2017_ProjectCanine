@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
+using ProjectCanine.Core.Models;
+
 
 namespace ProjectCanine
 {

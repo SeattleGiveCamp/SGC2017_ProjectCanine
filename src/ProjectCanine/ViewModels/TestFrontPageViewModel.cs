@@ -1,4 +1,6 @@
 ﻿using System;
+using ProjectCanine.Core.Models;
+
 
 namespace ProjectCanine
 {

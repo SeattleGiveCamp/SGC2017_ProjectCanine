@@ -2,12 +2,12 @@
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
-namespace ProjectCanine
+namespace ProjectCanine.Core.Models
 {
-    public class Person
+    public class Person : IEntity
 	{
 		[DataMember]
-		public int Id { get; set; }
+		public Guid Id { get; set; }
 
 		[DataMember]
 		public string FirstName { get; set; }

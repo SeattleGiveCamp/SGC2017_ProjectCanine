@@ -14,4 +14,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectCanine.AdminPortal.Tests\ProjectCanine.AdminPortal.Tests.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProjectCanine.Core.Models;
+
 
 namespace ProjectCanine
 {
@@ -14,12 +16,12 @@ namespace ProjectCanine
             items = new List<Test>();
             var mockItems = new List<Test>
             {
-                new Test { Id = 1, ShortName = "First item", Name="This is an item description." },
-                new Test { Id = 2, ShortName = "Second item", Name="This is an item description." },
-                new Test { Id = 3, ShortName = "Third item", Name="This is an item description." },
-                new Test { Id = 4, ShortName = "Fourth item", Name="This is an item description." },
-                new Test { Id = 5, ShortName = "Fifth item", Name="This is an item description." },
-                new Test { Id = 6, ShortName = "Sixth item", Name="This is an item description." },
+                new Test { Id = Guid.NewGuid(), ShortName = "First item", Name="This is an item description." },
+                new Test { Id = Guid.NewGuid(), ShortName = "Second item", Name="This is an item description." },
+                new Test { Id = Guid.NewGuid(), ShortName = "Third item", Name="This is an item description." },
+                new Test { Id = Guid.NewGuid(), ShortName = "Fourth item", Name="This is an item description." },
+                new Test { Id = Guid.NewGuid(), ShortName = "Fifth item", Name="This is an item description." },
+                new Test { Id = Guid.NewGuid(), ShortName = "Sixth item", Name="This is an item description." },
             };
 
             foreach (var item in mockItems)
@@ -44,7 +46,7 @@ namespace ProjectCanine
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(int id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
             var _item = items.Where((Test arg) => arg.Id == id).FirstOrDefault();
             items.Remove(_item);
@@ -52,7 +54,7 @@ namespace ProjectCanine
             return await Task.FromResult(true);
         }
 
-        public async Task<Test> GetItemAsync(int id)
+        public async Task<Test> GetItemAsync(Guid id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
+using ProjectCanine.Core.Models;
+
 namespace ProjectCanine
 {
 	public class TestSectionViewModel : ViewModelBase

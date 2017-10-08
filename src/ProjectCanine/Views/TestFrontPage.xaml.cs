@@ -1,6 +1,8 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using ProjectCanine.Core.Models;
+
 
 namespace ProjectCanine
 {

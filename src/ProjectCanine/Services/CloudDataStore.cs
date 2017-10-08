@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using Plugin.Connectivity;
+using ProjectCanine.Core.Models;
 
 namespace ProjectCanine
 {
@@ -33,9 +34,9 @@ namespace ProjectCanine
             return items;
         }
 
-        public async Task<Test> GetItemAsync(int id)
+        public async Task<Test> GetItemAsync(Guid id)
         {
-            if (id > 0 && CrossConnectivity.Current.IsConnected)
+            if (id != null && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item/{id}");
                 return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
@@ -58,7 +59,7 @@ namespace ProjectCanine
 
         public async Task<bool> UpdateItemAsync(Test item)
         {
-            if (item == null || item.Id == 0 || !CrossConnectivity.Current.IsConnected)
+            if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var serializedItem = JsonConvert.SerializeObject(item);
@@ -70,9 +71,9 @@ namespace ProjectCanine
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteItemAsync(int id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            if (id > 0 && !CrossConnectivity.Current.IsConnected)
+            if (id != null && !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var response = await client.DeleteAsync($"api/item/{id}");

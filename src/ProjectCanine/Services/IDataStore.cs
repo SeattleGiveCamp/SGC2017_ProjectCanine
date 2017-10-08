@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace ProjectCanine
 {
@@ -7,8 +8,8 @@ namespace ProjectCanine
     {
         Task<bool> AddItemAsync(T item);
         Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(int id);
-        Task<T> GetItemAsync(int id);
+        Task<bool> DeleteItemAsync(Guid id);
+        Task<T> GetItemAsync(Guid id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
     }
 }

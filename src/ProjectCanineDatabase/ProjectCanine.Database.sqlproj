@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{1c411e1d-dc0d-48e4-b966-9950d5764e21}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -58,16 +58,30 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Foreign Keys" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Tests.sql" />
     <Build Include="Tables\Handlers.sql" />
     <Build Include="Tables\Dogs.sql" />
-    <Build Include="Tables\CertificationType.sql" />
+    <Build Include="Tables\CertificationTypes.sql" />
     <Build Include="Tables\EquipmentRestrictions.sql" />
     <Build Include="Tables\Examiners.sql" />
     <Build Include="Tables\Questions.sql" />
     <Build Include="Tables\TestResults.sql" />
     <Build Include="Tables\TestResultsAnswers.sql" />
+    <Build Include="Tables\OtherRestrictions.sql" />
+    <Build Include="Foreign Keys\FKTestResults_CertificationTypes.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Handlers.sql" />
+    <Build Include="Foreign Keys\FKQuestions_Examiners.sql" />
+    <Build Include="Foreign Keys\FKQuestions_Tests.sql" />
+    <Build Include="Foreign Keys\FKOtherRestrictions_TestResult.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Dogs.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Examiners_Scoring.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Examiners_HandsOn.sql" />
+    <Build Include="Foreign Keys\FKTestResultsEquipmentRestrictions.sql" />
+    <Build Include="Foreign Keys\FKTestResultsAnswers_TestResults.sql" />
+    <Build Include="Foreign Keys\FKTestResultsAnswers_Questions.sql" />
+    <Build Include="Foreign Keys\FKTests_Examiners.sql" />
   </ItemGroup>
 </Project>

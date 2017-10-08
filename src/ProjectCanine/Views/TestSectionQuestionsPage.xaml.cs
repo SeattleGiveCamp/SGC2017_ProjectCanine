@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProjectCanine.Core.Models;
 
 using Xamarin.Forms;
 

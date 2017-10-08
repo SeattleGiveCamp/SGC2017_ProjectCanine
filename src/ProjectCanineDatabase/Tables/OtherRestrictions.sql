@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[OtherRestrictions]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[TestResult] UNIQUEIDENTIFIER NOT NULL,
+	[AdditionalInfo] VARCHAR(200) NULL
+)

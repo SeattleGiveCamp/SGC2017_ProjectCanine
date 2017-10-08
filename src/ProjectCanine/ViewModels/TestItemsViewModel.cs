@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using ProjectCanine.Core.Models;
+
 
 namespace ProjectCanine
 {
