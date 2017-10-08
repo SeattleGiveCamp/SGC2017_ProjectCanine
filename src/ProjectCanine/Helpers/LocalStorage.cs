@@ -8,14 +8,27 @@ namespace ProjectCanine.Helpers
 {
     public class LocalStorage
     {
-		public async Task PCLStorageSample()
+		private readonly IFolder rootFolder;
+
+		public LocalStorage()
 		{
-			IFolder rootFolder = FileSystem.Current.LocalStorage;
-			IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",
-				CreationCollisionOption.OpenIfExists);
-			IFile file = await folder.CreateFileAsync("answer.txt",
-				CreationCollisionOption.ReplaceExisting);
-			await file.WriteAllTextAsync("42");
+			rootFolder = FileSystem.Current.LocalStorage
+				.CreateFolderAsync("ProjectCanine", CreationCollisionOption.OpenIfExists)
+				.GetAwaiter()
+				.GetResult();
 		}
+
+		public async Task<T> Save<T>(T entity)
+		{
+			return await Task.FromResult(default(T));
+		}
+		/*
+		 * IFolder rootFolder = FileSystem.Current.LocalStorage;
+    IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",
+        CreationCollisionOption.OpenIfExists);
+    IFile file = await folder.CreateFileAsync("answer.txt",
+        CreationCollisionOption.ReplaceExisting);
+    await file.WriteAllTextAsync("42");
+	*/
 	}
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ProjectCanine.Common.Models;
+
 
 using Xamarin.Forms;
 

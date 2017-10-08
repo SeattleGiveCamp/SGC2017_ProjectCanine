@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using ProjectCanine.Common.Models;
+
 
 namespace ProjectCanine
 {

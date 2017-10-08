@@ -176,6 +176,12 @@
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectCanine.Core\ProjectCanine.Core.csproj">
+      <Project>{4f636901-0b92-4b95-a55d-7ef3cc87d5c6}</Project>
+      <Name>ProjectCanine.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\ProjectCanine\ProjectCanine.projitems" Label="Shared" Condition="Exists('..\ProjectCanine\ProjectCanine.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

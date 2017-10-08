@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
-namespace ProjectCanine
+namespace ProjectCanine.Common.Models
 {
 	[DataContract]
 	public class Question : TestPart
