@@ -13,7 +13,8 @@ namespace ProjectCanine.ViewModels
     {
         public LongQuestionData MoreInfo { get; }
 
-		public Test TestObject { get; set; }
+        public Test TestObject { get; set; }
+        public MCQuestionData YesNo { get; set; }
 
 		public Page Page { get; set; }
         public FailedTestViewModel(Page page, Test item = null)
@@ -21,6 +22,16 @@ namespace ProjectCanine.ViewModels
 			Page = page;
 			Title = item?.ShortName;
 			TestObject = item;
+
+            YesNo = new MCQuestionData
+            {
+                Title = "Eligible to retest?",
+                Items = new List<MCItem> {
+                    new MCItem("Yes"),
+                    new MCItem("No")
+                }
+            };
+
 			CompleteTestCommand = new Command(async () => await ExecuteCompleteTestCommand());
 
 			
