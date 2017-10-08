@@ -29,7 +29,7 @@
     UseDataAnnotations = true;			// If true, will add data annotations to the poco classes.
     UseDataAnnotationsSchema = false;	// UseDataAnnotations must also be true. If true, will add data annotations schema to the poco classes.
     UsePropertyInitializers = true;		// Removes POCO constructor and instead uses C# 6 property initialisers to set defaults
-    UseLazyLoading = true;		// Marks all navigation properties as virtual or not, to support or disable EF Lazy Loading feature
+    UseLazyLoading = false;			// Marks all navigation properties as virtual or not, to support or disable EF Lazy Loading feature
     IncludeComments = CommentsStyle.AtEndOfField;	// Adds comments to the generated code
     IncludeExtendedPropertyComments = CommentsStyle.InSummaryBlock;		// Adds extended properties as comments to the generated code
     IncludeConnectionSettingComments = true;		// Add comments describing connection settings used to generate file
@@ -58,12 +58,12 @@
     // For more control, take a look at ForeignKeyAnnotationsProcessing() further down
     AdditionalReverseNavigationsDataAnnotations = new string[] // Data Annotations for all ReverseNavigationProperty.
     {
-        // "JsonIgnore" // Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
+		"JsonIgnore"	// Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
     };
     
 	AdditionalForeignKeysDataAnnotations = new string[] // Data Annotations for all ForeignKeys.
     {
-        // "JsonIgnore" // Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
+		"JsonIgnore"	// Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
     };
 
     ColumnNameToDataAnnotation = new Dictionary<string, string>
@@ -400,8 +400,9 @@
         //    return null;
 
         // Example, to exclude reverse navigation properties for tables ending with Type, use:
-        // if (fk.PkTableName.EndsWith("Type"))
-        //    fk.IncludeReverseNavigation = false;
+		if (fk.PkTableName.Equals("TestResults")) {
+			fk.IncludeReverseNavigation = false;
+		}
 
         return fk;
     };

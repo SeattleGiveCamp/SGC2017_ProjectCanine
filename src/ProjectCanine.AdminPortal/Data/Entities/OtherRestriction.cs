@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // OtherRestrictions
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -35,13 +36,6 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         [StringLength(200)]
         [Display(Name = "Additional info")]
         public string AdditionalInfo { get; set; } // AdditionalInfo (length: 200)
-
-        // Foreign keys
-
-        /// <summary>
-        /// Parent TestResult pointed by [OtherRestrictions].([TestResult]) (FKOtherRestrictions_TestResult)
-        /// </summary>
-        public virtual TestResult TestResult_TestResult { get; set; } // FKOtherRestrictions_TestResult
     }
 
 }
