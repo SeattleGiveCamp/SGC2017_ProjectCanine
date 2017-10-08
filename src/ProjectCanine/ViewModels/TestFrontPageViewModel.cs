@@ -116,9 +116,9 @@ namespace ProjectCanine
 
         async Task ExecuteContinueCommand()
         {
-            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem.Text) ||
-               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem.Text) ||
-               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem.Text) ||
+            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem?.Text) ||
+               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem?.Text) ||
+               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem?.Text) ||
                string.IsNullOrWhiteSpace(HandlerName.Text) ||
                string.IsNullOrWhiteSpace(CanineName.Text) || 
                string.IsNullOrWhiteSpace(ScoringExaminer.Text)||
