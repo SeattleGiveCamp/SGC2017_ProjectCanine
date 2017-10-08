@@ -15,6 +15,12 @@ namespace ProjectCanine.Core.Models
         public string Name { get; set; }
 
 		[DataMember]
+		public string HandlerSignatureText { get; set; }			
+
+		[DataMember]
 		public IEnumerable<Question> Questions { get; set; }
+
+		[DataMember]
+		public IEnumerable<Section> Sections { get; set; }
     }
 }

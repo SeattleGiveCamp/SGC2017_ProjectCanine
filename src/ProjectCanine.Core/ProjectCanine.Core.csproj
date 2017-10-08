@@ -41,6 +41,7 @@
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Section.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\TestPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
