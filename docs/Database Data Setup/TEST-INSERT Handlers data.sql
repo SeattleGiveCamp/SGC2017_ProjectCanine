@@ -1,0 +1,1 @@
+﻿INSERT INTO [dbo].[Handlers] ([Id], [FirstName], [LastName]) VALUES ('e30ed2be-3a53-4800-a8c4-feda77461bf2', 'Donna', 'Frindt');

@@ -11,7 +11,7 @@ namespace ProjectCanine.Core.Models
 		public Guid Id { get; set; }
 
 		[DataMember]
-		public int LastEditedBy { get; set; }	// Examiner.Id
+		public Guid LastEditedBy { get; set; }	// Examiner.Id
 
 		[DataMember]
 		public DateTime LastEditedDate { get; set; }

@@ -1,0 +1,3 @@
+﻿DECLARE @testResult AS UNIQUEIDENTIFIER = 'fa81b15f-1a19-4219-a395-f85c059127ff';
+INSERT INTO [dbo].[TestResultsAnswers] ([Id], [TestResult], [Question], [Answer], [YesNo]) VALUES ('213ce152-a895-4c83-b576-7c83c1633cdb', @testResult, '8aede8d7-c6c0-4e53-b5bb-1e0b1f87e81d', 'P', 0);
+INSERT INTO [dbo].[TestResultsAnswers] ([Id], [TestResult], [Question], [Answer], [YesNo]) VALUES ('892a3e87-0f64-4b03-b118-7c0cd231952e', @testResult, '174bb235-ee87-4791-8fc2-527513a0763a', 'P', 0);
