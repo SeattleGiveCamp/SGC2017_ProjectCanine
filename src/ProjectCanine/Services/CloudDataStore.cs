@@ -15,25 +15,24 @@ namespace ProjectCanine
     {
         private readonly HttpClient client;
 		private readonly LocalStorage localStorage;
-
-		IEnumerable<Test> items;
-
+		
         public CloudDataStore()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri($"{App.BackendUrl}/");
 
-			localStorage = new LocalStorage();
-
-            items = new List<Test>();
+			localStorage = new LocalStorage();            
         }
 
-        public async Task<IEnumerable<Test>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Test>> GetItemsAsync()
         {
-            if (CrossConnectivity.Current.IsConnected)
+			IEnumerable<Test> items = new List<Test>();
+
+			if (CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item");
                 items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Test>>(json));
+				// TODO: Save to local storage
             } else
 			{
 				items = await localStorage.GetAll<Test>();
@@ -50,6 +49,7 @@ namespace ProjectCanine
 				{
 					var json = await client.GetStringAsync($"api/item/{id}");
 					return await Task.Run(() => JsonConvert.DeserializeObject<Test>(json));
+					// TODO: Save to local storage
 				}
 				else
 				{
@@ -66,17 +66,16 @@ namespace ProjectCanine
 
 			if (item != null)
 			{
+				result = true;
+
 				if (CrossConnectivity.Current.IsConnected)
 				{
 					var serializedItem = JsonConvert.SerializeObject(item);
 					var response = await client.PostAsync($"api/item", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 					result = response.IsSuccessStatusCode;
 				}
-				else
-				{
-					await localStorage.Save(item);
-					result = true;
-				}
+
+				await localStorage.Save(item);
 			}
 			return result;
         }
@@ -87,6 +86,8 @@ namespace ProjectCanine
 
 			if (item != null && item.Id != null)
 			{
+				result = true;
+
 				if (CrossConnectivity.Current.IsConnected)
 				{
 					var serializedItem = JsonConvert.SerializeObject(item);
@@ -97,11 +98,8 @@ namespace ProjectCanine
 
 					result = response.IsSuccessStatusCode;
 				}
-				else
-				{
-					await localStorage.Save(item);
-					result = true;
-				}
+
+				await localStorage.Save(item);
 			}
 
 			return result;            
@@ -118,5 +116,16 @@ namespace ProjectCanine
 
             return response.IsSuccessStatusCode;
         }
+
+		public async Task Sync()
+		{
+			//TODO: Watch for network availability changes and call this method
+
+			//TODO: Save all items in local storage which don't exist remotely
+			//		Update all items which are newer in local storage
+			//		Get all remote items not in local storage
+
+			//		Implementation strategy: one webapi method which takes the list, then returns the new list
+		}
     }
 }
