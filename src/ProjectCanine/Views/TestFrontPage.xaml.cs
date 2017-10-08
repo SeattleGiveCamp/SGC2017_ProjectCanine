@@ -35,7 +35,7 @@ namespace ProjectCanine
 
         void HandleContinue_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ContentPage());
+            Navigation.PushAsync(new SelectTestSectionPage());
         }
     }
 }
