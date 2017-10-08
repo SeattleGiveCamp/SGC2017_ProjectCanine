@@ -19,26 +19,21 @@ namespace ProjectCanine.Helpers
 				.GetAwaiter()
 				.GetResult();
 		}
-
+		
 		public async Task Save (IEntity entity)
 		{
-			string fileName = $"{entity.GetType().Name}.{entity.Id}.txt";
+			string fileName = $"{entity.GetType().Name}.{entity.Id.ToString()}.txt";
 			IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
 			await file.WriteAllTextAsync(JsonConvert.SerializeObject(entity));			
 		}
 
 		public async Task<T> Get<T>(Guid id)
 		{
-			return await Task.FromResult(default(T));
+			string fileName = $"{typeof(T).GetType().Name}.{id.ToString()}.txt";
+			IFile file = await rootFolder.GetFileAsync(fileName);
+			string contents = await file.ReadAllTextAsync();
+			T entity = JsonConvert.DeserializeObject<T>(contents);
+			return entity;
 		}
-
-		/*
-		 * IFolder rootFolder = FileSystem.Current.LocalStorage;
-    IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",
-        CreationCollisionOption.OpenIfExists);
-    IFile file = await folder.CreateFileAsync("answer.txt",
-        CreationCollisionOption.ReplaceExisting);
-    await file.WriteAllTextAsync("42");
-	*/
 	}
 }
