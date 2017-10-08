@@ -1,48 +1,24 @@
-﻿@model IEnumerable<ProjectCanine.AdminPortal.Data.Entities.TestResult>
+﻿@model IEnumerable<ProjectCanine.AdminPortal.ViewModels.ExportGridRow>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Test Results to Export";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Handler)
+            @Html.DisplayNameFor(model => model.HandlerName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dog)
+            @Html.DisplayNameFor(model => model.DogName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.PassedTest)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.TestDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ScoringExaminer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HandsOnExaminer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CertificationType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentRestrictions)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ScoringExaminerSignature)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HandsOnSignature)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HandlerSignature)
         </th>
         <th></th>
     </tr>
@@ -50,42 +26,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Handler)
+            @Html.DisplayFor(modelItem => item.HandlerName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Dog)
+            @Html.DisplayFor(modelItem => item.DogName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PassedTest)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.TestDate)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.ScoringExaminer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HandsOnExaminer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CertificationType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentRestrictions)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScoringExaminerSignature)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HandsOnSignature)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HandlerSignature)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Export", "Details", new { id=item.TestResultId }) @*|*@
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
         </td>
     </tr>
 }

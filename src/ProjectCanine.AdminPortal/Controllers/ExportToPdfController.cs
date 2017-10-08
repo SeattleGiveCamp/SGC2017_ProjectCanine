@@ -62,86 +62,32 @@ namespace ProjectCanine.AdminPortal.Controllers
             return View(testResult);
         }
 
-        // GET: TestResults/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		// in case Deletion wants to be added to the page.
+        //// GET: TestResults/Delete/5
+        //public async Task<ActionResult> Delete(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    TestResult testResult = await dbContext.TestResults.FindAsync(id);
+        //    if (testResult == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(testResult);
+        //}
 
-        // POST: TestResults/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Handler,Dog,PassedTest,TestDate,ScoringExaminer,HandsOnExaminer,CertificationType,EquipmentRestrictions,ScoringExaminerSignature,HandsOnSignature,HandlerSignature")] TestResult testResult)
-        {
-            if (ModelState.IsValid)
-            {
-                testResult.Id = Guid.NewGuid();
-                dbContext.TestResults.Add(testResult);
-                await dbContext.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-
-            return View(testResult);
-        }
-
-        // GET: TestResults/Edit/5
-        public async Task<ActionResult> Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TestResult testResult = await dbContext.TestResults.FindAsync(id);
-            if (testResult == null)
-            {
-                return HttpNotFound();
-            }
-            return View(testResult);
-        }
-
-        // POST: TestResults/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Handler,Dog,PassedTest,TestDate,ScoringExaminer,HandsOnExaminer,CertificationType,EquipmentRestrictions,ScoringExaminerSignature,HandsOnSignature,HandlerSignature")] TestResult testResult)
-        {
-            if (ModelState.IsValid)
-            {
-                dbContext.Entry(testResult).State = EntityState.Modified;
-                await dbContext.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(testResult);
-        }
-
-        // GET: TestResults/Delete/5
-        public async Task<ActionResult> Delete(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TestResult testResult = await dbContext.TestResults.FindAsync(id);
-            if (testResult == null)
-            {
-                return HttpNotFound();
-            }
-            return View(testResult);
-        }
-
-        // POST: TestResults/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(Guid id)
-        {
-            TestResult testResult = await dbContext.TestResults.FindAsync(id);
-            dbContext.TestResults.Remove(testResult);
-            await dbContext.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
+        //// POST: TestResults/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> DeleteConfirmed(Guid id)
+        //{
+        //    TestResult testResult = await dbContext.TestResults.FindAsync(id);
+        //    dbContext.TestResults.Remove(testResult);
+        //    await dbContext.SaveChangesAsync();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {
