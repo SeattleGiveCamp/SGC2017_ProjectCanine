@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -31,10 +33,22 @@ namespace ProjectCanine
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync();
-                foreach (var item in items)
+
+                var tests = await DataStore.GetTestsAsync();
+				var sections = await DataStore.GetSectionsAsync();
+				var questions = await DataStore.GetQuestionsAsync();
+
+                foreach (var test in tests)
                 {
-                    Items.Add(item);
+					foreach (var section in sections.Where(s => s.Test == test.Id).OrderBy(s => s.SectionNumber))
+					{
+						foreach (var question in questions.Where(q => q.Test == test.Id && q.Section == section.Id).OrderBy(q => q.QuestionNumber))
+						{
+							section.Questions.Add(question);
+						}
+						test.Sections.Add(section);
+					}
+                    Items.Add(test);
                 }
             }
             catch (Exception ex)
