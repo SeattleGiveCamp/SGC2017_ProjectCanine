@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using SimpleInjector;
+
+
 namespace ProjectCanine.AdminPortal.Controllers
 {
 	public class HomeController : Controller
@@ -15,14 +18,14 @@ namespace ProjectCanine.AdminPortal.Controllers
 
 		public ActionResult About()
 		{
-			ViewBag.Message = "Your application description page.";
+			ViewBag.Message = "Canine Project - Admin Portal";
 
 			return View();
 		}
 
 		public ActionResult Contact()
 		{
-			ViewBag.Message = "Your contact page.";
+			ViewBag.Message = "Canine Project - Admin Portal - Contact page";
 
 			return View();
 		}
