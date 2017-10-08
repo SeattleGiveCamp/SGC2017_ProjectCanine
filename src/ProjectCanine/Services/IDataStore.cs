@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using ProjectCanine.Core.Models;
 
 namespace ProjectCanine
 {
-    public interface IDataStore<T>
+    public interface IDataStore
     {
-        Task<bool> AddItemAsync(T item);
-        Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(Guid id);
-        Task<T> GetItemAsync(Guid id);
-        Task<IEnumerable<T>> GetItemsAsync();
-    }
+        Task<IEnumerable<Test>> GetTestsAsync();
+		Task<IEnumerable<Section>> GetSectionsAsync();
+		Task<IEnumerable<Question>> GetQuestionsAsync();
+	}
 }
