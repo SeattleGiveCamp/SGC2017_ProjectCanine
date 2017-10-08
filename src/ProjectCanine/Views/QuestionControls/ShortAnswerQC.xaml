@@ -4,8 +4,8 @@
     x:Class="ProjectCanine.ShortAnswerQC">
 	<ContentView.Content>
         <StackLayout>
-            <Label Text="Short Answer" />
-            <Entry Placeholder="Your response here" />
+            <Label Text="{Binding Title}" />
+            <Entry />
         </StackLayout>
 	</ContentView.Content>
 </ContentView>

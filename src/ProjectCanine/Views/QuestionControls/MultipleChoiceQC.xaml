@@ -3,6 +3,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="ProjectCanine.MultipleChoiceQC">
 	<ContentView.Content>
-        <Label Text="Multiple Choice" />
-	</ContentView.Content>
+        <StackLayout>
+            <Label Text="{Binding Title}" />
+            <ListView ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0">
+<!--                                <Label Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />-->
+                                <Label Text="SHOW SOMETHING HERE" />
+                             </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

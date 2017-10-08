@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="ProjectCanine.TestFrontPage" Title="{Binding Title}">
-	<StackLayout Spacing="20" Padding="15">   
-		<Label Text="{Binding TestObject.Name}" FontSize="Large" />
-        <Button Text="Continue" WidthRequest="150" FontSize="Medium"   
-        HorizontalOptions="End" BackgroundColor="Silver" TextColor="Black"
-        Clicked="HandleContinue_Clicked"/>
-	</StackLayout>
+    x:Class="ProjectCanine.TestFrontPage" Title="{Binding Title}"
+    xmlns:local="clr-namespace:ProjectCanine">
+    <ScrollView>
+    	<StackLayout Spacing="20" Padding="15">
+            <local:ShortAnswerQC Title="Handler Name:" x:Name="handlerName" />
+            <local:ShortAnswerQC Title="Canine Name:" x:Name="canineName" />
+            <local:ShortAnswerQC Title="Scoring Examiner:" x:Name="scoringExaminer" />
+            <local:ShortAnswerQC Title="Hands-On Examiner:" x:Name="handsOnExaminer" />
+            <local:ShortAnswerQC Title="Date:" x:Name="date" />
+            <local:MultipleChoiceQC Title="Type of Certification" x:Name="typeOfCertification" Items="{Binding CertificationOptions}" />
+            <local:MultipleChoiceQC Title="Canine Equipment Restriction" x:Name="canineEquipmentRestriction" />
+            <local:MultipleChoiceQC Title="Other Restrictions" />
+            <local:MultipleChoiceQC Title="Practice Lab Requirement" />
+            <local:MultipleChoiceQC Title="Shadow Visit Requirement (*Oregon)" />
+            <Button Text="Continue" WidthRequest="150" FontSize="Medium"   
+            HorizontalOptions="End" BackgroundColor="Silver" TextColor="Black"
+            Clicked="HandleContinue_Clicked"/>
+    	</StackLayout>
+    </ScrollView>
 </ContentPage>

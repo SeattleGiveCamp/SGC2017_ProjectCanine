@@ -15,6 +15,14 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Fail" BackgroundColor="Red" TextColor="White" />
+                <Button Grid.Column="1" Text="Pass" BackgroundColor="Green" TextColor="White" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
