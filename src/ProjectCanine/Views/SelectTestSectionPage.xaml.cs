@@ -38,5 +38,10 @@ namespace ProjectCanine
 			if (viewModel.Items.Count == 0)
 				viewModel.LoadItemsCommand.Execute(null);
 		}
-	}
+
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new FailedTestPage());
+        }
+    }
 }

@@ -1,5 +1,34 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ProjectCanine.Views.FailedTestPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProjectCanine.FailedTestPage"
+    xmlns:local="clr-namespace:ProjectCanine">
 	<ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row = "0" Text="Eligable to re-test?" TextColor="Black"/>
+                <Button Grid.Row ="1" Grid.Column="0" Text="No" BackgroundColor="#ff9999" 
+                    TextColor="White" FontSize="16" FontAttributes="Bold" />
+                <Button Grid.Row ="1" Grid.Column="1" Text="Yes" BackgroundColor="#99e699" 
+                    TextColor="White" FontSize="16" FontAttributes="Bold" />
+
+            </Grid>
+            <StackLayout>
+                <local:ShortAnswerQC Title="Please provide more information:" x:Name="moreInfo" />
+                <Button Text="Complete Test" TextColor="Black" BackgroundColor="Silver" 
+                 WidthRequest="150" HorizontalOptions="Center" Clicked="Handle_Clicked"/>
+            </StackLayout>
+
+           
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -56,6 +56,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\QuestionControls\LongAnswerQC.xaml.cs">
       <DependentUpon>LongAnswerQC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FailedTestViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FailedTestPage.xaml.cs">
+      <DependentUpon>FailedTestPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
@@ -89,6 +93,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\QuestionControls\LongAnswerQC.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\FailedTestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

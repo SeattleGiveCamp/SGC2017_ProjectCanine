@@ -20,8 +20,14 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Text="Fail" BackgroundColor="Red" TextColor="White" />
-                <Button Grid.Column="1" Text="Pass" BackgroundColor="Green" TextColor="White" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                
+                <Button Grid.Column="0" Grid.Row="0" Text="Fail" TextColor="White" Clicked="Handle_Clicked" 
+                BackgroundColor="#ff9999" FontSize="16" FontAttributes="Bold"/>
+                <Button Grid.Column="1" Grid.Row="0" Text="Pass" BackgroundColor="#99e699" TextColor="White"
+                FontSize="16" FontAttributes="Bold"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

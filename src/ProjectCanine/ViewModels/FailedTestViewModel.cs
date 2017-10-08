@@ -11,7 +11,7 @@ namespace ProjectCanine.ViewModels
             Content = new StackLayout
             {
                 Children = {
-                    new Label { Text = "Hello ContentPage" }
+                    new Label { Text = "Failed Examination" }
                 }
             };
         }
