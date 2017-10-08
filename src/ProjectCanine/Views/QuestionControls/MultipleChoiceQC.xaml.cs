@@ -19,7 +19,7 @@ namespace ProjectCanine
             base.OnBindingContextChanged();
 
 
-            var question = BindingContext as FrontPageQuestion;
+            var question = BindingContext as MCQuestionData;
             if (question == null)
                 return;
             
