@@ -6,24 +6,24 @@ namespace ProjectCanine
 {
     public partial class MultipleChoiceQC : ContentView
     {
-        public static BindableProperty ItemsProperty = BindableProperty.Create("Title", typeof(String), typeof(MultipleChoiceQC), "Multiple Choice label") ;
-        public static BindableProperty TitleProperty = BindableProperty.Create("Items", typeof(List<String>), typeof(MultipleChoiceQC), new List<String>());
-
+       
         public MultipleChoiceQC()
         {
             InitializeComponent();
+
+
         }
 
-        public List<String> Items
+        protected override void OnBindingContextChanged()
         {
-            get { return (List<String>)GetValue(ItemsProperty); }
-            set { SetValue(ItemsProperty, value);}
-        }
+            base.OnBindingContextChanged();
 
-		public string Title
-		{
-			get { return (string)GetValue(TitleProperty); }
-			set { SetValue(TitleProperty, value); }
-		}
+
+            var question = BindingContext as MCQuestionData;
+            if (question == null)
+                return;
+            
+            ListViewAnswers.HeightRequest = question.Items.Count * 50;
+        }
     }
 }

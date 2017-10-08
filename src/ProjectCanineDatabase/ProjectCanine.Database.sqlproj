@@ -70,12 +70,10 @@
     <Build Include="Tables\Questions.sql" />
     <Build Include="Tables\TestResults.sql" />
     <Build Include="Tables\TestResultsAnswers.sql" />
-    <Build Include="Tables\OtherRestrictions.sql" />
     <Build Include="Foreign Keys\FKTestResults_CertificationTypes.sql" />
     <Build Include="Foreign Keys\FKTestResults_Handlers.sql" />
     <Build Include="Foreign Keys\FKQuestions_Examiners.sql" />
     <Build Include="Foreign Keys\FKQuestions_Tests.sql" />
-    <Build Include="Foreign Keys\FKOtherRestrictions_TestResult.sql" />
     <Build Include="Foreign Keys\FKTestResults_Dogs.sql" />
     <Build Include="Foreign Keys\FKTestResults_Examiners_Scoring.sql" />
     <Build Include="Foreign Keys\FKTestResults_Examiners_HandsOn.sql" />
@@ -83,5 +81,12 @@
     <Build Include="Foreign Keys\FKTestResultsAnswers_TestResults.sql" />
     <Build Include="Foreign Keys\FKTestResultsAnswers_Questions.sql" />
     <Build Include="Foreign Keys\FKTests_Examiners.sql" />
+    <Build Include="Foreign Keys\FKTestResults_Tests.sql" />
+    <Build Include="Tables\Sections.sql" />
+    <Build Include="Foreign Keys\FKQuestions_Sections.sql" />
+    <Build Include="Foreign Keys\FKSections_Tests.sql" />
+    <Build Include="Tables\TestResultsSections.sql" />
+    <Build Include="Foreign Keys\FKTestResultsSections_TestResults.sql" />
+    <Build Include="Foreign Keys\FKTestResultsSections_Sections.sql" />
   </ItemGroup>
 </Project>

@@ -3,6 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="ProjectCanine.TestFrontPage" Title="{Binding Title}"
     xmlns:local="clr-namespace:ProjectCanine">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
     <ScrollView>
     	<StackLayout Spacing="20" Padding="15">
             <local:ShortAnswerQC Title="Handler Name:" x:Name="handlerName" />
@@ -10,14 +15,16 @@
             <local:ShortAnswerQC Title="Scoring Examiner:" x:Name="scoringExaminer" />
             <local:ShortAnswerQC Title="Hands-On Examiner:" x:Name="handsOnExaminer" />
             <local:ShortAnswerQC Title="Date:" x:Name="date" />
-            <local:MultipleChoiceQC Title="Type of Certification" x:Name="typeOfCertification" Items="{Binding CertificationOptions}" />
-            <local:MultipleChoiceQC Title="Canine Equipment Restriction" x:Name="canineEquipmentRestriction" />
-            <local:MultipleChoiceQC Title="Other Restrictions" />
-            <local:MultipleChoiceQC Title="Practice Lab Requirement" />
-            <local:MultipleChoiceQC Title="Shadow Visit Requirement (*Oregon)" />
-            <Button Text="Continue" WidthRequest="150" FontSize="Medium"   
-            HorizontalOptions="End" BackgroundColor="Silver" TextColor="Black"
-            Clicked="HandleContinue_Clicked"/>
+            <local:MultipleChoiceQC x:Name="typeOfCertification" BindingContext="{Binding CertificationQuestion}"/>
+            <local:MultipleChoiceQC x:Name="canineEquipRestrictions" BindingContext="{Binding CanineEquipmentQuestion}" />
+            <local:MultipleChoiceQC x:Name="practiceLabRequirements" BindingContext="{Binding PracticeLabQuestion}" />
+            <local:LongAnswerQC Title="Other Restrictions" x:Name="otherRestrictions"  />   
+            <local:MultipleChoiceQC x:Name="shadowVisit" BindingContext="{Binding ShadoVisitQuestion}"/>
     	</StackLayout>
     </ScrollView>
+
+    <Button Grid.Row="1" Text="Continue"  FontSize="Medium"   
+            HorizontalOptions="FillAndExpand" BackgroundColor="Silver" TextColor="Black"
+            Command="{Binding ContinueCommand}"/>
+    </Grid>
 </ContentPage>

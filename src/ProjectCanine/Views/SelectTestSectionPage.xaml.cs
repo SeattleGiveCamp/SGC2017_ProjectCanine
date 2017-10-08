@@ -19,6 +19,12 @@ namespace ProjectCanine
 			BindingContext = viewModel = new TestSectionViewModel();
 		}
 
+        public SelectTestSectionPage(TestSectionViewModel vm = null) {
+            viewModel = vm;
+
+            BindingContext = viewModel;
+        }
+
 		async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
 			var item = args.SelectedItem as Test;
@@ -29,14 +35,6 @@ namespace ProjectCanine
 
 			// Manually deselect item
 			ItemsListView.SelectedItem = null;
-		}
-
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
-
-			if (viewModel.Items.Count == 0)
-				viewModel.LoadItemsCommand.Execute(null);
 		}
 
         void Handle_Clicked(object sender, System.EventArgs e)
