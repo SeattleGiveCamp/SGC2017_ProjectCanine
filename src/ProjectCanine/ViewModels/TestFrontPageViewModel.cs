@@ -10,7 +10,10 @@ namespace ProjectCanine
 {
     public class TestFrontPageViewModel : ViewModelBase
     {
-        public MCQuestionData Question1 { get; }
+        public MCQuestionData CertificationQuestion { get; }
+        public MCQuestionData CanineEquipmentQuestion { get; }
+        public MCQuestionData PracticeLabQuestion { get; }
+        public MCQuestionData ShadoVisitQuestion { get; }
         
         public Test TestObject { get; set; }
 
@@ -24,7 +27,7 @@ namespace ProjectCanine
             TestObject = item;
             ContinueCommand = new Command(async () => await ExecuteContinueCommand());
 
-            Question1 = new MCQuestionData
+            CertificationQuestion = new MCQuestionData
             {
                 Title = "Type of Certification",
                 Items = new List<String>()
@@ -35,15 +38,54 @@ namespace ProjectCanine
                     "Puppy-to-adult dog certification"
                 }
             };
-        }
+
+			CanineEquipmentQuestion = new MCQuestionData
+			{
+				Title = "Canine Equipment Restriction",
+				Items = new List<String>()
+				{
+					"Flat Collar",
+					"Harness (any type)",
+					"Head Halter",
+					"Martingale Collar"
+				}
+			};
+
+			PracticeLabQuestion = new MCQuestionData
+			{
+				Title = "Practice Lab Requirement",
+				Items = new List<String>()
+				{
+					"Yes",
+					"No"
+				}
+			};
+
+         
+			ShadoVisitQuestion = new MCQuestionData
+			{
+				Title = "*Shadow Visit Requirement (*Oregon)",
+				Items = new List<String>()
+				{
+					"Both shadows",
+					"Second Shadow only",
+                    "NA"
+				}
+			};
+
+
+		}
 
         public Command ContinueCommand { get; }
 
         async Task ExecuteContinueCommand()
         {
-            if(string.IsNullOrWhiteSpace(Question1.SelectedItem))
+            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem) ||
+               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem) ||
+               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem)
+              )
             {
-                await Page.DisplayAlert("Unanswered Question", $"Please fill in {Question1.Title}", "OK");
+                await Page.DisplayAlert("Unanswered Question", $"Please answer all the questions.", "OK");
                 return;
             }
 
