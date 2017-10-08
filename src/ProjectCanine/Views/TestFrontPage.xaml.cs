@@ -9,6 +9,8 @@ namespace ProjectCanine
     public partial class TestFrontPage : ContentPage
     {
         TestFrontPageViewModel viewModel;
+        TestFrontPageViewModel ViewModel  => viewModel ?? (viewModel = BindingContext as TestFrontPageViewModel);
+
 
         // Note - The Xamarin.Forms Previewer requires a default, parameterless constructor to render a page.
         public TestFrontPage()
@@ -21,7 +23,7 @@ namespace ProjectCanine
                 Name = "This is an item description."
             };
 
-            viewModel = new TestFrontPageViewModel(item);
+            viewModel = new TestFrontPageViewModel(this, item);
             BindingContext = viewModel;
         }
 
@@ -32,9 +34,5 @@ namespace ProjectCanine
             BindingContext = this.viewModel = viewModel;
         }
 
-        void HandleContinue_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new SelectTestSectionPage());
-        }
     }
 }
