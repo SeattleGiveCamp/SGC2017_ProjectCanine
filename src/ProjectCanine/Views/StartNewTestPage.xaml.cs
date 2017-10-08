@@ -25,7 +25,12 @@ namespace ProjectCanine
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new TestFrontPage(new TestFrontPageViewModel(item)));
+
+            var page = new TestFrontPage();
+            var vm = new TestFrontPageViewModel(page, item);
+            page.BindingContext = vm;
+
+            await Navigation.PushAsync(page);
 
             // Manually deselect item
             ItemsListView.SelectedItem = null;

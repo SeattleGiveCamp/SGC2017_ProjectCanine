@@ -5,14 +5,12 @@
 	<ContentView.Content>
         <StackLayout>
             <Label Text="{Binding Title}" />
-            <ListView ItemsSource="{Binding Items}">
+            <ListView ItemsSource="{Binding Items}" 
+                x:Name="ListViewAnswers"
+                SelectedItem="{Binding SelectedItem}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="0">
-                                <Label Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                             </StackLayout>
-                        </ViewCell>
+                        <TextCell Text="{Binding .}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
