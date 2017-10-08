@@ -14,14 +14,29 @@ namespace ProjectCanine
         public MockDataStore()
         {
             items = new List<Test>();
+            IEnumerable<Question> firstQuestions = new List<Question> {
+                new Question { Text = "question 1.1", SectionNumber=1 },
+                new Question { Text = "question 1.2", SectionNumber=1 },
+                new Question { Text = "question 1.3", SectionNumber=1 },
+                new Question { Text = "question 2.1", SectionNumber=2 },
+                new Question { Text = "question 2.2", SectionNumber=2 },
+                new Question { Text = "question 2.3", SectionNumber=2 },
+                new Question { Text = "question 3.1", SectionNumber=3 }
+            };
+
             var mockItems = new List<Test>
             {
-                new Test { Id = Guid.NewGuid(), ShortName = "First item", Name="This is an item description." },
-                new Test { Id = Guid.NewGuid(), ShortName = "Second item", Name="This is an item description." },
-                new Test { Id = Guid.NewGuid(), ShortName = "Third item", Name="This is an item description." },
-                new Test { Id = Guid.NewGuid(), ShortName = "Fourth item", Name="This is an item description." },
-                new Test { Id = Guid.NewGuid(), ShortName = "Fifth item", Name="This is an item description." },
-                new Test { Id = Guid.NewGuid(), ShortName = "Sixth item", Name="This is an item description." },
+                new Test {
+                    Id = Guid.NewGuid(),
+                    ShortName = "First item",
+                    Name="This is first item",
+                    Questions = firstQuestions
+                },
+                new Test { Id = Guid.NewGuid(), ShortName = "Second item", Name="2nd" },
+                new Test { Id = Guid.NewGuid(), ShortName = "Third item", Name="third thing is here" },
+                new Test { Id = Guid.NewGuid(), ShortName = "Fourth item", Name="yes yes yes" },
+                new Test { Id = Guid.NewGuid(), ShortName = "Fifth item", Name="Tsire" },
+                new Test { Id = Guid.NewGuid(), ShortName = "Sixth item", Name="514234222222" },
             };
 
             foreach (var item in mockItems)

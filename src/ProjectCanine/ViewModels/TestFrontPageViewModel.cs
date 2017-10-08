@@ -47,8 +47,8 @@ namespace ProjectCanine
                 return;
             }
 
-
-            await Page.Navigation.PushAsync(new SelectTestSectionPage());
+            var vm = new TestSectionViewModel(TestObject);
+            await Page.Navigation.PushAsync(new SelectTestSectionPage(vm));
         }
     }
 }
