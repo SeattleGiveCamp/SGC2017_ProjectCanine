@@ -1,0 +1,1 @@
+﻿INSERT INTO [dbo].[Examiners] ([Id], [FirstName], [LastName]) VALUES ('50c112b0-488c-4a63-ab6c-3df970f5beb8', 'Donna', 'Frindt');
