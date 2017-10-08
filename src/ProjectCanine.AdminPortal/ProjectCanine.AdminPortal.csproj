@@ -196,10 +196,10 @@
     <Compile Include="Data\EfCfgs\HandlerEfConfig.cs">
       <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\EfCfgs\QuestionEfConfig.cs">
+    <Compile Include="Data\EfCfgs\OtherRestrictionEfConfig.cs">
       <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\EfCfgs\SectionEfConfig.cs">
+    <Compile Include="Data\EfCfgs\QuestionEfConfig.cs">
       <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\EfCfgs\TestEfConfig.cs">
@@ -209,9 +209,6 @@
       <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\EfCfgs\TestResultsAnswerEfConfig.cs">
-      <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\EfCfgs\TestResultsSectionEfConfig.cs">
       <DependentUpon>CaninePrjCfgs.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Entities\CaninePrjPOCOs.cs">
@@ -234,10 +231,10 @@
     <Compile Include="Data\Entities\Handler.cs">
       <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Entities\Question.cs">
+    <Compile Include="Data\Entities\OtherRestriction.cs">
       <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Entities\Section.cs">
+    <Compile Include="Data\Entities\Question.cs">
       <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Entities\Test.cs">
@@ -247,9 +244,6 @@
       <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Entities\TestResultsAnswer.cs">
-      <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Entities\TestResultsSection.cs">
       <DependentUpon>CaninePrjPOCOs.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\FakeCanineProjDbContext.cs">
