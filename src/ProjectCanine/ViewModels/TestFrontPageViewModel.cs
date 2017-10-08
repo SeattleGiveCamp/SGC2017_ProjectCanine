@@ -14,7 +14,13 @@ namespace ProjectCanine
         public MCQuestionData CanineEquipmentQuestion { get; }
         public MCQuestionData PracticeLabQuestion { get; }
         public MCQuestionData ShadoVisitQuestion { get; }
-        
+
+        public ShortQuestionData HandlerName { get; }
+        public ShortQuestionData CanineName { get; }
+        public ShortQuestionData ScoringExaminer { get; }
+        public ShortQuestionData HandsOnExaminer { get; }
+		public ShortQuestionData Date { get; }
+              
         public Test TestObject { get; set; }
 
         //public String CertificationTitle { get; set; }
@@ -27,37 +33,63 @@ namespace ProjectCanine
             TestObject = item;
             ContinueCommand = new Command(async () => await ExecuteContinueCommand());
 
-            CertificationQuestion = new MCQuestionData
+            HandlerName = new ShortQuestionData
+            {
+                Title = "Handler Name"
+            };
+
+			CanineName = new ShortQuestionData
+			{
+				Title = "Canine Name"
+			};
+
+			ScoringExaminer = new ShortQuestionData
+			{
+				Title = "Scoring Examiner"
+			};
+
+			HandsOnExaminer = new ShortQuestionData
+			{
+				Title = "Hands-On Examiner"
+			};
+
+			Date = new ShortQuestionData
+			{
+				Title = "Date"
+			};
+
+
+			CertificationQuestion = new MCQuestionData
             {
                 Title = "Type of Certification",
-                Items = new List<String>()
+                Items = new List<MCItem>()
                 {
-                    "New adult certification",
-                    "Junior handler certification (under 18 yrs of age)",
-                    "Adult recertification",
-                    "Puppy-to-adult dog certification"
+                    new MCItem("New adult certification"),
+                    new MCItem("Junior handler certification (under 18 yrs of age)"),
+                    new MCItem("Adult recertification"),
+                    new MCItem("Puppy-to-adult dog certification")
                 }
             };
 
 			CanineEquipmentQuestion = new MCQuestionData
 			{
 				Title = "Canine Equipment Restriction",
-				Items = new List<String>()
+                Items = new List<MCItem>()
 				{
-					"Flat Collar",
-					"Harness (any type)",
-					"Head Halter",
-					"Martingale Collar"
+                    new MCItem("Flat Collar"),
+                    new MCItem("Harness (any type)"),
+                    new MCItem("Head Halter"),
+                    new MCItem("Martingale Collar")
 				}
 			};
 
 			PracticeLabQuestion = new MCQuestionData
 			{
 				Title = "Practice Lab Requirement",
-				Items = new List<String>()
+                Items = new List<MCItem>()
 				{
-					"Yes",
-					"No"
+                    new MCItem("Yes"),
+                    new MCItem("No")
 				}
 			};
 
@@ -65,11 +97,11 @@ namespace ProjectCanine
 			ShadoVisitQuestion = new MCQuestionData
 			{
 				Title = "*Shadow Visit Requirement (*Oregon)",
-				Items = new List<String>()
+                Items = new List<MCItem>()
 				{
-					"Both shadows",
-					"Second Shadow only",
-                    "NA"
+                    new MCItem("Both shadows"),
+                    new MCItem("Second Shadow only"),
+                    new MCItem("NA")
 				}
 			};
 
@@ -80,10 +112,14 @@ namespace ProjectCanine
 
         async Task ExecuteContinueCommand()
         {
-            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem) ||
-               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem) ||
-               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem)
-              )
+            if(string.IsNullOrWhiteSpace(CertificationQuestion.SelectedItem.Text) ||
+               string.IsNullOrWhiteSpace(CanineEquipmentQuestion.SelectedItem.Text) ||
+               string.IsNullOrWhiteSpace(PracticeLabQuestion.SelectedItem.Text) ||
+               string.IsNullOrWhiteSpace(HandlerName.Text) ||
+               string.IsNullOrWhiteSpace(CanineName.Text) || 
+               string.IsNullOrWhiteSpace(ScoringExaminer.Text)||
+               string.IsNullOrWhiteSpace(HandsOnExaminer.Text) ||
+               string.IsNullOrWhiteSpace(Date.Text))
             {
                 await Page.DisplayAlert("Unanswered Question", $"Please answer all the questions.", "OK");
                 return;

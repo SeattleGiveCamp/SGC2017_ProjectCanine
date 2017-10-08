@@ -20,6 +20,7 @@ namespace ProjectCanine
 		}
 
         public SelectTestSectionPage(TestSectionViewModel vm = null) {
+            InitializeComponent();
             viewModel = vm;
 
             BindingContext = viewModel;
@@ -27,7 +28,7 @@ namespace ProjectCanine
 
 		async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
-			var item = args.SelectedItem as Test;
+			var item = args.SelectedItem as Section;
 			if (item == null)
 				return;
 
