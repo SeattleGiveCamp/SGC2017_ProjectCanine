@@ -7,8 +7,3 @@
 	[LastEditedBy] UNIQUEIDENTIFIER NOT NULL,
 	[LastEditedDate] DATETIME NOT NULL DEFAULT GetDate()
 )
-GO
-
-ALTER TABLE [dbo].[Tests] ADD CONSTRAINT FK_Tests_Examiners
-FOREIGN KEY (LastEditedBy) REFERENCES [dbo].Examiners (Id);
-GO
