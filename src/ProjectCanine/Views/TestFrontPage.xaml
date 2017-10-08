@@ -10,11 +10,11 @@
         </Grid.RowDefinitions>
     <ScrollView>
     	<StackLayout Spacing="20" Padding="15">
-            <local:ShortAnswerQC Title="Handler Name:" x:Name="handlerName" />
-            <local:ShortAnswerQC Title="Canine Name:" x:Name="canineName" />
-            <local:ShortAnswerQC Title="Scoring Examiner:" x:Name="scoringExaminer" />
-            <local:ShortAnswerQC Title="Hands-On Examiner:" x:Name="handsOnExaminer" />
-            <local:ShortAnswerQC Title="Date:" x:Name="date" />
+            <local:ShortAnswerQC BindingContext="{Binding HandlerName}" x:Name="handlerName" />
+            <local:ShortAnswerQC BindingContext="{Binding CanineName}" x:Name="canineName" />
+            <local:ShortAnswerQC BindingContext="{Binding ScoringExaminer}"  x:Name="scoringExaminer" />
+            <local:ShortAnswerQC BindingContext="{Binding HandsOnExaminer}"  x:Name="handsOnExaminer" />
+            <local:ShortAnswerQC BindingContext="{Binding Date}"  x:Name="date" />
             <local:MultipleChoiceQC x:Name="typeOfCertification" BindingContext="{Binding CertificationQuestion}"/>
             <local:MultipleChoiceQC x:Name="canineEquipRestrictions" BindingContext="{Binding CanineEquipmentQuestion}" />
             <local:MultipleChoiceQC x:Name="practiceLabRequirements" BindingContext="{Binding PracticeLabQuestion}" />

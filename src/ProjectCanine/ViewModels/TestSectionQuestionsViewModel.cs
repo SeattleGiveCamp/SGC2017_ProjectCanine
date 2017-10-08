@@ -13,10 +13,10 @@ namespace ProjectCanine
 			ExampleMC = new MCQuestionData
 			{
 				Title = "Example",
-				Items = new List<String>() {
-    				"first",
-    				"second",
-    				"third"
+				Items = new List<MCItem>() {
+                    new MCItem("first"),
+                    new MCItem("second"),
+                    new MCItem("third")
     			}
 			};
         }
