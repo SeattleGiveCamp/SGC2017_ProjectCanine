@@ -23,7 +23,6 @@ namespace ProjectCanine
 
             viewModel = new TestFrontPageViewModel(item);
             BindingContext = viewModel;
-
         }
 
         public TestFrontPage(TestFrontPageViewModel viewModel)
