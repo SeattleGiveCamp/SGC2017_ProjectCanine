@@ -13,6 +13,7 @@ using Microsoft.Ajax.Utilities;
 using ProjectCanine.AdminPortal.Data;
 using ProjectCanine.AdminPortal.Data.Entities;
 using ProjectCanine.AdminPortal.Services;
+using ProjectCanine.AdminPortal.ViewModels;
 
 
 namespace ProjectCanine.AdminPortal.Controllers
@@ -47,19 +48,22 @@ namespace ProjectCanine.AdminPortal.Controllers
             return View(viewModel);
         }
 
-        // GET: TestResults/Details/5
-        public async Task<ActionResult> Details(Guid? id)
+        // GET: ExportToPdf/Details/{Guid}
+        public ActionResult Details(Guid TestResultId)
         {
-            if (id == null)
+            if (TestResultId == Guid.Empty)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TestResult testResult = await dbContext.TestResults.FindAsync(id);
-            if (testResult == null)
-            {
-                return HttpNotFound();
-            }
-            return View(testResult);
+
+	        ExportGridRow egr = exportServices.GetExportableTest(TestResultId);
+
+			if (egr == null)
+			{
+				return HttpNotFound();
+			}
+
+			return View(egr);
         }
 
 		// in case Deletion wants to be added to the page.

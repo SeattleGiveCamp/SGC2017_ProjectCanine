@@ -57,8 +57,35 @@ namespace ProjectCanine.AdminPortal.Services
 				Debug.WriteLine($"Exception: {oEx.Message}");
 			}
 
-
 			return results;
+		}
+
+		public ExportGridRow GetExportableTest(Guid testResultId)
+		{
+			var result = new ExportGridRow();
+
+			try
+			{
+				var query = from tr in dbContext.TestResults
+							join hndlr in dbContext.Handlers on tr.Handler equals hndlr.Id
+							join dog in dbContext.Dogs on tr.Dog equals dog.Id
+							where tr.Id.Equals(testResultId)
+							select new ExportGridRow
+							{
+								TestResultId = tr.Id,
+								HandlerName = hndlr.FirstName.Trim() + " " + hndlr.LastName,
+								DogName = dog.Name.Trim(),
+								TestDate = tr.TestDate
+							};
+
+				result = query.FirstOrDefault() ?? new ExportGridRow();
+			}
+			catch (Exception oEx)
+			{
+				Debug.WriteLine($"Exception: {oEx.Message}");
+			}
+
+			return result;
 		}
 
 
