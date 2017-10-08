@@ -17,11 +17,15 @@ namespace ProjectCanine
                 Children = {
                     new Label {
                         Text = "Welcome!",
-                        FontSize = 20
+                        FontSize = 20,
+                        FontAttributes= FontAttributes.Bold,
+                        HorizontalTextAlignment = TextAlignment.Center
                     },
                     new Label {
+                        FontSize = 16,
                         Text = "This is an application for testing a canine " +
-                            "for ___? Please click the Select Test button to continue." },
+                            "Please click the Select Test button to continue." ,
+                        HorizontalTextAlignment = TextAlignment.Center},
                     SelectTestButton()
 				}
 			};

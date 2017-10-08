@@ -4,13 +4,13 @@ using Xamarin.Forms;
 
 namespace ProjectCanine
 {
+    [Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
     public partial class MultipleChoiceQC : ContentView
     {
        
         public MultipleChoiceQC()
         {
             InitializeComponent();
-
 
         }
 
@@ -23,7 +23,9 @@ namespace ProjectCanine
             if (question == null)
                 return;
             
-            ListViewAnswers.HeightRequest = question.Items.Count * 50;
+            ListViewAnswers.HeightRequest = question.Items.Count * 75;
         }
+
+       
     }
 }
