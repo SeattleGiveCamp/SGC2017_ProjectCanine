@@ -59,7 +59,7 @@ namespace ProjectCanine
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Test>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Test>> GetItemsAsync()
         {
             return await Task.FromResult(items);
         }
