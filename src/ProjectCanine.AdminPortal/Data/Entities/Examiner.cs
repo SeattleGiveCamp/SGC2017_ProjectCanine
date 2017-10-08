@@ -46,22 +46,17 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         /// Child Questions where [Questions].[LastEditedBy] point to this entity (FKQuestions_Examiners)
         /// </summary>
         [JsonIgnore]
-        public System.Collections.Generic.List<Question> Questions_LastEditedBy { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FKQuestions_Examiners
+        public System.Collections.Generic.List<Question> LastEditedBy { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FKQuestions_Examiners
         /// <summary>
         /// Child Questions where [Questions].[LastEditedBy] point to this entity (FK_Questions_Examiners)
         /// </summary>
         [JsonIgnore]
-        public System.Collections.Generic.List<Question> Questions1 { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FK_Questions_Examiners
+        public System.Collections.Generic.List<Question> Questions_LastEditedBy { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FK_Questions_Examiners
         /// <summary>
         /// Child Tests where [Tests].[LastEditedBy] point to this entity (FKTests_Examiners)
         /// </summary>
         [JsonIgnore]
-        public System.Collections.Generic.List<Test> Tests_LastEditedBy { get; set; } = new System.Collections.Generic.List<Test>(); // Tests.FKTests_Examiners
-        /// <summary>
-        /// Child Tests where [Tests].[LastEditedBy] point to this entity (FK_Tests_Examiners)
-        /// </summary>
-        [JsonIgnore]
-        public System.Collections.Generic.List<Test> Tests1 { get; set; } = new System.Collections.Generic.List<Test>(); // Tests.FK_Tests_Examiners
+        public System.Collections.Generic.List<Test> Tests { get; set; } = new System.Collections.Generic.List<Test>(); // Tests.FKTests_Examiners
         /// <summary>
         /// Child TestResults where [TestResults].[HandsOnExaminer] point to this entity (FKTestResults_Examiners_HandsOn)
         /// </summary>

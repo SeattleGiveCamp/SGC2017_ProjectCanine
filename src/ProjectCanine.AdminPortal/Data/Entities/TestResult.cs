@@ -29,6 +29,10 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         public System.Guid Id { get; set; } // Id (Primary key)
 
         [Required]
+        [Display(Name = "Test")]
+        public System.Guid Test { get; set; } // Test
+
+        [Required]
         [Display(Name = "Handler")]
         public System.Guid Handler { get; set; } // Handler
 
@@ -38,6 +42,27 @@ namespace ProjectCanine.AdminPortal.Data.Entities
 
         [Display(Name = "Passed test")]
         public bool? PassedTest { get; set; } // PassedTest
+
+        [MaxLength(5000)]
+        [StringLength(5000)]
+        [Display(Name = "Reason for failure")]
+        public string ReasonForFailure { get; set; } // ReasonForFailure (length: 5000)
+
+        [MaxLength(5000)]
+        [StringLength(5000)]
+        [Display(Name = "Notes")]
+        public string Notes { get; set; } // Notes (length: 5000)
+
+        [Required]
+        [Display(Name = "Passed connecting canines")]
+        public bool PassedConnectingCanines { get; set; } = false; // PassedConnectingCanines
+
+        [Display(Name = "Shadow visit requirement")]
+        public bool? ShadowVisitRequirement { get; set; } // ShadowVisitRequirement
+
+        [Required]
+        [Display(Name = "Eligible to retest")]
+        public bool EligibleToRetest { get; set; } = false; // EligibleToRetest
 
         [Required]
         [Display(Name = "Test date")]
@@ -56,6 +81,15 @@ namespace ProjectCanine.AdminPortal.Data.Entities
 
         [Display(Name = "Equipment restrictions")]
         public System.Guid? EquipmentRestrictions { get; set; } // EquipmentRestrictions
+
+        [MaxLength(300)]
+        [StringLength(300)]
+        [Display(Name = "Other restrictions")]
+        public string OtherRestrictions { get; set; } // OtherRestrictions (length: 300)
+
+        [Required]
+        [Display(Name = "Practice lab requirement")]
+        public bool PracticeLabRequirement { get; set; } = false; // PracticeLabRequirement
 
         [Display(Name = "Scoring examiner signature")]
         public byte[] ScoringExaminerSignature { get; set; } // ScoringExaminerSignature
@@ -97,6 +131,12 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         /// </summary>
         [JsonIgnore]
         public Examiner Examiner_ScoringExaminer { get; set; } // FKTestResults_Examiners_Scoring
+
+        /// <summary>
+        /// Parent Test pointed by [TestResults].([Test]) (FKTestResults_Tests)
+        /// </summary>
+        [JsonIgnore]
+        public Test Test_Test { get; set; } // FKTestResults_Tests
     }
 
 }

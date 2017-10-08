@@ -43,8 +43,8 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         public bool MustPass { get; set; } = false; // MustPass
 
         [Required]
-        [Display(Name = "Section number")]
-        public int SectionNumber { get; set; } // SectionNumber
+        [Display(Name = "Section")]
+        public System.Guid Section { get; set; } // Section
 
         [Required]
         [Display(Name = "Question number")]
@@ -84,16 +84,22 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         public Examiner Examiner1 { get; set; } // FK_Questions_Examiners
 
         /// <summary>
-        /// Parent Test pointed by [Questions].([Test]) (FK_Questions_Tests)
+        /// Parent Section pointed by [Questions].([Section]) (FKQuestions_Sections)
         /// </summary>
         [JsonIgnore]
-        public Test Test1 { get; set; } // FK_Questions_Tests
+        public Section Section_Section { get; set; } // FKQuestions_Sections
 
         /// <summary>
         /// Parent Test pointed by [Questions].([Test]) (FKQuestions_Tests)
         /// </summary>
         [JsonIgnore]
-        public Test Test2 { get; set; } // FKQuestions_Tests
+        public Test Test1 { get; set; } // FKQuestions_Tests
+
+        /// <summary>
+        /// Parent Test pointed by [Questions].([Test]) (FK_Questions_Tests)
+        /// </summary>
+        [JsonIgnore]
+        public Test Test2 { get; set; } // FK_Questions_Tests
     }
 
 }

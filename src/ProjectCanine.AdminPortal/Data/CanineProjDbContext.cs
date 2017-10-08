@@ -27,11 +27,12 @@ namespace ProjectCanine.AdminPortal.Data
         public System.Data.Entity.DbSet<EquipmentRestriction> EquipmentRestrictions { get; set; } // EquipmentRestrictions
         public System.Data.Entity.DbSet<Examiner> Examiners { get; set; } // Examiners
         public System.Data.Entity.DbSet<Handler> Handlers { get; set; } // Handlers
-        public System.Data.Entity.DbSet<OtherRestriction> OtherRestrictions { get; set; } // OtherRestrictions
         public System.Data.Entity.DbSet<Question> Questions { get; set; } // Questions
+        public System.Data.Entity.DbSet<Section> Sections { get; set; } // Sections
         public System.Data.Entity.DbSet<Test> Tests { get; set; } // Tests
         public System.Data.Entity.DbSet<TestResult> TestResults { get; set; } // TestResults
         public System.Data.Entity.DbSet<TestResultsAnswer> TestResultsAnswers { get; set; } // TestResultsAnswers
+        public System.Data.Entity.DbSet<TestResultsSection> TestResultsSections { get; set; } // TestResultsSections
 
         static CanineProjDbContext()
         {
@@ -86,11 +87,12 @@ namespace ProjectCanine.AdminPortal.Data
             modelBuilder.Configurations.Add(new EquipmentRestrictionEfConfig());
             modelBuilder.Configurations.Add(new ExaminerEfConfig());
             modelBuilder.Configurations.Add(new HandlerEfConfig());
-            modelBuilder.Configurations.Add(new OtherRestrictionEfConfig());
             modelBuilder.Configurations.Add(new QuestionEfConfig());
+            modelBuilder.Configurations.Add(new SectionEfConfig());
             modelBuilder.Configurations.Add(new TestEfConfig());
             modelBuilder.Configurations.Add(new TestResultEfConfig());
             modelBuilder.Configurations.Add(new TestResultsAnswerEfConfig());
+            modelBuilder.Configurations.Add(new TestResultsSectionEfConfig());
         }
 
         public static System.Data.Entity.DbModelBuilder CreateModel(System.Data.Entity.DbModelBuilder modelBuilder, string schema)
@@ -100,11 +102,12 @@ namespace ProjectCanine.AdminPortal.Data
             modelBuilder.Configurations.Add(new EquipmentRestrictionEfConfig(schema));
             modelBuilder.Configurations.Add(new ExaminerEfConfig(schema));
             modelBuilder.Configurations.Add(new HandlerEfConfig(schema));
-            modelBuilder.Configurations.Add(new OtherRestrictionEfConfig(schema));
             modelBuilder.Configurations.Add(new QuestionEfConfig(schema));
+            modelBuilder.Configurations.Add(new SectionEfConfig(schema));
             modelBuilder.Configurations.Add(new TestEfConfig(schema));
             modelBuilder.Configurations.Add(new TestResultEfConfig(schema));
             modelBuilder.Configurations.Add(new TestResultsAnswerEfConfig(schema));
+            modelBuilder.Configurations.Add(new TestResultsSectionEfConfig(schema));
             return modelBuilder;
         }
     }

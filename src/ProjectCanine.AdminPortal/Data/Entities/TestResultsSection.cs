@@ -18,9 +18,9 @@ namespace ProjectCanine.AdminPortal.Data.Entities
 {
     using Newtonsoft.Json;
 
-    // OtherRestrictions
+    // TestResultsSections
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
-    public class OtherRestriction
+    public class TestResultsSection
     {
         [Column(@"Id", Order = 1, TypeName = "uniqueidentifier")]
         [Required]
@@ -32,10 +32,22 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         [Display(Name = "Test result")]
         public System.Guid TestResult { get; set; } // TestResult
 
-        [MaxLength(200)]
-        [StringLength(200)]
-        [Display(Name = "Additional info")]
-        public string AdditionalInfo { get; set; } // AdditionalInfo (length: 200)
+        [Required]
+        [Display(Name = "Section")]
+        public System.Guid Section { get; set; } // Section
+
+        [MaxLength(5000)]
+        [StringLength(5000)]
+        [Display(Name = "Notes")]
+        public string Notes { get; set; } // Notes (length: 5000)
+
+        // Foreign keys
+
+        /// <summary>
+        /// Parent Section pointed by [TestResultsSections].([Section]) (FKTestResultsSections_Sections)
+        /// </summary>
+        [JsonIgnore]
+        public Section Section_Section { get; set; } // FKTestResultsSections_Sections
     }
 
 }
