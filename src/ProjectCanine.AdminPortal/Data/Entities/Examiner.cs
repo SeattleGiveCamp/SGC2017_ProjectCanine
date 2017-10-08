@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // Examiners
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -44,27 +45,28 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         /// <summary>
         /// Child Questions where [Questions].[LastEditedBy] point to this entity (FKQuestions_Examiners)
         /// </summary>
-        public virtual System.Collections.Generic.List<Question> Questions_LastEditedBy { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FKQuestions_Examiners
+        [JsonIgnore]
+        public System.Collections.Generic.List<Question> LastEditedBy { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FKQuestions_Examiners
         /// <summary>
         /// Child Questions where [Questions].[LastEditedBy] point to this entity (FK_Questions_Examiners)
         /// </summary>
-        public virtual System.Collections.Generic.List<Question> Questions1 { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FK_Questions_Examiners
+        [JsonIgnore]
+        public System.Collections.Generic.List<Question> Questions_LastEditedBy { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FK_Questions_Examiners
         /// <summary>
         /// Child Tests where [Tests].[LastEditedBy] point to this entity (FKTests_Examiners)
         /// </summary>
-        public virtual System.Collections.Generic.List<Test> Tests_LastEditedBy { get; set; } = new System.Collections.Generic.List<Test>(); // Tests.FKTests_Examiners
-        /// <summary>
-        /// Child Tests where [Tests].[LastEditedBy] point to this entity (FK_Tests_Examiners)
-        /// </summary>
-        public virtual System.Collections.Generic.List<Test> Tests1 { get; set; } = new System.Collections.Generic.List<Test>(); // Tests.FK_Tests_Examiners
+        [JsonIgnore]
+        public System.Collections.Generic.List<Test> Tests { get; set; } = new System.Collections.Generic.List<Test>(); // Tests.FKTests_Examiners
         /// <summary>
         /// Child TestResults where [TestResults].[HandsOnExaminer] point to this entity (FKTestResults_Examiners_HandsOn)
         /// </summary>
-        public virtual System.Collections.Generic.List<TestResult> HandsOnExaminer { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResults_Examiners_HandsOn
+        [JsonIgnore]
+        public System.Collections.Generic.List<TestResult> HandsOnExaminer { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResults_Examiners_HandsOn
         /// <summary>
         /// Child TestResults where [TestResults].[ScoringExaminer] point to this entity (FKTestResults_Examiners_Scoring)
         /// </summary>
-        public virtual System.Collections.Generic.List<TestResult> ScoringExaminer { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResults_Examiners_Scoring
+        [JsonIgnore]
+        public System.Collections.Generic.List<TestResult> ScoringExaminer { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResults_Examiners_Scoring
     }
 
 }

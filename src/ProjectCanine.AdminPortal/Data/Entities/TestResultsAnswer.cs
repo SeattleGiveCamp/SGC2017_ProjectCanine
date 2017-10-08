@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // TestResultsAnswers
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -50,12 +51,8 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         /// <summary>
         /// Parent Question pointed by [TestResultsAnswers].([Question]) (FKTestResultsAnswers_Questions)
         /// </summary>
-        public virtual Question Question_Question { get; set; } // FKTestResultsAnswers_Questions
-
-        /// <summary>
-        /// Parent TestResult pointed by [TestResultsAnswers].([TestResult]) (FKTestResultsAnswers_TestResults)
-        /// </summary>
-        public virtual TestResult TestResult_TestResult { get; set; } // FKTestResultsAnswers_TestResults
+        [JsonIgnore]
+        public Question Question_Question { get; set; } // FKTestResultsAnswers_Questions
     }
 
 }

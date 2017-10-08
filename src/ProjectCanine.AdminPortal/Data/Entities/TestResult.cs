@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // TestResults
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -28,6 +29,10 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         public System.Guid Id { get; set; } // Id (Primary key)
 
         [Required]
+        [Display(Name = "Test")]
+        public System.Guid Test { get; set; } // Test
+
+        [Required]
         [Display(Name = "Handler")]
         public System.Guid Handler { get; set; } // Handler
 
@@ -37,6 +42,27 @@ namespace ProjectCanine.AdminPortal.Data.Entities
 
         [Display(Name = "Passed test")]
         public bool? PassedTest { get; set; } // PassedTest
+
+        [MaxLength(5000)]
+        [StringLength(5000)]
+        [Display(Name = "Reason for failure")]
+        public string ReasonForFailure { get; set; } // ReasonForFailure (length: 5000)
+
+        [MaxLength(5000)]
+        [StringLength(5000)]
+        [Display(Name = "Notes")]
+        public string Notes { get; set; } // Notes (length: 5000)
+
+        [Required]
+        [Display(Name = "Passed connecting canines")]
+        public bool PassedConnectingCanines { get; set; } = false; // PassedConnectingCanines
+
+        [Display(Name = "Shadow visit requirement")]
+        public bool? ShadowVisitRequirement { get; set; } // ShadowVisitRequirement
+
+        [Required]
+        [Display(Name = "Eligible to retest")]
+        public bool EligibleToRetest { get; set; } = false; // EligibleToRetest
 
         [Required]
         [Display(Name = "Test date")]
@@ -56,6 +82,15 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         [Display(Name = "Equipment restrictions")]
         public System.Guid? EquipmentRestrictions { get; set; } // EquipmentRestrictions
 
+        [MaxLength(300)]
+        [StringLength(300)]
+        [Display(Name = "Other restrictions")]
+        public string OtherRestrictions { get; set; } // OtherRestrictions (length: 300)
+
+        [Required]
+        [Display(Name = "Practice lab requirement")]
+        public bool PracticeLabRequirement { get; set; } = false; // PracticeLabRequirement
+
         [Display(Name = "Scoring examiner signature")]
         public byte[] ScoringExaminerSignature { get; set; } // ScoringExaminerSignature
 
@@ -65,48 +100,43 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         [Display(Name = "Handler signature")]
         public byte[] HandlerSignature { get; set; } // HandlerSignature
 
-        // Reverse navigation
-
-        /// <summary>
-        /// Child OtherRestrictions where [OtherRestrictions].[TestResult] point to this entity (FKOtherRestrictions_TestResult)
-        /// </summary>
-        public virtual System.Collections.Generic.List<OtherRestriction> OtherRestrictions { get; set; } = new System.Collections.Generic.List<OtherRestriction>(); // OtherRestrictions.FKOtherRestrictions_TestResult
-        /// <summary>
-        /// Child TestResultsAnswers where [TestResultsAnswers].[TestResult] point to this entity (FKTestResultsAnswers_TestResults)
-        /// </summary>
-        public virtual System.Collections.Generic.List<TestResultsAnswer> TestResultsAnswers { get; set; } = new System.Collections.Generic.List<TestResultsAnswer>(); // TestResultsAnswers.FKTestResultsAnswers_TestResults
-
         // Foreign keys
 
         /// <summary>
         /// Parent CertificationType pointed by [TestResults].([CertificationType]) (FKTestResults_CertificationTypes)
         /// </summary>
-        public virtual CertificationType CertificationType_CertificationType { get; set; } // FKTestResults_CertificationTypes
+        [JsonIgnore]
+        public CertificationType CertificationType_CertificationType { get; set; } // FKTestResults_CertificationTypes
 
         /// <summary>
         /// Parent Dog pointed by [TestResults].([Dog]) (FKTestResults_Dogs)
         /// </summary>
-        public virtual Dog Dog_Dog { get; set; } // FKTestResults_Dogs
+        [JsonIgnore]
+        public Dog Dog_Dog { get; set; } // FKTestResults_Dogs
 
         /// <summary>
         /// Parent EquipmentRestriction pointed by [TestResults].([EquipmentRestrictions]) (FKTestResultsEquipmentRestrictions)
         /// </summary>
-        public virtual EquipmentRestriction EquipmentRestriction { get; set; } // FKTestResultsEquipmentRestrictions
+        [JsonIgnore]
+        public EquipmentRestriction EquipmentRestriction { get; set; } // FKTestResultsEquipmentRestrictions
 
         /// <summary>
         /// Parent Examiner pointed by [TestResults].([HandsOnExaminer]) (FKTestResults_Examiners_HandsOn)
         /// </summary>
-        public virtual Examiner Examiner_HandsOnExaminer { get; set; } // FKTestResults_Examiners_HandsOn
+        [JsonIgnore]
+        public Examiner Examiner_HandsOnExaminer { get; set; } // FKTestResults_Examiners_HandsOn
 
         /// <summary>
         /// Parent Examiner pointed by [TestResults].([ScoringExaminer]) (FKTestResults_Examiners_Scoring)
         /// </summary>
-        public virtual Examiner Examiner_ScoringExaminer { get; set; } // FKTestResults_Examiners_Scoring
+        [JsonIgnore]
+        public Examiner Examiner_ScoringExaminer { get; set; } // FKTestResults_Examiners_Scoring
 
         /// <summary>
-        /// Parent Handler pointed by [TestResults].([Handler]) (FKTestResults_Handlers)
+        /// Parent Test pointed by [TestResults].([Test]) (FKTestResults_Tests)
         /// </summary>
-        public virtual Handler Handler_Handler { get; set; } // FKTestResults_Handlers
+        [JsonIgnore]
+        public Test Test_Test { get; set; } // FKTestResults_Tests
     }
 
 }

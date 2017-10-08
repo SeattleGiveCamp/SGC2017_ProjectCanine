@@ -24,11 +24,12 @@ namespace ProjectCanine.AdminPortal.Data
         System.Data.Entity.DbSet<EquipmentRestriction> EquipmentRestrictions { get; set; } // EquipmentRestrictions
         System.Data.Entity.DbSet<Examiner> Examiners { get; set; } // Examiners
         System.Data.Entity.DbSet<Handler> Handlers { get; set; } // Handlers
-        System.Data.Entity.DbSet<OtherRestriction> OtherRestrictions { get; set; } // OtherRestrictions
         System.Data.Entity.DbSet<Question> Questions { get; set; } // Questions
+        System.Data.Entity.DbSet<Section> Sections { get; set; } // Sections
         System.Data.Entity.DbSet<Test> Tests { get; set; } // Tests
         System.Data.Entity.DbSet<TestResult> TestResults { get; set; } // TestResults
         System.Data.Entity.DbSet<TestResultsAnswer> TestResultsAnswers { get; set; } // TestResultsAnswers
+        System.Data.Entity.DbSet<TestResultsSection> TestResultsSections { get; set; } // TestResultsSections
 
         int SaveChanges();
         System.Threading.Tasks.Task<int> SaveChangesAsync();

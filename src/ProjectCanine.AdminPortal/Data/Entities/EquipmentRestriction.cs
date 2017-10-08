@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // EquipmentRestrictions
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -38,7 +39,8 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         /// <summary>
         /// Child TestResults where [TestResults].[EquipmentRestrictions] point to this entity (FKTestResultsEquipmentRestrictions)
         /// </summary>
-        public virtual System.Collections.Generic.List<TestResult> TestResults { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResultsEquipmentRestrictions
+        [JsonIgnore]
+        public System.Collections.Generic.List<TestResult> TestResults { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResultsEquipmentRestrictions
     }
 
 }

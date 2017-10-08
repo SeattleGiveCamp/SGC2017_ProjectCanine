@@ -29,7 +29,7 @@
     UseDataAnnotations = true;			// If true, will add data annotations to the poco classes.
     UseDataAnnotationsSchema = false;	// UseDataAnnotations must also be true. If true, will add data annotations schema to the poco classes.
     UsePropertyInitializers = true;		// Removes POCO constructor and instead uses C# 6 property initialisers to set defaults
-    UseLazyLoading = true;		// Marks all navigation properties as virtual or not, to support or disable EF Lazy Loading feature
+    UseLazyLoading = false;				// Marks all navigation properties as virtual or not, to support or disable EF Lazy Loading feature
     IncludeComments = CommentsStyle.AtEndOfField;	// Adds comments to the generated code
     IncludeExtendedPropertyComments = CommentsStyle.InSummaryBlock;		// Adds extended properties as comments to the generated code
     IncludeConnectionSettingComments = true;		// Add comments describing connection settings used to generate file
@@ -46,7 +46,7 @@
     IncludeQueryTraceOn9481Flag = false; // If SqlServer 2014 appears frozen / take a long time when this file is saved, try setting this to true (you will also need elevated privileges).
     IncludeCodeGeneratedAttribute = true; // If true, will include the GeneratedCode attribute, false to remove it.
     UsePrivateSetterForComputedColumns = true; // If the columns is computed, use a private setter.
-    AdditionalNamespaces = new[] { "" };  // To include extra namespaces, include them here. i.e. "Microsoft.AspNet.Identity.EntityFramework"
+    AdditionalNamespaces = new[] { "Newtonsoft.Json" };		// To include extra namespaces, include them here. i.e. "Microsoft.AspNet.Identity.EntityFramework"
     AdditionalContextInterfaceItems = new[] // To include extra db context interface items, include them here. Also set MakeClassesPartial=true, and implement the partial DbContext class functions.
     {
         ""  //  example: "void SetAutoDetectChangesEnabled(bool flag);"
@@ -58,12 +58,12 @@
     // For more control, take a look at ForeignKeyAnnotationsProcessing() further down
     AdditionalReverseNavigationsDataAnnotations = new string[] // Data Annotations for all ReverseNavigationProperty.
     {
-        // "JsonIgnore" // Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
+		"JsonIgnore"	// Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
     };
     
 	AdditionalForeignKeysDataAnnotations = new string[] // Data Annotations for all ForeignKeys.
     {
-        // "JsonIgnore" // Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
+		"JsonIgnore"	// Also add "Newtonsoft.Json" to the AdditionalNamespaces array above
     };
 
     ColumnNameToDataAnnotation = new Dictionary<string, string>
@@ -181,7 +181,6 @@
         return true;
     };
 
-
     // Stored Procedures ******************************************************************************************************************
     // Use the following regex filters to include or exclude stored procedures
     StoredProcedureFilterExclude = null;
@@ -198,7 +197,6 @@
 
         return true;
     };
-
 
     // Table renaming *********************************************************************************************************************
     // Use the following function to rename tables such as tblOrders to Orders, Shipments_AB to Shipments, etc.
@@ -397,12 +395,18 @@
         // Return null to exclude this foreign key, or set IncludeReverseNavigation = false
         // to include the foreign key but not generate reverse navigation properties.
         // Example, to exclude all foreign keys for the Categories table, use:
-        // if (fk.PkTableName == "Categories")
-        //    return null;
+		if (fk.PkTableName.Contains("TestResults") ||
+			fk.PkTableName.Contains("Handler")) 
+		{
+			return null;
+		}
 
         // Example, to exclude reverse navigation properties for tables ending with Type, use:
-        // if (fk.PkTableName.EndsWith("Type"))
-        //    fk.IncludeReverseNavigation = false;
+		if (fk.PkTableName.Equals("TestResults") ||
+			fk.PkTableName.Equals("Handler")) 
+		{
+			fk.IncludeReverseNavigation = false;
+		}
 
         return fk;
     };

@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // Questions
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -42,8 +43,8 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         public bool MustPass { get; set; } = false; // MustPass
 
         [Required]
-        [Display(Name = "Section number")]
-        public int SectionNumber { get; set; } // SectionNumber
+        [Display(Name = "Section")]
+        public System.Guid Section { get; set; } // Section
 
         [Required]
         [Display(Name = "Question number")]
@@ -65,29 +66,40 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         /// <summary>
         /// Child TestResultsAnswers where [TestResultsAnswers].[Question] point to this entity (FKTestResultsAnswers_Questions)
         /// </summary>
-        public virtual System.Collections.Generic.List<TestResultsAnswer> TestResultsAnswers { get; set; } = new System.Collections.Generic.List<TestResultsAnswer>(); // TestResultsAnswers.FKTestResultsAnswers_Questions
+        [JsonIgnore]
+        public System.Collections.Generic.List<TestResultsAnswer> TestResultsAnswers { get; set; } = new System.Collections.Generic.List<TestResultsAnswer>(); // TestResultsAnswers.FKTestResultsAnswers_Questions
 
         // Foreign keys
 
         /// <summary>
         /// Parent Examiner pointed by [Questions].([LastEditedBy]) (FKQuestions_Examiners)
         /// </summary>
-        public virtual Examiner Examiner_LastEditedBy { get; set; } // FKQuestions_Examiners
+        [JsonIgnore]
+        public Examiner Examiner_LastEditedBy { get; set; } // FKQuestions_Examiners
 
         /// <summary>
         /// Parent Examiner pointed by [Questions].([LastEditedBy]) (FK_Questions_Examiners)
         /// </summary>
-        public virtual Examiner Examiner1 { get; set; } // FK_Questions_Examiners
+        [JsonIgnore]
+        public Examiner Examiner1 { get; set; } // FK_Questions_Examiners
 
         /// <summary>
-        /// Parent Test pointed by [Questions].([Test]) (FK_Questions_Tests)
+        /// Parent Section pointed by [Questions].([Section]) (FKQuestions_Sections)
         /// </summary>
-        public virtual Test Test1 { get; set; } // FK_Questions_Tests
+        [JsonIgnore]
+        public Section Section_Section { get; set; } // FKQuestions_Sections
 
         /// <summary>
         /// Parent Test pointed by [Questions].([Test]) (FKQuestions_Tests)
         /// </summary>
-        public virtual Test Test2 { get; set; } // FKQuestions_Tests
+        [JsonIgnore]
+        public Test Test1 { get; set; } // FKQuestions_Tests
+
+        /// <summary>
+        /// Parent Test pointed by [Questions].([Test]) (FK_Questions_Tests)
+        /// </summary>
+        [JsonIgnore]
+        public Test Test2 { get; set; } // FK_Questions_Tests
     }
 
 }

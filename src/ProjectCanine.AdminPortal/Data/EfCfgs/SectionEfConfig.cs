@@ -17,27 +17,20 @@ namespace ProjectCanine.AdminPortal.Data.EfCfgs
     using ProjectCanine.AdminPortal.Data;
     using ProjectCanine.AdminPortal.Data.Entities;
 
-    // TestResults
+    // Sections
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
-    public class TestResultEfConfig : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<TestResult>
+    public class SectionEfConfig : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<Section>
     {
-        public TestResultEfConfig()
+        public SectionEfConfig()
             : this("dbo")
         {
         }
 
-        public TestResultEfConfig(string schema)
+        public SectionEfConfig(string schema)
         {
-            Property(x => x.PassedTest).IsOptional();
-            Property(x => x.ReasonForFailure).IsOptional().IsUnicode(false);
-            Property(x => x.Notes).IsOptional().IsUnicode(false);
-            Property(x => x.ShadowVisitRequirement).IsOptional();
-            Property(x => x.CertificationType).IsOptional();
-            Property(x => x.EquipmentRestrictions).IsOptional();
-            Property(x => x.OtherRestrictions).IsOptional().IsUnicode(false);
-            Property(x => x.ScoringExaminerSignature).IsOptional();
-            Property(x => x.HandsOnSignature).IsOptional();
-            Property(x => x.HandlerSignature).IsOptional();
+            Property(x => x.Title).IsUnicode(false);
+            Property(x => x.Description).IsUnicode(false);
+            Property(x => x.LastEditedBy).IsOptional();
 
         }
     }

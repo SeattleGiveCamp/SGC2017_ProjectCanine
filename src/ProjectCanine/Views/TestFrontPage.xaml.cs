@@ -27,11 +27,12 @@ namespace ProjectCanine
             BindingContext = viewModel;
         }
 
-        public TestFrontPage(TestFrontPageViewModel viewModel)
+        public TestFrontPage(Test item = null)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            viewModel = new TestFrontPageViewModel(this, item);
+            BindingContext = viewModel;
         }
 
     }

@@ -1,28 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
 namespace ProjectCanine.Core.Models
 {
 	[DataContract]
-	public class Question : TestPart
+	public class Section : TestPart
 	{
 		[DataMember]
 		public Guid Test { get; set; }
 
 		[DataMember]
-		public string Text { get; set; }
+		public int SectionNumber { get; set; }
 
 		[DataMember]
-		public bool MustPass { get; set; }
+		public string Title { get; set; }
 
 		[DataMember]
-		public Guid Section { get; set; }
+		public string Description { get; set; }
 
 		[DataMember]
-		public int QuestionNumber { get; set; }
-
-		[DataMember]
-		public bool HasYesNo { get; set; }
+		public List<Question> Questions { get; set; }
 	}
 }

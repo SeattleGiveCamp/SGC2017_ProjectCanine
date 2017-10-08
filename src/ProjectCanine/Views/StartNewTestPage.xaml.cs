@@ -24,9 +24,8 @@ namespace ProjectCanine
             var item = args.SelectedItem as Test;
             if (item == null)
                 return;
-
-
-            var page = new TestFrontPage();
+            
+            var page = new TestFrontPage(item);
             var vm = new TestFrontPageViewModel(page, item);
             page.BindingContext = vm;
 

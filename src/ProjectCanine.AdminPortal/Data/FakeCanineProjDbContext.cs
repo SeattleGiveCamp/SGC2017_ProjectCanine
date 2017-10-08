@@ -27,11 +27,12 @@ namespace ProjectCanine.AdminPortal.Data
         public System.Data.Entity.DbSet<EquipmentRestriction> EquipmentRestrictions { get; set; }
         public System.Data.Entity.DbSet<Examiner> Examiners { get; set; }
         public System.Data.Entity.DbSet<Handler> Handlers { get; set; }
-        public System.Data.Entity.DbSet<OtherRestriction> OtherRestrictions { get; set; }
         public System.Data.Entity.DbSet<Question> Questions { get; set; }
+        public System.Data.Entity.DbSet<Section> Sections { get; set; }
         public System.Data.Entity.DbSet<Test> Tests { get; set; }
         public System.Data.Entity.DbSet<TestResult> TestResults { get; set; }
         public System.Data.Entity.DbSet<TestResultsAnswer> TestResultsAnswers { get; set; }
+        public System.Data.Entity.DbSet<TestResultsSection> TestResultsSections { get; set; }
 
         public FakeCanineProjDbContext()
         {
@@ -40,11 +41,12 @@ namespace ProjectCanine.AdminPortal.Data
             EquipmentRestrictions = new FakeDbSet<EquipmentRestriction>("Id");
             Examiners = new FakeDbSet<Examiner>("Id");
             Handlers = new FakeDbSet<Handler>("Id");
-            OtherRestrictions = new FakeDbSet<OtherRestriction>("Id");
             Questions = new FakeDbSet<Question>("Id");
+            Sections = new FakeDbSet<Section>("Id");
             Tests = new FakeDbSet<Test>("Id");
             TestResults = new FakeDbSet<TestResult>("Id");
             TestResultsAnswers = new FakeDbSet<TestResultsAnswer>("Id");
+            TestResultsSections = new FakeDbSet<TestResultsSection>("Id");
         }
 
         public int SaveChangesCount { get; private set; }

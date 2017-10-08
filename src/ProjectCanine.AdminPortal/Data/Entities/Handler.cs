@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // Handlers
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -38,13 +39,6 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         [StringLength(100)]
         [Display(Name = "Last name")]
         public string LastName { get; set; } // LastName (length: 100)
-
-        // Reverse navigation
-
-        /// <summary>
-        /// Child TestResults where [TestResults].[Handler] point to this entity (FKTestResults_Handlers)
-        /// </summary>
-        public virtual System.Collections.Generic.List<TestResult> TestResults { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResults_Handlers
     }
 
 }

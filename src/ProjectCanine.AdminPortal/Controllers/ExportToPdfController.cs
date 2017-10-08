@@ -44,7 +44,7 @@ namespace ProjectCanine.AdminPortal.Controllers
         {
 	        var viewModel = exportServices.GetExportableTests();
 
-            return View(await dbContext.TestResults.ToListAsync());
+            return View(viewModel);
         }
 
         // GET: TestResults/Details/5

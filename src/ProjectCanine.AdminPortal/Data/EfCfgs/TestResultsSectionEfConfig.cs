@@ -17,18 +17,18 @@ namespace ProjectCanine.AdminPortal.Data.EfCfgs
     using ProjectCanine.AdminPortal.Data;
     using ProjectCanine.AdminPortal.Data.Entities;
 
-    // OtherRestrictions
+    // TestResultsSections
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
-    public class OtherRestrictionEfConfig : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<OtherRestriction>
+    public class TestResultsSectionEfConfig : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration<TestResultsSection>
     {
-        public OtherRestrictionEfConfig()
+        public TestResultsSectionEfConfig()
             : this("dbo")
         {
         }
 
-        public OtherRestrictionEfConfig(string schema)
+        public TestResultsSectionEfConfig(string schema)
         {
-            Property(x => x.AdditionalInfo).IsOptional().IsUnicode(false);
+            Property(x => x.Notes).IsOptional().IsUnicode(false);
 
         }
     }

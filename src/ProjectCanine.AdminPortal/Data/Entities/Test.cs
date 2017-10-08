@@ -16,6 +16,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCanine.AdminPortal.Data.Entities
 {
+    using Newtonsoft.Json;
 
     // Tests
     [System.CodeDom.Compiler.GeneratedCode("EF.Reverse.POCO.Generator", "2.33.0.0")]
@@ -40,6 +41,12 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         public string Name { get; set; } // Name (length: 500)
 
         [Required]
+        [MaxLength(1000)]
+        [StringLength(1000)]
+        [Display(Name = "Handler signature text")]
+        public string HandlerSignatureText { get; set; } // HandlerSignatureText (length: 1000)
+
+        [Required]
         [Display(Name = "Last edited by")]
         public System.Guid LastEditedBy { get; set; } // LastEditedBy
 
@@ -50,25 +57,33 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         // Reverse navigation
 
         /// <summary>
-        /// Child Questions where [Questions].[Test] point to this entity (FK_Questions_Tests)
-        /// </summary>
-        public virtual System.Collections.Generic.List<Question> Questions_Test { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FK_Questions_Tests
-        /// <summary>
         /// Child Questions where [Questions].[Test] point to this entity (FKQuestions_Tests)
         /// </summary>
-        public virtual System.Collections.Generic.List<Question> Questions1 { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FKQuestions_Tests
+        [JsonIgnore]
+        public System.Collections.Generic.List<Question> Questions_Test { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FKQuestions_Tests
+        /// <summary>
+        /// Child Questions where [Questions].[Test] point to this entity (FK_Questions_Tests)
+        /// </summary>
+        [JsonIgnore]
+        public System.Collections.Generic.List<Question> Questions1 { get; set; } = new System.Collections.Generic.List<Question>(); // Questions.FK_Questions_Tests
+        /// <summary>
+        /// Child Sections where [Sections].[Test] point to this entity (FKSections_Tests)
+        /// </summary>
+        [JsonIgnore]
+        public System.Collections.Generic.List<Section> Sections { get; set; } = new System.Collections.Generic.List<Section>(); // Sections.FKSections_Tests
+        /// <summary>
+        /// Child TestResults where [TestResults].[Test] point to this entity (FKTestResults_Tests)
+        /// </summary>
+        [JsonIgnore]
+        public System.Collections.Generic.List<TestResult> TestResults { get; set; } = new System.Collections.Generic.List<TestResult>(); // TestResults.FKTestResults_Tests
 
         // Foreign keys
 
         /// <summary>
         /// Parent Examiner pointed by [Tests].([LastEditedBy]) (FKTests_Examiners)
         /// </summary>
-        public virtual Examiner Examiner_LastEditedBy { get; set; } // FKTests_Examiners
-
-        /// <summary>
-        /// Parent Examiner pointed by [Tests].([LastEditedBy]) (FK_Tests_Examiners)
-        /// </summary>
-        public virtual Examiner Examiner1 { get; set; } // FK_Tests_Examiners
+        [JsonIgnore]
+        public Examiner Examiner { get; set; } // FKTests_Examiners
     }
 
 }
