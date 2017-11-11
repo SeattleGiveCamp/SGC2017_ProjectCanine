@@ -26,11 +26,10 @@ namespace ProjectCanine.AdminPortal
 			// instance here and set it as the instance that will be injected into
 			// any/all controllers or services that ask for an ICanineProjDbContext.
 			// See: ExportToPdfController
-			container.Register<ICanineProjDbContext>(
-				() => new CanineProjDbContext(), Lifestyle.Scoped);
+			container.Register<ICanineProjDbContext>(() => new CanineProjDbContext(), Lifestyle.Scoped);
 
 			container.Register<IExportToPdfServices, ExportToPdfServices>(Lifestyle.Scoped);
-
+			container.Register<ITestServices, TestServices>(Lifestyle.Scoped);
 
 			// This is an extension method from the integration package.
 			container.RegisterMvcControllers(Assembly.GetExecutingAssembly());

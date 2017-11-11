@@ -31,8 +31,8 @@ namespace ProjectCanine.AdminPortal.Services
 							select new ExportGridRow
 							{
 								TestResultId = tr.Id,
-								HandlerName = hndlr.FirstName.Trim() + " " + hndlr.LastName,
-								DogName = dog.Name.Trim(),
+								HandlerName = hndlr.FirstName + " " + hndlr.LastName,
+								DogName = dog.Name,
 								TestDate = tr.TestDate
 							};
 
@@ -62,8 +62,8 @@ namespace ProjectCanine.AdminPortal.Services
 							select new ExportGridRow
 							{
 								TestResultId = tr.Id,
-								HandlerName = hndlr.FirstName.Trim() + " " + hndlr.LastName,
-								DogName = dog.Name.Trim(),
+								HandlerName = hndlr.FirstName + " " + hndlr.LastName,
+								DogName = dog.Name,
 								TestDate = tr.TestDate
 							};
 

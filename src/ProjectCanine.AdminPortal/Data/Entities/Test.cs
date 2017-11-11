@@ -44,7 +44,7 @@ namespace ProjectCanine.AdminPortal.Data.Entities
         [MaxLength(1000)]
         [StringLength(1000)]
         [Display(Name = "Handler signature text")]
-        public string HandlerSignatureText { get; set; } // HandlerSignatureText (length: 1000)
+        public string HandlerSignaturePrompt { get; set; } // HandlerSignaturePrompt (length: 1000)
 
         [Required]
         [Display(Name = "Last edited by")]

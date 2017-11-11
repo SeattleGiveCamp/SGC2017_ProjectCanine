@@ -15,7 +15,7 @@ namespace ProjectCanine.Core.Models
 		public string Name { get; set; }
 
 		[DataMember]
-		public string HandlerSignatureText { get; set; }
+		public string HandlerSignaturePrompt { get; set; }
 
 		[DataMember]
 		public List<Section> Sections { get; set; }
