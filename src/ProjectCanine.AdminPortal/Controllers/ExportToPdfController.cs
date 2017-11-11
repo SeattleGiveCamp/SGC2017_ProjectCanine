@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-
-using Microsoft.Ajax.Utilities;
-
-using ProjectCanine.AdminPortal.Data;
-using ProjectCanine.AdminPortal.Data.Entities;
+﻿using ProjectCanine.AdminPortal.Data;
 using ProjectCanine.AdminPortal.Services;
 using ProjectCanine.AdminPortal.ViewModels;
+using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 
 namespace ProjectCanine.AdminPortal.Controllers
@@ -23,21 +14,10 @@ namespace ProjectCanine.AdminPortal.Controllers
 		private readonly ICanineProjDbContext dbContext;
 		private readonly IExportToPdfServices exportServices;
 
-		public ExportToPdfController(
-			ICanineProjDbContext dbCtx,
-			IExportToPdfServices exportSvcs)
+		public ExportToPdfController(ICanineProjDbContext dbCtx, IExportToPdfServices exportSvcs)
 		{
-			if (dbCtx == null)
-			{
-				throw new ArgumentNullException(nameof(dbCtx));
-			}
-			dbContext = dbCtx;
-
-			if (exportSvcs == null)
-			{
-				throw new ArgumentNullException(nameof(exportSvcs));
-			}
-			exportServices = exportSvcs;
+			dbContext = dbCtx ?? throw new ArgumentNullException(nameof(dbCtx));
+			exportServices = exportSvcs ?? throw new ArgumentNullException(nameof(exportSvcs));
 		}
 
 		// GET: TestResults

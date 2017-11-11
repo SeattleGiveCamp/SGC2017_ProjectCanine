@@ -1,14 +1,9 @@
-﻿using System;
+﻿using ProjectCanine.AdminPortal.Data;
+using ProjectCanine.AdminPortal.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-
-using ProjectCanine.AdminPortal.Data;
-using ProjectCanine.AdminPortal.Data.Entities;
-using ProjectCanine.AdminPortal.ViewModels;
-
 
 namespace ProjectCanine.AdminPortal.Services
 {
@@ -16,19 +11,13 @@ namespace ProjectCanine.AdminPortal.Services
 	{
 		private readonly ICanineProjDbContext dbContext;
 
-		public ExportToPdfServices(
-			ICanineProjDbContext dbCtx)
+		public ExportToPdfServices(ICanineProjDbContext dbCtx)
 		{
-			if (dbCtx == null)
-			{
-				throw new ArgumentNullException(nameof(dbCtx));
-			}
-			dbContext = dbCtx;
+			dbContext = dbCtx ?? throw new ArgumentNullException(nameof(dbCtx));
 
 			// lets see what SQL is getting generated.
 			dbContext.Database.Log = DbContextLogCallback;
 		}
-
 
 		public List<ExportGridRow> GetExportableTests()
 		{
@@ -88,11 +77,9 @@ namespace ProjectCanine.AdminPortal.Services
 			return result;
 		}
 
-
 		private void DbContextLogCallback(string logstr)
 		{
 			Debug.WriteLine(logstr);
 		}
-
 	}
 }
