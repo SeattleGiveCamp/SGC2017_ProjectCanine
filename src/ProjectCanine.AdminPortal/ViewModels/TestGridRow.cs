@@ -17,7 +17,7 @@ namespace ProjectCanine.AdminPortal.ViewModels
 		public String HandlerSignaturePrompt { get; set; }
 
 		[Display(Name = "Last Edited By")]
-		public Guid LastEditedBy { get; set; }
+		public String LastEditedBy { get; set; }
 
 		[Display(Name = "Last Edited Date")]
 		public DateTime LastEditedDate { get; set; }

@@ -25,14 +25,15 @@ namespace ProjectCanine.AdminPortal.Services
 
 			try
 			{
-				var query = from tr in dbContext.Tests
+				var query = from tests in dbContext.Tests
+							join examiners in dbContext.Examiners on tests.LastEditedBy equals examiners.Id
 							select new TestGridRow
 							{
-								Id = tr.Id,
-								ShortName = tr.ShortName,
-								Name = tr.Name,
-								LastEditedBy = tr.LastEditedBy,
-								LastEditedDate = tr.LastEditedDate
+								Id = tests.Id,
+								ShortName = tests.ShortName,
+								Name = tests.Name,
+								LastEditedBy = examiners.FirstName + " " + examiners.LastName,
+								LastEditedDate = tests.LastEditedDate
 							};
 
 				foreach (var row in query)
@@ -53,15 +54,17 @@ namespace ProjectCanine.AdminPortal.Services
 
 			try
 			{
-				var query = from tr in dbContext.Tests
+				var query = from tests in dbContext.Tests
+							join examiners in dbContext.Examiners on tests.LastEditedBy equals examiners.Id
+							where tests.Id == Id
 							select new TestGridRow
 							{
-								Id = tr.Id,
-								ShortName = tr.ShortName,
-								Name = tr.Name,
-								HandlerSignaturePrompt = tr.HandlerSignaturePrompt,
-								LastEditedBy = tr.LastEditedBy,
-								LastEditedDate = tr.LastEditedDate
+								Id = tests.Id,
+								ShortName = tests.ShortName,
+								Name = tests.Name,
+								HandlerSignaturePrompt = tests.HandlerSignaturePrompt,
+								LastEditedBy = examiners.FirstName + " " + examiners.LastName,
+								LastEditedDate = tests.LastEditedDate
 							};
 
 				result = query.FirstOrDefault() ?? new TestGridRow();

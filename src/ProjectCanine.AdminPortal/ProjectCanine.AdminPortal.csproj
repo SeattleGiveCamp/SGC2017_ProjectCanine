@@ -157,6 +157,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EquipmentRestrictionController.cs" />
+    <Compile Include="Controllers\ExaminerController.cs" />
+    <Compile Include="Controllers\CertificationTypeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExportToPdfController.cs" />
@@ -253,8 +256,17 @@
     <Compile Include="Data\ICanineProjDbContext.cs">
       <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\IExaminerServices.cs" />
+    <Compile Include="Services\IEquipmentRestrictionServices.cs" />
+    <Compile Include="Services\ICertificationTypeServices.cs" />
+    <Compile Include="Services\ExaminerServices.cs" />
+    <Compile Include="Services\EquipmentRestrictionServices.cs" />
+    <Compile Include="Services\CertificationTypeServices.cs" />
     <Compile Include="Services\TestServices.cs" />
     <Compile Include="Services\ITestServices.cs" />
+    <Compile Include="ViewModels\CertificationTypeGridRow.cs" />
+    <Compile Include="ViewModels\ExaminerGridRow.cs" />
+    <Compile Include="ViewModels\EquipmentRestrictionGridRow.cs" />
     <Compile Include="ViewModels\TestGridRow.cs" />
     <Compile Include="ViewModels\ExportGridRow.cs" />
     <Compile Include="Global.asax.cs">
@@ -334,9 +346,18 @@
     <Content Include="Views\ExportToPdf\Delete.cshtml" />
     <Content Include="Views\ExportToPdf\Details.cshtml" />
     <Content Include="Views\ExportToPdf\Index.cshtml" />
-    <Content Include="Views\ManageTests\Delete.cshtml" />
-    <Content Include="Views\ManageTests\Details.cshtml" />
-    <Content Include="Views\ManageTests\Index.cshtml" />
+    <Content Include="Views\Test\Delete.cshtml" />
+    <Content Include="Views\Test\Details.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Examiner\Delete.cshtml" />
+    <Content Include="Views\Examiner\Details.cshtml" />
+    <Content Include="Views\Examiner\Index.cshtml" />
+    <Content Include="Views\EquipmentRestriction\Delete.cshtml" />
+    <Content Include="Views\EquipmentRestriction\Details.cshtml" />
+    <Content Include="Views\EquipmentRestriction\Index.cshtml" />
+    <Content Include="Views\CertificationType\Delete.cshtml" />
+    <Content Include="Views\CertificationType\Details.cshtml" />
+    <Content Include="Views\CertificationType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

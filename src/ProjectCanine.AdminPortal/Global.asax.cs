@@ -2,13 +2,11 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
 using ProjectCanine.AdminPortal.Data;
 using ProjectCanine.AdminPortal.Services;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
-
 
 namespace ProjectCanine.AdminPortal
 {
@@ -28,7 +26,10 @@ namespace ProjectCanine.AdminPortal
 			// See: ExportToPdfController
 			container.Register<ICanineProjDbContext>(() => new CanineProjDbContext(), Lifestyle.Scoped);
 
+			container.Register<ICertificationTypeServices, CertificationTypeServices>(Lifestyle.Scoped);
+			container.Register<IExaminerServices, ExaminerServices>(Lifestyle.Scoped);
 			container.Register<IExportToPdfServices, ExportToPdfServices>(Lifestyle.Scoped);
+			container.Register<IEquipmentRestrictionServices, EquipmentRestrictionServices>(Lifestyle.Scoped);
 			container.Register<ITestServices, TestServices>(Lifestyle.Scoped);
 
 			// This is an extension method from the integration package.

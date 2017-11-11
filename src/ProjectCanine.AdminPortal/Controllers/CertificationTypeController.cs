@@ -8,26 +8,26 @@ using System.Web.Mvc;
 
 namespace ProjectCanine.AdminPortal.Controllers
 {
-	public class TestController : Controller
+	public class CertificationTypeController : Controller
 	{
 		private readonly ICanineProjDbContext dbContext;
-		private readonly ITestServices testServices;
+		private readonly ICertificationTypeServices certificationTypeServices;
 
-		public TestController(ICanineProjDbContext dbCtx, ITestServices testSvcs)
+		public CertificationTypeController(ICanineProjDbContext dbCtx, ICertificationTypeServices certificationTypeSvcs)
 		{
 			dbContext = dbCtx ?? throw new ArgumentNullException(nameof(dbCtx));
-			testServices = testSvcs ?? throw new ArgumentNullException(nameof(testSvcs));
+			certificationTypeServices = certificationTypeSvcs ?? throw new ArgumentNullException(nameof(certificationTypeSvcs));
 		}
 
 		// GET: TestResults
 		public async Task<ActionResult> Index()
 		{
-			var viewModel = testServices.GetTests();
+			var viewModel = certificationTypeServices.GetCertificationTypes();
 
 			return View(viewModel);
 		}
 
-		// GET: Test/Details/{Guid}
+		// GET: ExportToPdf/Details/{Guid}
 		public ActionResult Details(Guid id)
 		{
 			if (id == Guid.Empty)
@@ -35,14 +35,14 @@ namespace ProjectCanine.AdminPortal.Controllers
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
 
-			TestGridRow testGridRow = testServices.GetTest(id);
+			CertificationTypeGridRow certificationTypeGridRow = certificationTypeServices.GetCertificationType(id);
 
-			if (testGridRow == null)
+			if (certificationTypeGridRow == null)
 			{
 				return HttpNotFound();
 			}
 
-			return View(testGridRow);
+			return View(certificationTypeGridRow);
 		}
 
 		// in case Deletion wants to be added to the page.

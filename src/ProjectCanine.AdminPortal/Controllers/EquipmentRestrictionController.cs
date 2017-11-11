@@ -8,26 +8,26 @@ using System.Web.Mvc;
 
 namespace ProjectCanine.AdminPortal.Controllers
 {
-	public class TestController : Controller
+	public class EquipmentRestrictionController : Controller
 	{
 		private readonly ICanineProjDbContext dbContext;
-		private readonly ITestServices testServices;
+		private readonly IEquipmentRestrictionServices equipmentRestrictionServices;
 
-		public TestController(ICanineProjDbContext dbCtx, ITestServices testSvcs)
+		public EquipmentRestrictionController(ICanineProjDbContext dbCtx, IEquipmentRestrictionServices equipmentRestrictionSvcs)
 		{
 			dbContext = dbCtx ?? throw new ArgumentNullException(nameof(dbCtx));
-			testServices = testSvcs ?? throw new ArgumentNullException(nameof(testSvcs));
+			equipmentRestrictionServices = equipmentRestrictionSvcs ?? throw new ArgumentNullException(nameof(equipmentRestrictionSvcs));
 		}
 
 		// GET: TestResults
 		public async Task<ActionResult> Index()
 		{
-			var viewModel = testServices.GetTests();
+			var viewModel = equipmentRestrictionServices.GetEquipmentRestrictions();
 
 			return View(viewModel);
 		}
 
-		// GET: Test/Details/{Guid}
+		// GET: ExportToPdf/Details/{Guid}
 		public ActionResult Details(Guid id)
 		{
 			if (id == Guid.Empty)
@@ -35,14 +35,14 @@ namespace ProjectCanine.AdminPortal.Controllers
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
 
-			TestGridRow testGridRow = testServices.GetTest(id);
+			EquipmentRestrictionGridRow equipmentRestrictionGridRow = equipmentRestrictionServices.GetEquipmentRestriction(id);
 
-			if (testGridRow == null)
+			if (equipmentRestrictionGridRow == null)
 			{
 				return HttpNotFound();
 			}
 
-			return View(testGridRow);
+			return View(equipmentRestrictionGridRow);
 		}
 
 		// in case Deletion wants to be added to the page.

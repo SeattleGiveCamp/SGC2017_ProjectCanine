@@ -8,26 +8,26 @@ using System.Web.Mvc;
 
 namespace ProjectCanine.AdminPortal.Controllers
 {
-	public class TestController : Controller
+	public class ExaminerController : Controller
 	{
 		private readonly ICanineProjDbContext dbContext;
-		private readonly ITestServices testServices;
+		private readonly IExaminerServices examinerServices;
 
-		public TestController(ICanineProjDbContext dbCtx, ITestServices testSvcs)
+		public ExaminerController(ICanineProjDbContext dbCtx, IExaminerServices examinerSvcs)
 		{
 			dbContext = dbCtx ?? throw new ArgumentNullException(nameof(dbCtx));
-			testServices = testSvcs ?? throw new ArgumentNullException(nameof(testSvcs));
+			examinerServices = examinerSvcs ?? throw new ArgumentNullException(nameof(examinerSvcs));
 		}
 
 		// GET: TestResults
 		public async Task<ActionResult> Index()
 		{
-			var viewModel = testServices.GetTests();
+			var viewModel = examinerServices.GetExaminers();
 
 			return View(viewModel);
 		}
 
-		// GET: Test/Details/{Guid}
+		// GET: Examiner/Details/{Guid}
 		public ActionResult Details(Guid id)
 		{
 			if (id == Guid.Empty)
@@ -35,14 +35,14 @@ namespace ProjectCanine.AdminPortal.Controllers
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
 
-			TestGridRow testGridRow = testServices.GetTest(id);
+			ExaminerGridRow examinerGridRow = examinerServices.GetExaminer(id);
 
-			if (testGridRow == null)
+			if (examinerGridRow == null)
 			{
 				return HttpNotFound();
 			}
 
-			return View(testGridRow);
+			return View(examinerGridRow);
 		}
 
 		// in case Deletion wants to be added to the page.
