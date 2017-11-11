@@ -157,6 +157,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExportToPdfController.cs" />
     <Compile Include="Data\CaninePrjDbContext.cs">
@@ -252,6 +253,9 @@
     <Compile Include="Data\ICanineProjDbContext.cs">
       <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\TestServices.cs" />
+    <Compile Include="Services\ITestServices.cs" />
+    <Compile Include="ViewModels\TestGridRow.cs" />
     <Compile Include="ViewModels\ExportGridRow.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -330,6 +334,9 @@
     <Content Include="Views\ExportToPdf\Delete.cshtml" />
     <Content Include="Views\ExportToPdf\Details.cshtml" />
     <Content Include="Views\ExportToPdf\Index.cshtml" />
+    <Content Include="Views\ManageTests\Delete.cshtml" />
+    <Content Include="Views\ManageTests\Details.cshtml" />
+    <Content Include="Views\ManageTests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

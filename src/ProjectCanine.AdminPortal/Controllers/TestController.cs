@@ -8,41 +8,41 @@ using System.Web.Mvc;
 
 namespace ProjectCanine.AdminPortal.Controllers
 {
-	public class ExportToPdfController : Controller
+	public class TestController : Controller
 	{
 		private readonly ICanineProjDbContext dbContext;
-		private readonly IExportToPdfServices exportServices;
+		private readonly ITestServices testServices;
 
-		public ExportToPdfController(ICanineProjDbContext dbCtx, IExportToPdfServices exportSvcs)
+		public TestController(ICanineProjDbContext dbCtx, ITestServices testSvcs)
 		{
 			dbContext = dbCtx ?? throw new ArgumentNullException(nameof(dbCtx));
-			exportServices = exportSvcs ?? throw new ArgumentNullException(nameof(exportSvcs));
+			testServices = testSvcs ?? throw new ArgumentNullException(nameof(testSvcs));
 		}
 
 		// GET: TestResults
 		public async Task<ActionResult> Index()
 		{
-			var viewModel = exportServices.GetExportableTests();
+			var viewModel = testServices.GetTests();
 
 			return View(viewModel);
 		}
 
 		// GET: ExportToPdf/Details/{Guid}
-		public ActionResult Details(Guid TestResultId)
+		public ActionResult Details(Guid id)
 		{
-			if (TestResultId == Guid.Empty)
+			if (id == Guid.Empty)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
 
-			ExportGridRow egr = exportServices.GetExportableTest(TestResultId);
+			TestGridRow testGridRow = testServices.GetTest(id);
 
-			if (egr == null)
+			if (testGridRow == null)
 			{
 				return HttpNotFound();
 			}
 
-			return View(egr);
+			return View(testGridRow);
 		}
 
 		// in case Deletion wants to be added to the page.

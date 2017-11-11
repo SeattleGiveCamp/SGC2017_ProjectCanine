@@ -4,9 +4,9 @@ using ProjectCanine.AdminPortal.ViewModels;
 
 namespace ProjectCanine.AdminPortal.Services
 {
-	public interface IExportToPdfServices
+	public interface ITestServices
 	{
-		List<ExportGridRow> GetExportableTests();
-		ExportGridRow GetExportableTest(Guid testResultId);
+		List<TestGridRow> GetTests();
+		TestGridRow GetTest(Guid Id);
 	}
 }

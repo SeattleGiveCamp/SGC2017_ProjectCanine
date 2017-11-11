@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Json;
 
 namespace ProjectCanine.Core.Models
 {
-    public class Person : IEntity
+	public class Person : IEntity
 	{
 		[DataMember]
 		public Guid Id { get; set; }

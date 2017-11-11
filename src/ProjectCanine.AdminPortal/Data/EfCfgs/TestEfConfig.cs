@@ -30,7 +30,7 @@ namespace ProjectCanine.AdminPortal.Data.EfCfgs
         {
             Property(x => x.ShortName).IsUnicode(false);
             Property(x => x.Name).IsUnicode(false);
-            Property(x => x.HandlerSignatureText).IsUnicode(false);
+            Property(x => x.HandlerSignaturePrompt).IsUnicode(false);
 
         }
     }

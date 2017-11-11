@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Json;
 namespace ProjectCanine.Core.Models
 {
 	[DataContract]
-    public class Examiner: Person
-    {
-    }
+	public class Examiner : Person
+	{
+	}
 }

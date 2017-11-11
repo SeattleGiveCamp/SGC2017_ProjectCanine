@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace ProjectCanine.AdminPortal.ViewModels
 {
 	public class ExportGridRow
