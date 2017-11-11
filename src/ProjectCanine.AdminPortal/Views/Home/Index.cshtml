@@ -1,41 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
-
 <div class="jumbotron">
-    <h1>Project Canine</h1>
-    <p class="lead">For management of certification testing for dogs & their handlers.</p>
+	<h1>Project Canine</h1>
+	<p class="lead">For management of certification testing for dogs & their handlers.</p>
 </div>
-
 <div class="row">
 	<div class="col-md-4">
-		<a class="btn-link" href="#"><h2>Manage Tests</h2></a>
-		<p>
-			Modify the test(s) questions, etc.
-		</p>
 		<a class="btn-link" href="#"><h2>Test Results</h2></a>
 		<p>
-			Test Results
+			View Test Results
 		</p>
-	</div>
-    <div class="col-md-4">
-		<a class="btn-link" href="#"><h2>Manage Examiners</h2></a>
-	    <p>
-		    Manage Examiners
-	    </p>
 		<a class="btn-link" href="/ExportToPdf"><h2>Export Test Results</h2></a>
 		<p>
 			Export Test Results to a PDF file.
 		</p>
-    </div>
-    <div class="col-md-4">
-		<a class="btn-link" href="#"><h2>Manage Restriction Types</h2></a>
+	</div>
+	<div class="col-md-4">
+		<a class="btn-link" href="/Test"><h2>Manage Tests</h2></a>
 		<p>
-			Manage Restriction Types
+			Modify the tests and their questions.
 		</p>
-		<a class="btn-link" href="#"><h2>Manage Certification Types</h2></a>
+		<a class="btn-link" href="/Examiner"><h2>Manage Examiners</h2></a>
+		<p>
+			Manage Examiners
+		</p>
+		<a class="btn-link" href="/EquipmentRestriction"><h2>Manage Equipment Restriction Types</h2></a>
+		<p>
+			Manage Equipment Restriction Types
+		</p>
+		<a class="btn-link" href="/CertificationType"><h2>Manage Certification Types</h2></a>
 		<p>
 			Manage Certification Types
 		</p>
-    </div>
+	</div>
 </div>

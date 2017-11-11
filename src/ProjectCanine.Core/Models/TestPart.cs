@@ -5,13 +5,13 @@ using System.Runtime.Serialization.Json;
 namespace ProjectCanine.Core.Models
 {
 	[DataContract]
-    public class TestPart : IEntity
-    {
+	public class TestPart : IEntity
+	{
 		[DataMember]
 		public Guid Id { get; set; }
 
 		[DataMember]
-		public Guid LastEditedBy { get; set; }	// Examiner.Id
+		public Guid LastEditedBy { get; set; }  // Examiner.Id
 
 		[DataMember]
 		public DateTime LastEditedDate { get; set; }

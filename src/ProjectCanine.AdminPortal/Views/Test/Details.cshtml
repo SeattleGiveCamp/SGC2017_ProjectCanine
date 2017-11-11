@@ -1,0 +1,50 @@
+﻿@model ProjectCanine.AdminPortal.ViewModels.TestGridRow
+@{
+	ViewBag.Title = "Details";
+}
+<h2>@ViewBag.Title</h2>
+<div>
+	<h4>Test</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Id)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Id)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.ShortName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.ShortName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.HandlerSignaturePrompt)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.HandlerSignaturePrompt)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.LastEditedBy)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.LastEditedBy)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.LastEditedDate)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.LastEditedDate)
+		</dd>
+	</dl>
+</div>
+<p>
+	@Html.ActionLink("Back to List", "Index")
+</p>
