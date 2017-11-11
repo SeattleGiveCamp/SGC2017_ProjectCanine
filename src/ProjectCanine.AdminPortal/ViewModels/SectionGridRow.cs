@@ -4,26 +4,26 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjectCanine.AdminPortal.ViewModels
 {
-	public class TestGridRow
+	public class SectionGridRow
 	{
 		public Guid Id { get; set; }
 
-		[Display(Name = "Short Name")]
-		public string ShortName { get; set; }
+		[Display(Name = "SectionNumber")]
+		public int SectionNumber { get; set; }
 
-		[Display(Name = "Name")]
-		public string Name { get; set; }
+		[Display(Name = "Title")]
+		public string Title { get; set; }
 
-		[Display(Name = "Handler Signature Prompt")]
-		public String HandlerSignaturePrompt { get; set; }
-
+		[Display(Name = "Description")]
+		public String Description { get; set; }
+		
 		[Display(Name = "Last Edited By")]
 		public String LastEditedBy { get; set; }
 
 		[Display(Name = "Last Edited Date")]
 		public DateTime LastEditedDate { get; set; }
 
-		[Display(Name = "Sections")]
-		public List<SectionGridRow> Sections { get; set; }
+		[Display(Name = "Questions")]
+		public List<QuestionGridRow> Questions { get; set; }
 	}
 }

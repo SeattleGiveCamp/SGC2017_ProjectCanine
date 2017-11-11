@@ -267,6 +267,8 @@
     <Compile Include="ViewModels\CertificationTypeGridRow.cs" />
     <Compile Include="ViewModels\ExaminerGridRow.cs" />
     <Compile Include="ViewModels\EquipmentRestrictionGridRow.cs" />
+    <Compile Include="ViewModels\QuestionGridRow.cs" />
+    <Compile Include="ViewModels\SectionGridRow.cs" />
     <Compile Include="ViewModels\TestGridRow.cs" />
     <Compile Include="ViewModels\ExportGridRow.cs" />
     <Compile Include="Global.asax.cs">
