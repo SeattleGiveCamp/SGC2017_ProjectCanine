@@ -14,7 +14,7 @@ namespace ProjectCanine
 
 		public static string AzureFunctionUrl = "https://projectcanineapi.azurewebsites.net";
 		// TODO: research whether this is the appropriate place for this setting
-		public static string AzureFunctionKey = "DmWNeIZzapka7eTF6aimVzWT4ZDGclVBuPhME5YWsYKc1Pn1JPaugA==";
+		public static string AzureFunctionKey = "ScXPlzEIqMdAqDXW5EUSpZnn4MpwfyuOxk5AKkjJkvZVXI9nKqN0xg==";
 		
         public App()
         {
