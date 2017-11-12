@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjectCanine.AdminPortal.ViewModels
 {
-	public class QuestionGridRow
+	public class TestResultsAnswerGridRow
 	{
 		public Guid Id { get; set; }
 
@@ -15,14 +15,11 @@ namespace ProjectCanine.AdminPortal.ViewModels
 
 		[Display(Name = "Question Number")]
 		public int QuestionNumber { get; set; }
-		
-		[Display(Name = "Has Yes No Portion")]
-		public bool HasYesNo { get; set; }
 
-		[Display(Name = "Last Edited By")]
-		public String LastEditedBy { get; set; }
+		[Display(Name = "Answer")]
+		public string Answer { get; set; }
 
-		[Display(Name = "Last Edited Date")]
-		public DateTime LastEditedDate { get; set; }
+		[Display(Name = "Yes No")]
+		public bool? YesNo { get; set; }
 	}
 }

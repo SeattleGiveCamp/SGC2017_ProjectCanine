@@ -7,7 +7,6 @@
 	[PassedTest] BIT NULL,
 	[ReasonForFailure] VARCHAR(5000) NULL,
 	[Notes] VARCHAR(5000) NULL,
-	[PassedConnectingCanines] BIT NOT NULL DEFAULT 0,
 	[ShadowVisitRequirement] BIT NULL,
 	[EligibleToRetest] BIT NOT NULL DEFAULT 0,
 	[TestDate] DATETIME NOT NULL,

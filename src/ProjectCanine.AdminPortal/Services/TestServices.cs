@@ -35,7 +35,6 @@ namespace ProjectCanine.AdminPortal.Services
 						LastEditedBy = examiners.FirstName + " " + examiners.LastName,
 						LastEditedDate = tests.LastEditedDate
 					};
-
 				testsList = testQuery.ToList();
 			}
 			catch (Exception e)
@@ -83,11 +82,9 @@ namespace ProjectCanine.AdminPortal.Services
 					};
 				sectionsList = sectionsQuery.ToList();
 
-
 				// Get the questions per section
 				foreach (var section in sectionsList)
 				{
-					var questionsList = new List<QuestionGridRow>();
 					var questionsQuery = from questions in dbContext.Questions
 						join examiners in dbContext.Examiners on questions.LastEditedBy equals examiners.Id
 						where questions.Section == section.Id
@@ -102,10 +99,9 @@ namespace ProjectCanine.AdminPortal.Services
 							LastEditedBy = examiners.FirstName + " " + examiners.LastName,
 							LastEditedDate = questions.LastEditedDate
 							};
-					questionsList = questionsQuery.ToList();
 
 					// Add the questions to the section
-					section.Questions = questionsList;
+					section.Questions = questionsQuery.ToList();
 				}
 
 				// Add the sections to the test

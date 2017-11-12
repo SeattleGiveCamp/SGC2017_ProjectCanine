@@ -160,6 +160,7 @@
     <Compile Include="Controllers\EquipmentRestrictionController.cs" />
     <Compile Include="Controllers\ExaminerController.cs" />
     <Compile Include="Controllers\CertificationTypeController.cs" />
+    <Compile Include="Controllers\TestResultController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ExportToPdfController.cs" />
@@ -256,19 +257,24 @@
     <Compile Include="Data\ICanineProjDbContext.cs">
       <DependentUpon>CaninePrjDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Services\IExaminerServices.cs" />
-    <Compile Include="Services\IEquipmentRestrictionServices.cs" />
-    <Compile Include="Services\ICertificationTypeServices.cs" />
+    <Compile Include="Services\Interfaces\IExaminerServices.cs" />
+    <Compile Include="Services\Interfaces\IEquipmentRestrictionServices.cs" />
+    <Compile Include="Services\Interfaces\ICertificationTypeServices.cs" />
     <Compile Include="Services\ExaminerServices.cs" />
     <Compile Include="Services\EquipmentRestrictionServices.cs" />
     <Compile Include="Services\CertificationTypeServices.cs" />
+    <Compile Include="Services\Interfaces\ITestResultServices.cs" />
+    <Compile Include="Services\TestResultServices.cs" />
     <Compile Include="Services\TestServices.cs" />
-    <Compile Include="Services\ITestServices.cs" />
+    <Compile Include="Services\Interfaces\ITestServices.cs" />
     <Compile Include="ViewModels\CertificationTypeGridRow.cs" />
     <Compile Include="ViewModels\ExaminerGridRow.cs" />
     <Compile Include="ViewModels\EquipmentRestrictionGridRow.cs" />
+    <Compile Include="ViewModels\TestResultsAnswerGridRow.cs" />
     <Compile Include="ViewModels\QuestionGridRow.cs" />
+    <Compile Include="ViewModels\TestResultsSectionGridRow.cs" />
     <Compile Include="ViewModels\SectionGridRow.cs" />
+    <Compile Include="ViewModels\TestResultGridRow.cs" />
     <Compile Include="ViewModels\TestGridRow.cs" />
     <Compile Include="ViewModels\ExportGridRow.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,7 +282,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ExportToPdfServices.cs" />
-    <Compile Include="Services\IExportToPdfServices.cs" />
+    <Compile Include="Services\Interfaces\IExportToPdfServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -360,6 +366,9 @@
     <Content Include="Views\CertificationType\Delete.cshtml" />
     <Content Include="Views\CertificationType\Details.cshtml" />
     <Content Include="Views\CertificationType\Index.cshtml" />
+    <Content Include="Views\TestResult\Delete.cshtml" />
+    <Content Include="Views\TestResult\Details.cshtml" />
+    <Content Include="Views\TestResult\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -30,6 +30,7 @@ namespace ProjectCanine.AdminPortal
 			container.Register<IExaminerServices, ExaminerServices>(Lifestyle.Scoped);
 			container.Register<IExportToPdfServices, ExportToPdfServices>(Lifestyle.Scoped);
 			container.Register<IEquipmentRestrictionServices, EquipmentRestrictionServices>(Lifestyle.Scoped);
+			container.Register<ITestResultServices, TestResultServices>(Lifestyle.Scoped);
 			container.Register<ITestServices, TestServices>(Lifestyle.Scoped);
 
 			// This is an extension method from the integration package.
