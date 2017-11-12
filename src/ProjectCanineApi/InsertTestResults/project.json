@@ -1,0 +1,10 @@
+﻿{
+	"frameworks": {
+		"net46": {
+      "dependencies": {
+        "Belgrade.Sql.Client": "0.7",
+        "System.Data.SqlClient": "4.4.0"
+      }
+		}
+	}
+}
