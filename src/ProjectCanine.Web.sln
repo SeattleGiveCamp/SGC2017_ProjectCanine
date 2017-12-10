@@ -6,13 +6,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCanine.MobileAppServ
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ProjectCanine.Database", "ProjectCanineDatabase\ProjectCanine.Database.sqlproj", "{1C411E1D-DC0D-48E4-B966-9950D5764E21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.AdminPortal", "ProjectCanine.AdminPortal\ProjectCanine.AdminPortal.csproj", "{2B18292D-81F4-4638-BC57-5F4621BD2459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.AdminPortal2", "ProjectCanine.AdminPortal2\ProjectCanine.AdminPortal2.csproj", "{D4D98349-7B64-4F77-80EE-D8128F34590F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.AdminPortal_OLD", "ProjectCanine.AdminPortal_OLD\ProjectCanine.AdminPortal_OLD.csproj", "{2B18292D-81F4-4638-BC57-5F4621BD2459}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.Core", "ProjectCanine.Core\ProjectCanine.Core.csproj", "{4F636901-0B92-4B95-A55D-7EF3CC87D5C6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCanineApi", "ProjectCanineApi\ProjectCanineApi.csproj", "{7167A91C-515A-4C80-82D9-9BEABBB5C8D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCanine.AdminPortal2", "ProjectCanine.AdminPortal2\ProjectCanine.AdminPortal2.csproj", "{D4D98349-7B64-4F77-80EE-D8128F34590F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
