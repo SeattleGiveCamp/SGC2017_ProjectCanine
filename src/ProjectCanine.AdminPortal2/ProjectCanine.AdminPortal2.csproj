@@ -209,6 +209,9 @@
       <DependentUpon>ProjectCanineDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\QuestionGridRow.cs" />
+    <Compile Include="ViewModels\SectionGridRow.cs" />
+    <Compile Include="ViewModels\TestGridRow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

@@ -98,7 +98,7 @@ namespace ProjectCanine.AdminPortal_OLD.Services
 							HasYesNo = questions.HasYesNo,
 							LastEditedBy = examiners.FirstName + " " + examiners.LastName,
 							LastEditedDate = questions.LastEditedDate
-							};
+						};
 
 					// Add the questions to the section
 					section.Questions = questionsQuery.ToList();
