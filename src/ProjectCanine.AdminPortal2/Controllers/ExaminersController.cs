@@ -10,108 +10,108 @@ using ProjectCanine.AdminPortal2.Models;
 
 namespace ProjectCanine.AdminPortal2.Controllers
 {
-	public class CertificationTypesController : Controller
+	public class ExaminersController : Controller
 	{
 		private ProjectCanine2Entities db = new ProjectCanine2Entities();
 
-		// GET: CertificationTypes
+		// GET: Examiners
 		public ActionResult Index()
 		{
-			return View(db.CertificationTypes.ToList());
+			return View(db.Examiners.ToList());
 		}
 
-		// GET: CertificationTypes/Details/5
+		// GET: Examiners/Details/5
 		public ActionResult Details(Guid? id)
 		{
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			CertificationType certificationType = db.CertificationTypes.Find(id);
-			if (certificationType == null)
+			Examiner examiner = db.Examiners.Find(id);
+			if (examiner == null)
 			{
 				return HttpNotFound();
 			}
-			return View(certificationType);
+			return View(examiner);
 		}
 
-		// GET: CertificationTypes/Create
+		// GET: Examiners/Create
 		public ActionResult Create()
 		{
 			return View();
 		}
 
-		// POST: CertificationTypes/Create
+		// POST: Examiners/Create
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create([Bind(Include = "Id,Name")] CertificationType certificationType)
+		public ActionResult Create([Bind(Include = "Id,FirstName,LastName")] Examiner examiner)
 		{
 			if (ModelState.IsValid)
 			{
-				certificationType.Id = Guid.NewGuid();
-				db.CertificationTypes.Add(certificationType);
+				examiner.Id = Guid.NewGuid();
+				db.Examiners.Add(examiner);
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
 
-			return View(certificationType);
+			return View(examiner);
 		}
 
-		// GET: CertificationTypes/Edit/5
+		// GET: Examiners/Edit/5
 		public ActionResult Edit(Guid? id)
 		{
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			CertificationType certificationType = db.CertificationTypes.Find(id);
-			if (certificationType == null)
+			Examiner examiner = db.Examiners.Find(id);
+			if (examiner == null)
 			{
 				return HttpNotFound();
 			}
-			return View(certificationType);
+			return View(examiner);
 		}
 
-		// POST: CertificationTypes/Edit/5
+		// POST: Examiners/Edit/5
 		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "Id,Name")] CertificationType certificationType)
+		public ActionResult Edit([Bind(Include = "Id,FirstName,LastName")] Examiner examiner)
 		{
 			if (ModelState.IsValid)
 			{
-				db.Entry(certificationType).State = EntityState.Modified;
+				db.Entry(examiner).State = EntityState.Modified;
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
-			return View(certificationType);
+			return View(examiner);
 		}
 
-		// GET: CertificationTypes/Delete/5
+		// GET: Examiners/Delete/5
 		public ActionResult Delete(Guid? id)
 		{
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			CertificationType certificationType = db.CertificationTypes.Find(id);
-			if (certificationType == null)
+			Examiner examiner = db.Examiners.Find(id);
+			if (examiner == null)
 			{
 				return HttpNotFound();
 			}
-			return View(certificationType);
+			return View(examiner);
 		}
 
-		// POST: CertificationTypes/Delete/5
+		// POST: Examiners/Delete/5
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
 		public ActionResult DeleteConfirmed(Guid id)
 		{
-			CertificationType certificationType = db.CertificationTypes.Find(id);
-			db.CertificationTypes.Remove(certificationType);
+			Examiner examiner = db.Examiners.Find(id);
+			db.Examiners.Remove(examiner);
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}

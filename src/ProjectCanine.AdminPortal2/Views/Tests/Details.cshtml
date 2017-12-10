@@ -1,0 +1,58 @@
+﻿@model ProjectCanine.AdminPortal2.Models.Test
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+	<h4>Test</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.ShortName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ShortName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.HandlerSignaturePrompt)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.HandlerSignaturePrompt)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.LastEditedDate)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.LastEditedDate)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Examiner.FirstName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Examiner.FirstName)
+		</dd>
+
+	</dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>
