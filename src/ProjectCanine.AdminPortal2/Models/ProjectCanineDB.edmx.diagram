@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87b6b0137ade4fe39c21fc46dcb043e4" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectCanine2Model.CertificationType" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.Dog" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.EquipmentRestriction" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.Examiner" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.Handler" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.Question" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.Section" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.TestResult" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.TestResultsAnswer" Width="1.5" PointX="9.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.TestResultsSection" Width="1.5" PointX="7.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.Test" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_CertificationTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_Dogs" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_EquipmentRestrictions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKQuestions_Examiners" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_Examiners_HandsOn" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_Examiners_Scoring" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTests_Examiners" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_Handlers" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKQuestions_Sections" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKQuestions_Tests" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResultsAnswers_Questions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKSections_Tests" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResultsSections_Sections" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResults_Tests" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResultsAnswers_TestResults" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectCanine2Model.FKTestResultsSections_TestResults" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

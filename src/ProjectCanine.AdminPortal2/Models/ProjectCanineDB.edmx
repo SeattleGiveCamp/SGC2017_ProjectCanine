@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjectCanine2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CertificationTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EquipmentRestrictions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Examiners">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Handlers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Test" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="MustPass" Type="bit" Nullable="false" />
+          <Property Name="Section" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionNumber" Type="int" Nullable="false" />
+          <Property Name="HasYesNo" Type="bit" Nullable="false" />
+          <Property Name="LastEditedBy" Type="uniqueidentifier" />
+          <Property Name="LastEditedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sections">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Test" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SectionNumber" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="LastEditedBy" Type="uniqueidentifier" />
+          <Property Name="LastEditedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestResults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Test" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Handler" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Dog" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PassedTest" Type="bit" />
+          <Property Name="ReasonForFailure" Type="varchar" MaxLength="5000" />
+          <Property Name="Notes" Type="varchar" MaxLength="5000" />
+          <Property Name="PassedConnectingCanines" Type="bit" Nullable="false" />
+          <Property Name="ShadowVisitRequirement" Type="bit" />
+          <Property Name="EligibleToRetest" Type="bit" Nullable="false" />
+          <Property Name="TestDate" Type="datetime" Nullable="false" />
+          <Property Name="ScoringExaminer" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HandsOnExaminer" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CertificationType" Type="uniqueidentifier" />
+          <Property Name="EquipmentRestrictions" Type="uniqueidentifier" />
+          <Property Name="OtherRestrictions" Type="varchar" MaxLength="300" />
+          <Property Name="PracticeLabRequirement" Type="bit" Nullable="false" />
+          <Property Name="ScoringExaminerSignature" Type="varbinary(max)" />
+          <Property Name="HandsOnSignature" Type="varbinary(max)" />
+          <Property Name="HandlerSignature" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TestResultsAnswers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TestResult" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Question" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="YesNo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestResultsSections">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TestResult" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Section" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShortName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="HandlerSignaturePrompt" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="LastEditedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastEditedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FKQuestions_Examiners">
+          <End Role="Examiners" Type="Self.Examiners" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="LastEditedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKQuestions_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKQuestions_Tests">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="Test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSections_Tests">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_CertificationTypes">
+          <End Role="CertificationTypes" Type="Self.CertificationTypes" Multiplicity="0..1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CertificationTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="CertificationType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Dogs">
+          <End Role="Dogs" Type="Self.Dogs" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="Dog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_EquipmentRestrictions">
+          <End Role="EquipmentRestrictions" Type="Self.EquipmentRestrictions" Multiplicity="0..1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentRestrictions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="EquipmentRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Examiners_HandsOn">
+          <End Role="Examiners" Type="Self.Examiners" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="HandsOnExaminer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Examiners_Scoring">
+          <End Role="Examiners" Type="Self.Examiners" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="ScoringExaminer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Handlers">
+          <End Role="Handlers" Type="Self.Handlers" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Handlers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="Handler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Tests">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="Test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsAnswers_Questions">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="TestResultsAnswers" Type="Self.TestResultsAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsAnswers">
+              <PropertyRef Name="Question" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsAnswers_TestResults">
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="1" />
+          <End Role="TestResultsAnswers" Type="Self.TestResultsAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestResults">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsAnswers">
+              <PropertyRef Name="TestResult" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsSections_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+          <End Role="TestResultsSections" Type="Self.TestResultsSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsSections">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsSections_TestResults">
+          <End Role="TestResults" Type="Self.TestResults" Multiplicity="1" />
+          <End Role="TestResultsSections" Type="Self.TestResultsSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestResults">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsSections">
+              <PropertyRef Name="TestResult" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTests_Examiners">
+          <End Role="Examiners" Type="Self.Examiners" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="LastEditedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="InsertTestResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="json" Type="varchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="ProjectCanine2ModelStoreContainer">
+          <EntitySet Name="CertificationTypes" EntityType="Self.CertificationTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dogs" EntityType="Self.Dogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipmentRestrictions" EntityType="Self.EquipmentRestrictions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Examiners" EntityType="Self.Examiners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Handlers" EntityType="Self.Handlers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestResults" EntityType="Self.TestResults" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestResultsAnswers" EntityType="Self.TestResultsAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestResultsSections" EntityType="Self.TestResultsSections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FKQuestions_Examiners" Association="Self.FKQuestions_Examiners">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FKQuestions_Sections" Association="Self.FKQuestions_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FKQuestions_Tests" Association="Self.FKQuestions_Tests">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FKSections_Tests" Association="Self.FKSections_Tests">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_CertificationTypes" Association="Self.FKTestResults_CertificationTypes">
+            <End Role="CertificationTypes" EntitySet="CertificationTypes" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Dogs" Association="Self.FKTestResults_Dogs">
+            <End Role="Dogs" EntitySet="Dogs" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_EquipmentRestrictions" Association="Self.FKTestResults_EquipmentRestrictions">
+            <End Role="EquipmentRestrictions" EntitySet="EquipmentRestrictions" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Examiners_HandsOn" Association="Self.FKTestResults_Examiners_HandsOn">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Examiners_Scoring" Association="Self.FKTestResults_Examiners_Scoring">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Handlers" Association="Self.FKTestResults_Handlers">
+            <End Role="Handlers" EntitySet="Handlers" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Tests" Association="Self.FKTestResults_Tests">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsAnswers_Questions" Association="Self.FKTestResultsAnswers_Questions">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="TestResultsAnswers" EntitySet="TestResultsAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsAnswers_TestResults" Association="Self.FKTestResultsAnswers_TestResults">
+            <End Role="TestResults" EntitySet="TestResults" />
+            <End Role="TestResultsAnswers" EntitySet="TestResultsAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsSections_Sections" Association="Self.FKTestResultsSections_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="TestResultsSections" EntitySet="TestResultsSections" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsSections_TestResults" Association="Self.FKTestResultsSections_TestResults">
+            <End Role="TestResults" EntitySet="TestResults" />
+            <End Role="TestResultsSections" EntitySet="TestResultsSections" />
+          </AssociationSet>
+          <AssociationSet Name="FKTests_Examiners" Association="Self.FKTests_Examiners">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectCanine2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CertificationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TestResults" Relationship="Self.FKTestResults_CertificationTypes" FromRole="CertificationTypes" ToRole="TestResults" />
+        </EntityType>
+        <EntityType Name="Dog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TestResults" Relationship="Self.FKTestResults_Dogs" FromRole="Dogs" ToRole="TestResults" />
+        </EntityType>
+        <EntityType Name="EquipmentRestriction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TestResults" Relationship="Self.FKTestResults_EquipmentRestrictions" FromRole="EquipmentRestrictions" ToRole="TestResults" />
+        </EntityType>
+        <EntityType Name="Examiner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Questions" Relationship="Self.FKQuestions_Examiners" FromRole="Examiners" ToRole="Questions" />
+          <NavigationProperty Name="TestResults" Relationship="Self.FKTestResults_Examiners_HandsOn" FromRole="Examiners" ToRole="TestResults" />
+          <NavigationProperty Name="TestResults1" Relationship="Self.FKTestResults_Examiners_Scoring" FromRole="Examiners" ToRole="TestResults" />
+          <NavigationProperty Name="Tests" Relationship="Self.FKTests_Examiners" FromRole="Examiners" ToRole="Tests" />
+        </EntityType>
+        <EntityType Name="Handler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TestResults" Relationship="Self.FKTestResults_Handlers" FromRole="Handlers" ToRole="TestResults" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Test" Type="Guid" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MustPass" Type="Boolean" Nullable="false" />
+          <Property Name="Section" Type="Guid" Nullable="false" />
+          <Property Name="QuestionNumber" Type="Int32" Nullable="false" />
+          <Property Name="HasYesNo" Type="Boolean" Nullable="false" />
+          <Property Name="LastEditedBy" Type="Guid" />
+          <Property Name="LastEditedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Examiner" Relationship="Self.FKQuestions_Examiners" FromRole="Questions" ToRole="Examiners" />
+          <NavigationProperty Name="Section1" Relationship="Self.FKQuestions_Sections" FromRole="Questions" ToRole="Sections" />
+          <NavigationProperty Name="Test1" Relationship="Self.FKQuestions_Tests" FromRole="Questions" ToRole="Tests" />
+          <NavigationProperty Name="TestResultsAnswers" Relationship="Self.FKTestResultsAnswers_Questions" FromRole="Questions" ToRole="TestResultsAnswers" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Test" Type="Guid" Nullable="false" />
+          <Property Name="SectionNumber" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastEditedBy" Type="Guid" />
+          <Property Name="LastEditedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Questions" Relationship="Self.FKQuestions_Sections" FromRole="Sections" ToRole="Questions" />
+          <NavigationProperty Name="Test1" Relationship="Self.FKSections_Tests" FromRole="Sections" ToRole="Tests" />
+          <NavigationProperty Name="TestResultsSections" Relationship="Self.FKTestResultsSections_Sections" FromRole="Sections" ToRole="TestResultsSections" />
+        </EntityType>
+        <EntityType Name="TestResult">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Test" Type="Guid" Nullable="false" />
+          <Property Name="Handler" Type="Guid" Nullable="false" />
+          <Property Name="Dog" Type="Guid" Nullable="false" />
+          <Property Name="PassedTest" Type="Boolean" />
+          <Property Name="ReasonForFailure" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="PassedConnectingCanines" Type="Boolean" Nullable="false" />
+          <Property Name="ShadowVisitRequirement" Type="Boolean" />
+          <Property Name="EligibleToRetest" Type="Boolean" Nullable="false" />
+          <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ScoringExaminer" Type="Guid" Nullable="false" />
+          <Property Name="HandsOnExaminer" Type="Guid" Nullable="false" />
+          <Property Name="CertificationType" Type="Guid" />
+          <Property Name="EquipmentRestrictions" Type="Guid" />
+          <Property Name="OtherRestrictions" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="PracticeLabRequirement" Type="Boolean" Nullable="false" />
+          <Property Name="ScoringExaminerSignature" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="HandsOnSignature" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="HandlerSignature" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CertificationType1" Relationship="Self.FKTestResults_CertificationTypes" FromRole="TestResults" ToRole="CertificationTypes" />
+          <NavigationProperty Name="Dog1" Relationship="Self.FKTestResults_Dogs" FromRole="TestResults" ToRole="Dogs" />
+          <NavigationProperty Name="EquipmentRestriction" Relationship="Self.FKTestResults_EquipmentRestrictions" FromRole="TestResults" ToRole="EquipmentRestrictions" />
+          <NavigationProperty Name="Examiner" Relationship="Self.FKTestResults_Examiners_HandsOn" FromRole="TestResults" ToRole="Examiners" />
+          <NavigationProperty Name="Examiner1" Relationship="Self.FKTestResults_Examiners_Scoring" FromRole="TestResults" ToRole="Examiners" />
+          <NavigationProperty Name="Handler1" Relationship="Self.FKTestResults_Handlers" FromRole="TestResults" ToRole="Handlers" />
+          <NavigationProperty Name="Test1" Relationship="Self.FKTestResults_Tests" FromRole="TestResults" ToRole="Tests" />
+          <NavigationProperty Name="TestResultsAnswers" Relationship="Self.FKTestResultsAnswers_TestResults" FromRole="TestResults" ToRole="TestResultsAnswers" />
+          <NavigationProperty Name="TestResultsSections" Relationship="Self.FKTestResultsSections_TestResults" FromRole="TestResults" ToRole="TestResultsSections" />
+        </EntityType>
+        <EntityType Name="TestResultsAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TestResult" Type="Guid" Nullable="false" />
+          <Property Name="Question" Type="Guid" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YesNo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Question1" Relationship="Self.FKTestResultsAnswers_Questions" FromRole="TestResultsAnswers" ToRole="Questions" />
+          <NavigationProperty Name="TestResult1" Relationship="Self.FKTestResultsAnswers_TestResults" FromRole="TestResultsAnswers" ToRole="TestResults" />
+        </EntityType>
+        <EntityType Name="TestResultsSection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TestResult" Type="Guid" Nullable="false" />
+          <Property Name="Section" Type="Guid" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Section1" Relationship="Self.FKTestResultsSections_Sections" FromRole="TestResultsSections" ToRole="Sections" />
+          <NavigationProperty Name="TestResult1" Relationship="Self.FKTestResultsSections_TestResults" FromRole="TestResultsSections" ToRole="TestResults" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HandlerSignaturePrompt" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastEditedBy" Type="Guid" Nullable="false" />
+          <Property Name="LastEditedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Examiner" Relationship="Self.FKTests_Examiners" FromRole="Tests" ToRole="Examiners" />
+          <NavigationProperty Name="Questions" Relationship="Self.FKQuestions_Tests" FromRole="Tests" ToRole="Questions" />
+          <NavigationProperty Name="Sections" Relationship="Self.FKSections_Tests" FromRole="Tests" ToRole="Sections" />
+          <NavigationProperty Name="TestResults" Relationship="Self.FKTestResults_Tests" FromRole="Tests" ToRole="TestResults" />
+        </EntityType>
+        <Association Name="FKTestResults_CertificationTypes">
+          <End Role="CertificationTypes" Type="Self.CertificationType" Multiplicity="0..1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CertificationTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="CertificationType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Dogs">
+          <End Role="Dogs" Type="Self.Dog" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="Dog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_EquipmentRestrictions">
+          <End Role="EquipmentRestrictions" Type="Self.EquipmentRestriction" Multiplicity="0..1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentRestrictions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="EquipmentRestrictions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKQuestions_Examiners">
+          <End Role="Examiners" Type="Self.Examiner" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="LastEditedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Examiners_HandsOn">
+          <End Role="Examiners" Type="Self.Examiner" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="HandsOnExaminer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Examiners_Scoring">
+          <End Role="Examiners" Type="Self.Examiner" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="ScoringExaminer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTests_Examiners">
+          <End Role="Examiners" Type="Self.Examiner" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examiners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="LastEditedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Handlers">
+          <End Role="Handlers" Type="Self.Handler" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Handlers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="Handler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKQuestions_Sections">
+          <End Role="Sections" Type="Self.Section" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKQuestions_Tests">
+          <End Role="Tests" Type="Self.Test" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="Test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsAnswers_Questions">
+          <End Role="Questions" Type="Self.Question" Multiplicity="1" />
+          <End Role="TestResultsAnswers" Type="Self.TestResultsAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsAnswers">
+              <PropertyRef Name="Question" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSections_Tests">
+          <End Role="Tests" Type="Self.Test" Multiplicity="1" />
+          <End Role="Sections" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsSections_Sections">
+          <End Role="Sections" Type="Self.Section" Multiplicity="1" />
+          <End Role="TestResultsSections" Type="Self.TestResultsSection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsSections">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResults_Tests">
+          <End Role="Tests" Type="Self.Test" Multiplicity="1" />
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResults">
+              <PropertyRef Name="Test" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsAnswers_TestResults">
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="1" />
+          <End Role="TestResultsAnswers" Type="Self.TestResultsAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestResults">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsAnswers">
+              <PropertyRef Name="TestResult" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTestResultsSections_TestResults">
+          <End Role="TestResults" Type="Self.TestResult" Multiplicity="1" />
+          <End Role="TestResultsSections" Type="Self.TestResultsSection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestResults">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestResultsSections">
+              <PropertyRef Name="TestResult" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectCanine2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CertificationTypes" EntityType="Self.CertificationType" />
+          <EntitySet Name="Dogs" EntityType="Self.Dog" />
+          <EntitySet Name="EquipmentRestrictions" EntityType="Self.EquipmentRestriction" />
+          <EntitySet Name="Examiners" EntityType="Self.Examiner" />
+          <EntitySet Name="Handlers" EntityType="Self.Handler" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="TestResults" EntityType="Self.TestResult" />
+          <EntitySet Name="TestResultsAnswers" EntityType="Self.TestResultsAnswer" />
+          <EntitySet Name="TestResultsSections" EntityType="Self.TestResultsSection" />
+          <EntitySet Name="Tests" EntityType="Self.Test" />
+          <AssociationSet Name="FKTestResults_CertificationTypes" Association="Self.FKTestResults_CertificationTypes">
+            <End Role="CertificationTypes" EntitySet="CertificationTypes" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Dogs" Association="Self.FKTestResults_Dogs">
+            <End Role="Dogs" EntitySet="Dogs" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_EquipmentRestrictions" Association="Self.FKTestResults_EquipmentRestrictions">
+            <End Role="EquipmentRestrictions" EntitySet="EquipmentRestrictions" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKQuestions_Examiners" Association="Self.FKQuestions_Examiners">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Examiners_HandsOn" Association="Self.FKTestResults_Examiners_HandsOn">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Examiners_Scoring" Association="Self.FKTestResults_Examiners_Scoring">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTests_Examiners" Association="Self.FKTests_Examiners">
+            <End Role="Examiners" EntitySet="Examiners" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Handlers" Association="Self.FKTestResults_Handlers">
+            <End Role="Handlers" EntitySet="Handlers" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKQuestions_Sections" Association="Self.FKQuestions_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FKQuestions_Tests" Association="Self.FKQuestions_Tests">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsAnswers_Questions" Association="Self.FKTestResultsAnswers_Questions">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="TestResultsAnswers" EntitySet="TestResultsAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FKSections_Tests" Association="Self.FKSections_Tests">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsSections_Sections" Association="Self.FKTestResultsSections_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="TestResultsSections" EntitySet="TestResultsSections" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResults_Tests" Association="Self.FKTestResults_Tests">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="TestResults" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsAnswers_TestResults" Association="Self.FKTestResultsAnswers_TestResults">
+            <End Role="TestResults" EntitySet="TestResults" />
+            <End Role="TestResultsAnswers" EntitySet="TestResultsAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FKTestResultsSections_TestResults" Association="Self.FKTestResultsSections_TestResults">
+            <End Role="TestResults" EntitySet="TestResults" />
+            <End Role="TestResultsSections" EntitySet="TestResultsSections" />
+          </AssociationSet>
+          <FunctionImport Name="InsertTestResults">
+            <Parameter Name="json" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectCanine2ModelStoreContainer" CdmEntityContainer="ProjectCanine2Entities">
+          <EntitySetMapping Name="CertificationTypes">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.CertificationType">
+              <MappingFragment StoreEntitySet="CertificationTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dogs">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.Dog">
+              <MappingFragment StoreEntitySet="Dogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentRestrictions">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.EquipmentRestriction">
+              <MappingFragment StoreEntitySet="EquipmentRestrictions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Examiners">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.Examiner">
+              <MappingFragment StoreEntitySet="Examiners">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Handlers">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.Handler">
+              <MappingFragment StoreEntitySet="Handlers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Test" ColumnName="Test" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="MustPass" ColumnName="MustPass" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="QuestionNumber" ColumnName="QuestionNumber" />
+                <ScalarProperty Name="HasYesNo" ColumnName="HasYesNo" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditedDate" ColumnName="LastEditedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.Section">
+              <MappingFragment StoreEntitySet="Sections">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Test" ColumnName="Test" />
+                <ScalarProperty Name="SectionNumber" ColumnName="SectionNumber" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditedDate" ColumnName="LastEditedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestResults">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.TestResult">
+              <MappingFragment StoreEntitySet="TestResults">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Test" ColumnName="Test" />
+                <ScalarProperty Name="Handler" ColumnName="Handler" />
+                <ScalarProperty Name="Dog" ColumnName="Dog" />
+                <ScalarProperty Name="PassedTest" ColumnName="PassedTest" />
+                <ScalarProperty Name="ReasonForFailure" ColumnName="ReasonForFailure" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PassedConnectingCanines" ColumnName="PassedConnectingCanines" />
+                <ScalarProperty Name="ShadowVisitRequirement" ColumnName="ShadowVisitRequirement" />
+                <ScalarProperty Name="EligibleToRetest" ColumnName="EligibleToRetest" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="ScoringExaminer" ColumnName="ScoringExaminer" />
+                <ScalarProperty Name="HandsOnExaminer" ColumnName="HandsOnExaminer" />
+                <ScalarProperty Name="CertificationType" ColumnName="CertificationType" />
+                <ScalarProperty Name="EquipmentRestrictions" ColumnName="EquipmentRestrictions" />
+                <ScalarProperty Name="OtherRestrictions" ColumnName="OtherRestrictions" />
+                <ScalarProperty Name="PracticeLabRequirement" ColumnName="PracticeLabRequirement" />
+                <ScalarProperty Name="ScoringExaminerSignature" ColumnName="ScoringExaminerSignature" />
+                <ScalarProperty Name="HandsOnSignature" ColumnName="HandsOnSignature" />
+                <ScalarProperty Name="HandlerSignature" ColumnName="HandlerSignature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestResultsAnswers">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.TestResultsAnswer">
+              <MappingFragment StoreEntitySet="TestResultsAnswers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TestResult" ColumnName="TestResult" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="YesNo" ColumnName="YesNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestResultsSections">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.TestResultsSection">
+              <MappingFragment StoreEntitySet="TestResultsSections">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TestResult" ColumnName="TestResult" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="ProjectCanine2Model.Test">
+              <MappingFragment StoreEntitySet="Tests">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HandlerSignaturePrompt" ColumnName="HandlerSignaturePrompt" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditedDate" ColumnName="LastEditedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertTestResults" FunctionName="ProjectCanine2Model.Store.InsertTestResults" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
