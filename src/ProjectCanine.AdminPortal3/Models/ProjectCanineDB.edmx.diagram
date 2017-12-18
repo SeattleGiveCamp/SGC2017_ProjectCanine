@@ -33,10 +33,14 @@
         <AssociationConnector Association="ProjectCanine2Model.FKTestResultsAnswers_TestResults" ManuallyRouted="false" />
         <AssociationConnector Association="ProjectCanine2Model.FKTestResultsSections_TestResults" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ProjectCanine2Model.AspNetRole" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="ProjectCanine2Model.AspNetUser" Width="1.5" PointX="3" PointY="0.875" />
         <EntityTypeShape EntityType="ProjectCanine2Model.vwUserList" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="ProjectCanine2Model.vwUserRole" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.AspNetUser" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="ProjectCanine2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="ProjectCanine2Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="ProjectCanine2Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.75" />
+        <AssociationConnector Association="ProjectCanine2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,6 +12,6 @@ Brand New Database
 Source Code
 ===========
 1. Comment out the AuthorizeRoles attribute on the SecurityController class.
-2. Run code locally.Navigate to http://localhost:xxxxx/security/CreateUser.
+2. Run code locally.Navigate to http://localhost:xxxxx/Security/CreateUser.
 3. Register yourself as a SuperUser.
 4. Undo #1.

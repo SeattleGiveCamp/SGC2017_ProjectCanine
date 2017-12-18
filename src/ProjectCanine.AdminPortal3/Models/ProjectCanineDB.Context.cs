@@ -39,9 +39,11 @@ namespace ProjectCanine.AdminPortal.Models
         public virtual DbSet<TestResultsSection> TestResultsSections { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<vwUserList> vwUserLists { get; set; }
         public virtual DbSet<vwUserRole> vwUserRoles { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
     
         public virtual int InsertTestResults(string json)
         {

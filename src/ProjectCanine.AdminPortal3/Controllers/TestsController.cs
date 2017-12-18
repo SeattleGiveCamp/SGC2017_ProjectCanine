@@ -9,10 +9,12 @@ using System.Web.Mvc;
 using ProjectCanine.AdminPortal.Models;
 using ProjectCanine.AdminPortal.ViewModels;
 using System.Diagnostics;
+using ProjectCanine.AdminPortal.Infrastructure;
 
 namespace ProjectCanine.AdminPortal.Controllers
 {
-	public class TestsController : Controller
+    [AuthorizeRoles("Users", "SuperUsers")]
+    public class TestsController : Controller
 	{
 		private ProjectCanine2Entities db = new ProjectCanine2Entities();
 

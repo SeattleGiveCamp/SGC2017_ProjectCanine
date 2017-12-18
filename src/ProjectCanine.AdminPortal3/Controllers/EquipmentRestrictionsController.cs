@@ -7,10 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjectCanine.AdminPortal.Models;
+using ProjectCanine.AdminPortal.Infrastructure;
 
 namespace ProjectCanine.AdminPortal.Controllers
 {
-	public class EquipmentRestrictionsController : Controller
+    [AuthorizeRoles("Users", "SuperUsers")]
+    public class EquipmentRestrictionsController : Controller
 	{
 		private ProjectCanine2Entities db = new ProjectCanine2Entities();
 
